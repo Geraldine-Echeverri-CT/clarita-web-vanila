@@ -1,0 +1,44 @@
+/* ---------- Pasos numerados ---------- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+  position: relative;
+}
+.steps::before {
+  content: "";
+  position: absolute;
+  top: 46px;
+  left: 12.5%;
+  right: 12.5%;
+  border-top: 2px dotted var(--verde-claro);
+  z-index: 0;
+}
+.step { text-align: center; position: relative; z-index: 1; }
+.step-icon {
+  width: 92px; height: 92px;
+  border-radius: 50%;
+  background: var(--blanco);
+  color: var(--verde-oscuro);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.2rem;
+  margin: 0 auto 16px;
+  position: relative;
+  box-shadow: var(--sombra);
+}
+.step-icon .num {
+  position: absolute;
+  top: -4px; left: -4px;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--verde-oscuro);
+  color: var(--blanco);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--ff-cuerpo);
+  font-weight: 600;
+  font-size: 0.7rem;
+  box-shadow: 0 0 0 3px var(--blanco);
+}
+.step h4 { font-size: 1rem; margin-bottom: 8px; }
+.step p { font-size: 0.88rem; color: var(--texto-suave); margin: 0; }
+

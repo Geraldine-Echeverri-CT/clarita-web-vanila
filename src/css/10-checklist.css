@@ -1,0 +1,4 @@
+/* ---------- Checklist genérico ---------- */
+.checklist li { display: flex; gap: 10px; align-items: flex-start; padding: 6px 0; font-size: 0.95rem; color: var(--texto-suave); }
+.checklist li i { color: var(--verde); margin-top: 4px; }
+

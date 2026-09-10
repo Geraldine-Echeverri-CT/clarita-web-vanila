@@ -1,0 +1,111 @@
+/* ---------- Hero ---------- */
+.hero {
+  padding: 60px 0 70px;
+}
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 50px;
+  align-items: center;
+}
+.hero h1 { font-size: 2.6rem; }
+.hero h1 em { color: var(--verde); font-style: italic; }
+.hero p.lead { font-size: 1.05rem; color: var(--texto-suave); max-width: 46ch; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
+
+/* ---------- Hero con imagen "sangrada" al borde derecho ----------
+   La foto se extiende hasta el borde real de la ventana en vez de quedar
+   encerrada en una caja. Por eso esta sección NO usa .container: es
+   .hero-split-bleed directamente dentro de <section>. El texto ya NO se
+   alinea con el margen de .container (dejaba un hueco enorme sin usar a
+   la izquierda en pantallas anchas) — usa un margen fijo que aprovecha
+   ese espacio, acorde al difuminado del lado izquierdo de la foto. */
+.hero-split-bleed {
+  display: grid;
+  grid-template-columns: minmax(320px, 560px) 1fr;
+  align-items: center;
+  gap: 30px;
+  padding: 36px 0 56px;
+}
+.hero-split-bleed-text {
+  padding-left: clamp(24px, 6vw, 100px);
+  padding-right: 24px;
+}
+.hero-split-bleed-text h1 { font-size: 2.6rem; }
+.hero-split-bleed-text h1 em { color: var(--verde); font-style: italic; }
+.hero-divider { display: flex; align-items: center; gap: 14px; width: 220px; margin: 22px 0; color: var(--verde); }
+.hero-divider span { flex: 1; height: 1px; background: var(--borde); }
+.hero-divider i { font-size: 0.85rem; }
+.hero-split-bleed-media {
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  /* Borde izquierdo difuminado: la foto se desvanece hacia el fondo
+     crema en vez de cortar en seco contra el texto. */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%);
+  mask-image: linear-gradient(to right, transparent 0%, black 12%);
+}
+
+/* Variante para heros con poco texto (ej. Quiénes somos): con la proporción
+   16/10 normal la imagen queda casi el doble de alta que el texto y se ve
+   descompensado. Esta variante achica la imagen y centra el texto respecto
+   a ella en vez de pegarlo arriba. */
+.hero-split-bleed--compact { align-items: center; }
+.hero-split-bleed--compact .hero-split-bleed-media { aspect-ratio: 16/9; }
+.hero-split-bleed-media img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Hero con imagen de fondo a todo el ancho (banner) ---------- */
+.hero-banner {
+  position: relative;
+  /* min-height y no height: con alto fijo, una página con más texto (el lead
+     de Alianza con propietarios ocupa 3 líneas) deja el contenido apretado
+     contra el header y contra el borde de abajo, y con un poco más llega a
+     desbordar la caja. Así el banner crece lo que haga falta y conserva el
+     aire del padding. */
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-banner-media { position: absolute; inset: 0; z-index: 0; }
+.hero-banner-media img { width: 100%; height: 100%; object-fit: cover; }
+.hero-banner-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(35, 38, 31, 0.75) 0%, rgba(35, 38, 31, 0.5) 42%, rgba(35, 38, 31, 0.08) 75%);
+}
+.hero-banner-copy {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  /* 48px arriba y abajo para que, cuando el banner tenga que crecer por el
+     largo del texto, el contenido siga separado del header y del borde
+     inferior en vez de quedar pegado. */
+  padding: 48px 24px;
+  padding-left: max(24px, calc((100vw - 1220px) / 2 + 24px));
+  color: var(--blanco);
+}
+.hero-banner-copy-text { max-width: 560px; }
+.hero-banner-copy .eyebrow { color: var(--terracota-claro); }
+.hero-banner-copy h1 { color: var(--blanco); font-size: 2.6rem; }
+.hero-banner-copy p.lead { color: rgba(255, 255, 255, 0.88); font-size: 0.95rem; }
+.hero-banner-copy .hero-actions { margin-top: 18px; }
+.hero-banner-copy .btn-outline { border-color: var(--blanco); color: var(--blanco); }
+.hero-banner-copy .btn-outline:hover { background: var(--blanco); color: var(--verde-oscuro); }
+
+.page-hero {
+  padding: 50px 0 60px;
+}
+.page-hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.page-hero h1 { font-size: 2.3rem; }
+/* Variante sin imagen (FAQ, blog, testimoniales): antes esto era un
+   style="grid-template-columns:1fr;text-align:center;" puesto en el <section>,
+   que no tenía ningún efecto real porque el grid de 2 columnas está definido
+   en .page-hero .container (el hijo), no en la section — a pantalla ancha el
+   título quedaba apretado en la mitad izquierda en vez de centrado. */
+.page-hero--centered .container { grid-template-columns: 1fr; text-align: center; }

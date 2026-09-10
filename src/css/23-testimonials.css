@@ -1,0 +1,15 @@
+/* ---------- Testimonios ---------- */
+.testi-hero { padding: 26px 0 18px; }
+.testi-hero .container { max-width: 980px; }
+.testi-hero .eyebrow { margin-bottom: 10px; }
+.testi-hero h1 { max-width: 26ch; margin-left: auto; margin-right: auto; margin-bottom: 0; }
+.testi-hero .lead { max-width: 60ch; margin: -8px auto 0; }
+
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+.testi-card { background: var(--superficie); border-radius: var(--radio); padding: 28px; box-shadow: var(--sombra); }
+.testi-card__stars { color: var(--terracota-claro); font-size: 0.9rem; margin-bottom: 12px; }
+.testi-card__comment { color: var(--texto-suave); font-style: italic; margin-bottom: 20px; }
+.testi-card__person { display: flex; align-items: center; gap: 12px; }
+.testi-card__avatar { width: 46px; height: 46px; border-radius: 50%; background: var(--verde); color: var(--blanco); display: flex; align-items: center; justify-content: center; font-family: var(--ff-titulo); font-weight: 700; flex-shrink: 0; }
+.testi-card__person strong { display: block; font-size: 0.92rem; }
+.testi-card__person span { font-size: 0.78rem; color: var(--texto-suave); }

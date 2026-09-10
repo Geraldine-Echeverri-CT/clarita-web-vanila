@@ -1,0 +1,74 @@
+<!--META
+title: Alojamiento | Clarita Property Care
+description: Detalle de alojamiento en Nosara, Costa Rica, administrado por Clarita Property Care.
+page: alojamiento-detalle
+-->
+<main id="detalle-alojamiento">
+  <section class="section section--flush-bottom section--tight-top">
+    <div class="container">
+      <a href="alojamientos.html" style="font-size:0.85rem;color:var(--texto-suave);display:inline-flex;align-items:center;gap:6px;margin-bottom:16px;"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="detalle.volver">Volver a alojamientos</span></a>
+      <h1 id="detalle-nombre" style="font-size:2rem;margin-bottom:6px;"></h1>
+      <p class="loc" id="detalle-zona" style="color:var(--texto-suave);font-size:0.95rem;"></p>
+    </div>
+  </section>
+
+  <section class="section section--after-hero">
+    <div class="container">
+      <div class="detalle-gallery" id="detalle-gallery"></div>
+
+      <div class="detalle-layout">
+        <div>
+          <div class="detalle-meta-row">
+            <span><i class="fa-solid fa-user"></i> <span id="detalle-huespedes-meta"></span></span>
+            <span><i class="fa-solid fa-bed"></i> <span id="detalle-habitaciones-meta"></span></span>
+            <span><i class="fa-solid fa-star"></i> <span id="detalle-amenity-meta"></span></span>
+          </div>
+          <h2 style="font-size:1.3rem;" data-i18n="detalle.descripcion">Descripción</h2>
+          <p id="detalle-descripcion" style="color:var(--texto-suave);"></p>
+
+          <h2 style="font-size:1.3rem;margin-top:30px;" data-i18n="detalle.amenities">Amenities</h2>
+          <div class="amenities-grid" id="detalle-amenities"></div>
+
+          <h2 style="font-size:1.3rem;margin-top:10px;" data-i18n="detalle.ubicacion">Ubicación</h2>
+          <div class="detalle-map">
+            <iframe title="Ubicación en Nosara, Costa Rica" loading="lazy" src="https://www.google.com/maps?q=Nosara,Costa+Rica&output=embed"></iframe>
+          </div>
+        </div>
+
+        <aside class="booking-card">
+          <div class="price-row"><span id="detalle-precio"></span></div>
+
+          <div class="field full">
+            <label data-i18n="detalle.fechas">Fechas</label>
+            <div class="booking-dates-summary" id="detalle-fechas-resumen" data-i18n="detalle.elegiFechas">Elegí tus fechas en el calendario</div>
+            <small class="error" data-i18n="detalle.faltanFechas">Elegí las fechas de entrada y salida antes de reservar.</small>
+          </div>
+          <div class="field">
+            <label for="detalle-huespedes-input" data-i18n="detalle.huespedesField">Huéspedes</label>
+            <input type="number" id="detalle-huespedes-input" min="1" value="2">
+          </div>
+
+          <button type="button" id="btn-reservar" class="btn btn-primary btn-block" data-i18n="detalle.reservar">Reservar ahora</button>
+          <p style="font-size:0.78rem;color:var(--texto-suave);margin-top:14px;text-align:center;" data-i18n="detalle.avisoCobrar">No se te cobrará todavía en este paso.</p>
+
+          <div class="booking-calendar">
+            <h4 data-i18n="detalle.disponibilidad">Disponibilidad</h4>
+            <div class="datepicker">
+              <div class="datepicker__header">
+                <button type="button" class="datepicker__nav" data-cal-prev aria-label="Mes anterior"><i class="fa-solid fa-chevron-left"></i></button>
+                <span class="datepicker__month" data-cal-label></span>
+                <button type="button" class="datepicker__nav" data-cal-next aria-label="Mes siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+              <div class="datepicker__weekdays" data-cal-weekdays></div>
+              <div class="datepicker__days" id="calendario-mes"></div>
+            </div>
+            <div class="calendario-nota">
+              <span><span class="calendario-nota__dot calendario-nota__dot--libre"></span> <span data-i18n="detalle.disponible">Disponible</span></span>
+              <span><span class="calendario-nota__dot calendario-nota__dot--ocupado"></span> <span data-i18n="detalle.ocupado">Ocupado</span></span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>

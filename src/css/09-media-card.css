@@ -1,0 +1,21 @@
+/* ---------- Imagen contenida (no sangrada) con esquinas redondeadas ---------- */
+.split-img-card {
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  aspect-ratio: 16/9;
+  position: relative;
+}
+.split-img-card img { width: 100%; height: 100%; object-fit: cover; }
+
+.floating-check-card {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  background: var(--superficie);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 18px 22px;
+}
+.floating-check-card .checklist li { font-size: 0.85rem; padding: 5px 0; }
+

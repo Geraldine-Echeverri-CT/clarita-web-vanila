@@ -1,0 +1,229 @@
+/* ---------- Alojamientos (listado): barra de búsqueda tipo "pastilla" ---------- */
+.search-bar {
+  background: var(--superficie);
+  border-radius: 999px;
+  box-shadow: var(--sombra);
+  padding: 6px;
+  display: flex;
+  align-items: stretch;
+  margin-top: 32px;
+  position: relative;
+  z-index: 10;
+}
+.search-field {
+  position: relative;
+  flex: 1;
+  border-right: 1px solid var(--borde);
+  min-width: 0;
+}
+.search-field:last-of-type { border-right: none; }
+/* El campo abierto tiene que pintarse por encima de los que vienen después en
+   el HTML. Los cuatro son position:relative sin z-index, así que se pintan en
+   orden de aparición y el panel desplegable de "Fechas" quedaba TAPADO por
+   "Zona" y "Huéspedes": en mobile, con los campos apilados (ver 99-responsive.css),
+   el texto de esos dos se veía atravesando el calendario. */
+.search-field.is-open { z-index: 30; }
+.search-field__trigger {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 22px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  border-radius: var(--radio);
+  transition: background 0.15s ease;
+}
+.search-field__trigger:hover { background: var(--crema-2); }
+.search-field__icon { color: var(--verde); font-size: 1rem; flex-shrink: 0; }
+.search-field__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+.search-field__label {
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--texto-suave);
+  font-weight: 600;
+}
+.search-field__value {
+  display: block;
+  width: 100%;
+  font-family: var(--ff-cuerpo);
+  font-size: 0.9rem;
+  color: var(--texto);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.search-field__chevron {
+  color: var(--texto-suave);
+  font-size: 0.7rem;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.search-field.is-open .search-field__chevron { transform: rotate(180deg); }
+
+.search-field__panel {
+  display: none;
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 0;
+  min-width: 230px;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 8px;
+}
+.search-field.is-open .search-field__panel { display: block; }
+.search-field:last-of-type .search-field__panel { left: auto; right: 0; }
+.search-field__option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-family: var(--ff-cuerpo);
+  font-size: 0.88rem;
+  color: var(--texto);
+  cursor: pointer;
+}
+.search-field__option:hover { background: var(--crema-2); }
+.search-field__option.is-selected { background: var(--verde); color: var(--blanco); }
+
+.search-field__panel--dates { min-width: 300px; padding: 16px; }
+.search-field.is-open .search-field__panel--dates { display: block; }
+
+/* Mini calendario propio (reemplaza el <input type="date"> nativo, cuyo
+   popup es UI del navegador y no se puede re-estilizar). */
+.datepicker__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.datepicker__month {
+  font-family: var(--ff-titulo);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--texto);
+  /* Sin text-transform: capitalize. renderDays() (listings.js y
+     detalle-alojamiento.js) ya pone en mayúscula la primera letra del mes;
+     capitalize se la ponía también a la preposición y salía "Septiembre De
+     2026" (y "Octobre De 2026" en francés). */
+}
+.datepicker__nav {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: var(--crema-2);
+  color: var(--texto);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.datepicker__nav:hover { background: var(--verde); color: var(--blanco); }
+.datepicker__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--texto-suave);
+  margin-bottom: 6px;
+}
+.datepicker__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+.datepicker__day {
+  aspect-ratio: 1;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  font-family: var(--ff-cuerpo);
+  font-size: 0.82rem;
+  color: var(--texto);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.datepicker__day:hover:not(.is-disabled):not(.is-selected) { background: var(--crema-2); }
+.datepicker__day.is-outside { color: var(--borde); }
+.datepicker__day.is-disabled { color: var(--borde); cursor: not-allowed; }
+.datepicker__day.is-today { font-weight: 700; color: var(--verde-oscuro); }
+.datepicker__day.is-in-range { background: var(--crema-2); border-radius: 0; }
+.datepicker__day.is-selected {
+  background: var(--verde);
+  color: var(--blanco);
+  font-weight: 600;
+  border-radius: 50%;
+}
+
+.search-field__dates-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--borde);
+}
+.search-field__dates-clear {
+  background: none;
+  border: none;
+  padding: 6px 4px;
+  font-family: var(--ff-cuerpo);
+  font-size: 0.82rem;
+  color: var(--texto-suave);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.search-field__dates-clear:hover { color: var(--verde-oscuro); }
+.search-field__dates-apply { border-radius: 8px !important; padding: 9px 20px; }
+
+.search-bar__submit {
+  border-radius: 999px !important;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.listing-grid {
+  margin-top: 46px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.listing-card {
+  background: var(--superficie);
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+.listing-card:hover { transform: translateY(-4px); }
+.listing-card__thumb { aspect-ratio: 3/2; overflow: hidden; }
+.listing-card__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.listing-card__body { padding: 14px 16px 16px; display: flex; flex-direction: column; flex-grow: 1; }
+.listing-card__title { font-size: 1rem; margin-bottom: 3px; }
+.listing-card__loc { font-size: 0.76rem; color: var(--texto-suave); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.listing-card__loc i { color: var(--terracota); }
+.listing-card__meta { display: flex; gap: 10px; flex-wrap: wrap; font-size: 0.72rem; color: var(--texto-suave); margin-bottom: 10px; }
+.listing-card__meta span { display: flex; align-items: center; gap: 4px; }
+.listing-card__price { font-family: var(--ff-titulo); font-size: 1.02rem; color: var(--verde-oscuro); margin: 0; }
+.listing-card__price span { font-family: var(--ff-cuerpo); font-size: 0.72rem; color: var(--texto-suave); }
+.listing-card__footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.listing-card__footer .btn { flex: none; }
+.btn-sm { padding: 8px 16px; font-size: 0.66rem; }
+

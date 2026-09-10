@@ -1,0 +1,60 @@
+/* ---------- Sección con imagen lateral ---------- */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 54px;
+  align-items: center;
+}
+/* Sin esto, un <ul class="checklist"> (li con display:flex) dentro de la
+   columna de texto hace que el navegador calcule mal su tamaño mínimo como
+   ítem de grid y desborda la sección hacia la derecha en mobile (1 columna). */
+.split > div { min-width: 0; }
+.split--wide-media { grid-template-columns: 0.8fr 1.2fr; }
+.split--narrow-left { grid-template-columns: 0.7fr 1.3fr; }
+.split--reverse .split-img { order: 2; }
+.split-img { overflow: hidden; aspect-ratio: 4/3; }
+.split-img img { width: 100%; height: 100%; object-fit: cover; }
+/* Borde difuminado hacia el texto, en el lado que corresponda según el orden. */
+.split .split-img:first-child {
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, black 12%);
+  mask-image: linear-gradient(to left, transparent 0%, black 12%);
+}
+.split .split-img:last-child {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%);
+  mask-image: linear-gradient(to right, transparent 0%, black 12%);
+}
+.split h2 { font-size: 2rem; }
+.split .lead { color: var(--texto-suave); }
+
+/* Variante sin difuminado y con borde (Servicios). */
+.split--no-fade .split-img {
+  border-radius: var(--radio);
+  border: 1px solid var(--borde);
+  box-shadow: var(--sombra);
+}
+.split--no-fade .split-img:first-child,
+.split--no-fade .split-img:last-child {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+/* Variante "tarjeta": toda la sección lleva el borde redondeado, la imagen
+   queda a ras (sin difuminado ni radio propio) recortada por el overflow. */
+.split--card {
+  align-items: stretch;
+  gap: 0;
+  background: var(--crema-2);
+  border-radius: 28px;
+  box-shadow: var(--sombra);
+  overflow: hidden;
+}
+.split--card > div:first-child { padding: 24px; }
+.split--card .split-img { aspect-ratio: auto; height: 100%; }
+.split--card .split-img:first-child,
+.split--card .split-img:last-child {
+  -webkit-mask-image: none;
+  mask-image: none;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}

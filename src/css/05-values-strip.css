@@ -1,0 +1,48 @@
+/* ---------- Franja de valores (para propietarios / huéspedes) ---------- */
+.values-strip { background: var(--crema-2); padding: 50px 0; }
+.values-strip h3.strip-title {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.95rem;
+  font-family: var(--ff-cuerpo);
+  color: var(--verde-oscuro);
+  margin: 0 0 30px;
+}
+.values-strip h3.strip-title::before,
+.values-strip h3.strip-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--borde);
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+.value-item { text-align: center; padding: 10px; }
+.value-item .icon {
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 14px;
+  color: var(--texto);
+  font-size: 1.8rem;
+}
+.value-item h4 { font-family: var(--ff-cuerpo); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.value-item p { font-size: 0.85rem; color: var(--texto-suave); margin: 0; }
+.values-grid + .values-grid { margin-top: 40px; }
+
+/* Variante con circulo claro detras del icono (Alianza con propietarios). */
+.values-grid--circle-icons { grid-template-columns: repeat(3, 1fr); }
+.values-grid--circle-icons .value-item .icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--crema-2);
+  color: var(--verde-oscuro);
+  font-size: 1.6rem;
+}
+

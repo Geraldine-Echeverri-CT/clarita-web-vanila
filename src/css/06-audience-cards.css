@@ -1,0 +1,76 @@
+/* ---------- Tarjetas de audiencia (3 columnas) ---------- */
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.audience-card {
+  background: var(--superficie);
+  border-radius: var(--radio);
+  padding: 34px 28px;
+  box-shadow: var(--sombra);
+  border-top: 4px solid var(--verde);
+  display: flex;
+  flex-direction: column;
+  /* Sin esto, el <li> flex anidado hace que el navegador calcule mal el
+     tamaño mínimo de esta tarjeta como ítem de grid, y la desborda hacia
+     la derecha en mobile (columna única) en vez de encogerse al ancho
+     disponible. */
+  min-width: 0;
+}
+.audience-card--blue { border-top-color: var(--azul); }
+.audience-card--terracota { border-top-color: var(--terracota); }
+.audience-card .icon-circle {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+  color: var(--blanco);
+  background: var(--verde);
+  margin-bottom: 18px;
+}
+.audience-card--blue .icon-circle { background: var(--azul); }
+.audience-card--terracota .icon-circle { background: var(--terracota); }
+.audience-card .eyebrow { font-size: 0.7rem; }
+.audience-card h3 { font-size: 1.35rem; margin-bottom: 6px; }
+.audience-card ul { margin: 18px 0 26px; flex-grow: 1; }
+.audience-card li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--texto-suave);
+  padding: 7px 0;
+  border-bottom: 1px dashed var(--borde);
+}
+.audience-card li i { color: var(--verde); margin-top: 4px; }
+.audience-card--blue li i { color: var(--azul); }
+.audience-card--terracota li i { color: var(--terracota); }
+
+/* ---------- Fila de confianza (icono + texto centrados) ---------- */
+.audience-footer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.audience-footer .item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  gap: 16px;
+}
+.audience-footer .icon-circle {
+  width: auto;
+  height: auto;
+  background: none;
+  color: var(--verde);
+  font-size: 2.6rem;
+  flex-shrink: 0;
+}
+.audience-footer h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0;
+}
+

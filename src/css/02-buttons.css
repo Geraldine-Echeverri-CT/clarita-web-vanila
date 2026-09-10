@@ -1,0 +1,30 @@
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: var(--sombra); }
+
+.btn-primary { background: var(--verde); color: var(--blanco); }
+.btn-primary:hover { background: var(--verde-oscuro); }
+
+.btn-outline { background: transparent; color: var(--verde-oscuro); border-color: var(--verde-oscuro); }
+.btn-outline:hover { background: var(--verde-oscuro); color: var(--blanco); }
+
+.btn-white { background: var(--blanco); color: var(--verde-oscuro); }
+.btn-white:hover { background: var(--crema-2); }
+
+.btn-block { width: 100%; justify-content: center; }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+

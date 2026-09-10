@@ -1,0 +1,29 @@
+/* ---------- Footer ----------
+   El verde es el mismo --verde que el botón de WhatsApp del navbar (antes el
+   footer usaba --verde-oscuro, un tono distinto) — los textos se aclararon
+   un poco respecto de antes para mantener buen contraste sobre el tono más
+   claro. */
+.site-footer { background: var(--verde); color: #f2f4ec; padding: 60px 0 26px; margin-top: 0; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 40px; }
+.footer-grid .logo { color: var(--crema); }
+.footer-grid .logo small { color: var(--crema); }
+.footer-about p { color: #e4e8d9; font-size: 0.9rem; margin-top: 14px; }
+.footer-col h4 { color: var(--crema); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col a { color: #e4e8d9; font-size: 0.9rem; transition: color 0.2s; }
+.footer-col a:hover { color: var(--blanco); }
+.footer-social { display: flex; gap: 10px; margin-top: 16px; }
+.footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; }
+.footer-social a:hover { background: var(--terracota); }
+.footer-bottom {
+  margin-top: 50px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,0.18);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: #dde2d0;
+}
+

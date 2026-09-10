@@ -1,0 +1,25 @@
+/* ========================================================
+   Clarita Property Care — hoja de estilos principal
+   ======================================================== */
+
+:root {
+  --verde-oscuro: #2c4a30;
+  --verde: #6f7a4a;
+  --verde-claro: #96a56b;
+  --azul: #6f8a90;
+  --terracota: #9b5e3f;
+  --terracota-claro: #c9a26a;
+  --crema: #faf9f6;
+  --crema-2: #f2f1ea;
+  --texto: #23261f;
+  --texto-suave: #6f6f68;
+  --blanco: #ffffff;
+  --superficie: #ffffff;
+  --borde: #e4e2d8;
+  --header-bg: rgba(250, 249, 246, 0.96);
+  --sombra: 0 10px 30px rgba(30, 40, 25, 0.10);
+  --radio: 10px;
+  --ff-titulo: "Cormorant Garamond", Georgia, serif;
+  --ff-cuerpo: "Jost", "Segoe UI", sans-serif;
+}
+

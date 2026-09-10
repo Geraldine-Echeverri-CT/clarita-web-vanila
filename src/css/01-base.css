@@ -1,0 +1,82 @@
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--ff-cuerpo);
+  color: var(--texto);
+  background: var(--crema);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+ul { list-style: none; margin: 0; padding: 0; }
+
+h1, h2, h3, h4 {
+  font-family: var(--ff-titulo);
+  font-weight: 600;
+  color: var(--texto);
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+}
+
+p { margin: 0 0 1em; }
+
+.container {
+  width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Antes esto era un selector de etiqueta (`section { padding: 80px 0; }`) que
+   se aplicaba a las 41 <section> del sitio por igual, obligando a pisarlo con
+   `style="padding-top:..."` inline cada vez que una sección no lo necesitaba
+   (la que sigue justo a un hero, la última antes del footer, etc.) — quedaron
+   18 de esos parches sueltos. Ahora es una clase con modificadores: cada
+   sección declara a propósito qué espaciado necesita. */
+.section { padding: 80px 0; }
+.section--bg-alt { background: var(--crema-2); }
+.section--after-hero { padding-top: 16px; }
+.section--flush-top { padding-top: 0; }
+.section--tight-top { padding-top: 24px; }
+.section--flush-bottom { padding-bottom: 0; }
+.section--tight-bottom { padding-bottom: 32px; }
+.section--loose-bottom { padding-bottom: 56px; }
+
+/* Párrafo introductorio centrado bajo un título de sección — repetido idéntico
+   4 veces como style="" inline en index.html antes de esto. */
+.section-lead { max-width: 60ch; margin: 0 auto 50px; color: var(--texto-suave); }
+
+.eyebrow {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--verde);
+  margin-bottom: 14px;
+}
+
+.divider {
+  width: 60px;
+  height: 3px;
+  background: var(--verde);
+  border: none;
+  margin: 18px 0 24px;
+}
+
+.center { text-align: center; }
+.center .divider { margin-left: auto; margin-right: auto; }
+
+:focus-visible {
+  outline: 3px solid var(--terracota);
+  outline-offset: 2px;
+}
+

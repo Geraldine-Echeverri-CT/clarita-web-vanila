@@ -1,0 +1,30 @@
+/* ---------- Frase destacada ---------- */
+.quote-band {
+  background: var(--crema-2);
+  color: var(--texto);
+  text-align: center;
+  padding: 60px 0;
+}
+.quote-band .quote-icon { color: var(--verde); font-size: 1.3rem; margin-bottom: 16px; }
+.quote-band p {
+  font-family: var(--ff-titulo);
+  font-weight: 600;
+  font-size: 1.6rem;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.quote-band em { color: var(--verde); font-style: italic; }
+.quote-band .quote-sub { font-family: var(--ff-cuerpo); font-size: 0.95rem; font-style: normal; color: var(--texto-suave); max-width: 640px; margin: 16px auto 0; }
+
+/* ---------- Franja CTA de cierre (antes del footer) ---------- */
+.cta-band {
+  background: var(--verde-oscuro);
+  border-radius: var(--radio);
+  padding: 48px 32px;
+  color: var(--blanco);
+}
+.cta-band h2 { color: var(--blanco); }
+.cta-band p { max-width: 60ch; margin: 0 auto 26px; opacity: 0.9; }
+.cta-band .btn-outline { border-color: var(--blanco); color: var(--blanco); }
+.cta-band .btn-outline:hover { background: var(--blanco); color: var(--verde-oscuro); }
+

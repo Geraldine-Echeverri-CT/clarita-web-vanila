@@ -1,0 +1,21 @@
+# Este sitio no tiene dependencias ni bundler: build.js corre con Node a secas.
+# node_modules solo aparecería si alguien instala algo suelto (ej. sharp-cli
+# para convertir fotos a WebP).
+node_modules/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Logs
+npm-debug.log*
+*.log
+
+# Variables de entorno (hoy no se usan, pero si mañana hay un backend)
+.env
+.env.*

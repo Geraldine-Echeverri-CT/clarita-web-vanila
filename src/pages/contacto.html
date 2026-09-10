@@ -1,0 +1,133 @@
+<!--META
+title: Contacto | Clarita Property Care
+description: Contactá a Clarita Property Care en Nosara, Costa Rica por WhatsApp, correo o formulario. Estamos para ayudarte, seas propietario, huésped o aliado local.
+page: contacto
+-->
+<main>
+  <section>
+    <div class="hero-split-bleed">
+      <div class="hero-split-bleed-text">
+        <span class="eyebrow" data-i18n="contacto.eyebrow">Contacto</span>
+        <h1 data-i18n="contacto.title">Hablemos</h1>
+        <p class="lead" data-i18n="contacto.lead">Nuestro equipo está disponible para ayudarte. Ya seas propietario, huésped o aliado local, estamos aquí para brindarte una atención cercana, rápida y personalizada.</p>
+        <div class="contact-info-grid">
+          <div class="contact-info-item">
+            <div class="icon-circle"><i class="fa-brands fa-whatsapp"></i></div>
+            <div>
+              <h4 data-i18n="contacto.whatsappLabel">WhatsApp</h4>
+              <p>+506 8888 8888</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="icon-circle"><i class="fa-regular fa-envelope"></i></div>
+            <div>
+              <h4 data-i18n="contacto.emailLabel">Email</h4>
+              <p>info@claritapropertycare.com</p>
+            </div>
+          </div>
+        </div>
+        <div class="cta-social-row">
+          <a href="https://wa.me/50688888888" target="_blank" rel="noopener" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="contacto.ctaAbrirChat">Abrir WhatsApp</span></a>
+          <div class="social-inline">
+            <span class="social-label" data-i18n="contacto.socialLabel">Seguinos en redes</span>
+            <div class="social-row">
+              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-split-bleed-media">
+        <img src="src/assets/photos/villa-exterior-2.webp" alt="Entrada de una propiedad de Clarita Property Care en Nosara con jardín tropical" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--flush-top">
+    <div class="container">
+      <div class="form-card form-card--split">
+        <div class="form-intro">
+          <h2 class="form-intro__title" data-i18n="contacto.formTitle">Escribinos</h2>
+          <span class="form-intro__divider"></span>
+          <p class="form-intro__text" data-i18n="contacto.formLead">Completá el formulario y nos pondremos en contacto con vos a la brevedad.</p>
+        </div>
+        <div class="form-fields">
+          <form id="form-contacto" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="nombre" data-i18n="contacto.nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" data-i18n-placeholder="contacto.nombrePh" required>
+                <small class="error" data-i18n="contacto.nombreErr">Ingresá tu nombre completo.</small>
+              </div>
+              <div class="field">
+                <label for="email" data-i18n="contacto.email">Correo electrónico</label>
+                <input type="email" id="email" name="email" placeholder="Ej: juan@ejemplo.com" data-i18n-placeholder="contacto.emailPh" required>
+                <small class="error" data-i18n="contacto.emailErr">Ingresá un correo electrónico válido.</small>
+              </div>
+              <div class="field">
+                <label for="whatsapp" data-i18n="contacto.whatsappField">WhatsApp</label>
+                <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: +506 8888 8888" data-i18n-placeholder="contacto.whatsappPh" required>
+                <small class="error" data-i18n="contacto.whatsappErr">Ingresá tu número de WhatsApp.</small>
+              </div>
+              <div class="field">
+                <label data-i18n="contacto.motivo">Motivo de consulta</label>
+                <div class="form-dropdown" data-field="motivo">
+                  <button type="button" class="form-dropdown__trigger" data-dropdown-toggle>
+                    <span class="form-dropdown__value form-dropdown__value--placeholder" data-i18n="contacto.motivoSel">Seleccioná una opción</span>
+                    <i class="fa-solid fa-chevron-down search-field__chevron"></i>
+                  </button>
+                  <div class="search-field__panel">
+                    <button type="button" class="search-field__option" data-value="propietario" data-i18n="contacto.motivo1">Soy propietario</button>
+                    <button type="button" class="search-field__option" data-value="huesped" data-i18n="contacto.motivo2">Busco alojamiento</button>
+                    <button type="button" class="search-field__option" data-value="aliado" data-i18n="contacto.motivo3">Quiero ser aliado local</button>
+                    <button type="button" class="search-field__option" data-value="otro" data-i18n="contacto.motivo4">Otro</button>
+                  </div>
+                  <input type="hidden" id="motivo" name="motivo" required>
+                </div>
+                <small class="error" data-i18n="contacto.motivoErr">Seleccioná un motivo de consulta.</small>
+              </div>
+              <div class="field full">
+                <label for="mensaje" data-i18n="contacto.mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" placeholder="Contanos cómo podemos ayudarte..." data-i18n-placeholder="contacto.mensajePh" required></textarea>
+                <small class="error" data-i18n="contacto.mensajeErr">Escribí tu mensaje.</small>
+              </div>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn btn-primary" data-i18n="contacto.enviar">Enviar mensaje</button>
+            </div>
+            <div id="contacto-msg" class="form-msg"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--flush-top">
+    <div class="container">
+      <div class="audience-footer-cards">
+        <div class="audience-footer-card">
+          <div class="icon-circle" style="background: var(--verde);"><i class="fa-solid fa-house-chimney"></i></div>
+          <div>
+            <h4 data-i18n="contacto.acceso1">Propietarios</h4>
+            <p data-i18n="contacto.acceso1d">Consultas sobre cuidado y gestión de propiedades.</p>
+          </div>
+        </div>
+        <div class="audience-footer-card">
+          <div class="icon-circle" style="background: var(--azul);"><i class="fa-solid fa-suitcase-rolling"></i></div>
+          <div>
+            <h4 data-i18n="contacto.acceso2">Turistas y huéspedes</h4>
+            <p data-i18n="contacto.acceso2d">Ayuda para alojamientos, experiencias y asistencia.</p>
+          </div>
+        </div>
+        <div class="audience-footer-card">
+          <div class="icon-circle" style="background: var(--terracota);"><i class="fa-solid fa-handshake"></i></div>
+          <div>
+            <h4 data-i18n="contacto.acceso3">Aliados locales</h4>
+            <p data-i18n="contacto.acceso3d">Conectá tu negocio con nuestros huéspedes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

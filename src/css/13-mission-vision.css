@@ -1,0 +1,25 @@
+/* ---------- Misión / Visión / bloques de dos columnas planos ---------- */
+.mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+.mv-card .icon-circle {
+  color: var(--verde);
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+.mv-card h3 {
+  font-size: 1.2rem;
+  position: relative;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+}
+.mv-card h3::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 40px; height: 2px;
+  background: var(--verde);
+}
+.mv-card p { color: var(--texto-suave); font-size: 0.94rem; margin: 0; }
+.mv-card--center { text-align: center; }
+.mv-card--center .icon-circle { margin-left: auto; margin-right: auto; }
+.mv-card--center h3::after { left: 50%; transform: translateX(-50%); }
+

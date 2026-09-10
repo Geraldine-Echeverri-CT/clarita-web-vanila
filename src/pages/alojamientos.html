@@ -1,0 +1,142 @@
+<!--META
+title: Nuestros alojamientos | Clarita Property Care
+description: Descubrí los alojamientos administrados por Clarita Property Care en Nosara, Costa Rica: casas y villas con piscina, cerca de la playa y con toda comodidad.
+page: alojamientos
+-->
+<main>
+  <section class="hero-banner">
+    <div class="hero-banner-media">
+      <img src="src/assets/photos/pool-1.webp" alt="Piscina y terraza de un alojamiento en Nosara rodeado de vegetación tropical" fetchpriority="high">
+    </div>
+    <div class="hero-banner-copy">
+      <div class="hero-banner-copy-text">
+        <span class="eyebrow" data-i18n="alojamientos.eyebrow">Nuestros alojamientos</span>
+        <h1 data-i18n="alojamientos.title">Nuestros alojamientos</h1>
+        <p class="lead" data-i18n="alojamientos.lead">Descubrí espacios pensados para que disfrutés Nosara con comodidad, tranquilidad y una experiencia auténtica.</p>
+      </div>
+      <div class="hero-actions">
+        <a href="#listado" class="btn btn-primary" data-i18n="alojamientos.ctaVer">Ver alojamientos</a>
+        <a href="https://wa.me/50688888888" target="_blank" rel="noopener" class="btn btn-outline"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="alojamientos.ctaWhatsapp">Hablar por WhatsApp</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="listado" class="section section--flush-top section--tight-bottom">
+    <div class="container">
+      <form id="filtro-alojamientos" class="search-bar">
+        <div class="search-field" data-field="destino">
+          <button type="button" class="search-field__trigger" data-dropdown-toggle>
+            <i class="fa-solid fa-location-dot search-field__icon"></i>
+            <span class="search-field__text">
+              <span class="search-field__label" data-i18n="alojamientos.destino">Destino</span>
+              <span class="search-field__value">Nosara</span>
+            </span>
+            <i class="fa-solid fa-chevron-down search-field__chevron"></i>
+          </button>
+          <div class="search-field__panel">
+            <button type="button" class="search-field__option is-selected" data-value="nosara">Nosara</button>
+          </div>
+        </div>
+
+        <div class="search-field" data-field="fechas">
+          <button type="button" class="search-field__trigger" data-dropdown-toggle>
+            <i class="fa-regular fa-calendar search-field__icon"></i>
+            <span class="search-field__text">
+              <span class="search-field__label" data-i18n="alojamientos.fechas">Fechas</span>
+              <span class="search-field__value" data-i18n="alojamientos.seleccionarFechas">Seleccionar fechas</span>
+            </span>
+            <i class="fa-solid fa-chevron-down search-field__chevron"></i>
+          </button>
+          <div class="search-field__panel search-field__panel--dates">
+            <div class="datepicker">
+              <div class="datepicker__header">
+                <button type="button" class="datepicker__nav" data-cal-prev aria-label="Mes anterior"><i class="fa-solid fa-chevron-left"></i></button>
+                <span class="datepicker__month" data-cal-label></span>
+                <button type="button" class="datepicker__nav" data-cal-next aria-label="Mes siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+              <div class="datepicker__weekdays" data-cal-weekdays></div>
+              <div class="datepicker__days" data-cal-days></div>
+            </div>
+            <div class="search-field__dates-footer">
+              <button type="button" class="search-field__dates-clear" data-dates-clear data-i18n="alojamientos.borrar">Borrar</button>
+              <button type="button" class="btn btn-primary btn-sm search-field__dates-apply" data-dates-apply data-i18n="alojamientos.aplicar">Aplicar</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="search-field" data-field="zona">
+          <button type="button" class="search-field__trigger" data-dropdown-toggle>
+            <i class="fa-solid fa-map-location-dot search-field__icon"></i>
+            <span class="search-field__text">
+              <span class="search-field__label" data-i18n="alojamientos.zona">Zona</span>
+              <span class="search-field__value" data-i18n="alojamientos.todasZonas">Todas las zonas</span>
+            </span>
+            <i class="fa-solid fa-chevron-down search-field__chevron"></i>
+          </button>
+          <div class="search-field__panel">
+            <button type="button" class="search-field__option is-selected" data-value="todas" data-i18n="alojamientos.todasZonas">Todas las zonas</button>
+            <button type="button" class="search-field__option" data-value="guiones">Playa Guiones</button>
+            <button type="button" class="search-field__option" data-value="pelada">Playa Pelada</button>
+            <button type="button" class="search-field__option" data-value="k-section">Barrio K Section</button>
+          </div>
+        </div>
+
+        <div class="search-field" data-field="huespedes">
+          <button type="button" class="search-field__trigger" data-dropdown-toggle>
+            <i class="fa-solid fa-user-group search-field__icon"></i>
+            <span class="search-field__text">
+              <span class="search-field__label" data-i18n="alojamientos.huespedes">Huéspedes</span>
+              <span class="search-field__value" data-i18n="alojamientos.cualquierCantidad">Cualquier cantidad</span>
+            </span>
+            <i class="fa-solid fa-chevron-down search-field__chevron"></i>
+          </button>
+          <div class="search-field__panel">
+            <button type="button" class="search-field__option is-selected" data-value="0" data-i18n="alojamientos.cualquierCantidad">Cualquier cantidad</button>
+            <button type="button" class="search-field__option" data-value="2">2 <span data-i18n="common.huespedes">huéspedes</span></button>
+            <button type="button" class="search-field__option" data-value="4">4 <span data-i18n="common.huespedes">huéspedes</span></button>
+            <button type="button" class="search-field__option" data-value="6">6 <span data-i18n="common.huespedes">huéspedes</span></button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary search-bar__submit"><i class="fa-solid fa-magnifying-glass"></i> <span data-i18n="alojamientos.buscar">Buscar</span></button>
+      </form>
+
+      <div class="listing-grid" id="listing-grid"></div>
+    </div>
+  </section>
+
+  <section class="section section--flush-top section--tight-bottom">
+    <div class="container">
+      <div class="trust-card">
+        <div class="trust-row">
+          <div class="trust-item"><div class="icon"><i class="fa-solid fa-people-group"></i></div><div class="trust-item__text"><h4 data-i18n="alojamientos.trust1">Atención cercana</h4><p data-i18n="alojamientos.trust1d">Te acompañamos antes, durante y después de tu estadía.</p></div></div>
+          <div class="trust-item"><div class="icon"><i class="fa-solid fa-house-circle-check"></i></div><div class="trust-item__text"><h4 data-i18n="alojamientos.trust2">Propiedades cuidadosamente seleccionadas</h4><p data-i18n="alojamientos.trust2d">Alojamientos verificados, cómodos y en las mejores zonas.</p></div></div>
+          <div class="trust-item"><div class="icon"><i class="fa-solid fa-concierge-bell"></i></div><div class="trust-item__text"><h4 data-i18n="alojamientos.trust3">Asistencia durante tu estadía</h4><p data-i18n="alojamientos.trust3d">Estamos disponibles para lo que necesités, en todo momento.</p></div></div>
+          <div class="trust-item"><div class="icon"><i class="fa-solid fa-map-location-dot"></i></div><div class="trust-item__text"><h4 data-i18n="alojamientos.trust4">Experiencias locales</h4><p data-i18n="alojamientos.trust4d">Recomendaciones personalizadas para vivir Nosara al máximo.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--flush-top section--loose-bottom">
+    <div class="container split split--wide-media">
+      <div>
+        <span class="eyebrow"><i class="fa-solid fa-leaf"></i></span>
+        <h2 style="font-size:1.6rem;" data-i18n="alojamientos.helpTitle">¿Necesitás ayuda para elegir la propiedad ideal?</h2>
+        <p class="lead" data-i18n="alojamientos.helpLead">Contanos qué estás buscando y te ayudamos a encontrar el alojamiento perfecto para vos.</p>
+        <a href="https://wa.me/50688888888" target="_blank" rel="noopener" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="alojamientos.helpCta">Quiero asesoría</span></a>
+      </div>
+      <div class="split-img-card">
+        <img src="src/assets/photos/surfboards-1.webp" alt="Terraza de casa en Nosara con tabla de surf apoyada" loading="lazy" decoding="async">
+        <div class="floating-check-card">
+          <ul class="checklist">
+            <li><i class="fa-solid fa-check"></i><span data-i18n="alojamientos.help1">Asesoría personalizada</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n="alojamientos.help2">Respuesta rápida</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n="alojamientos.help3">Reservas seguras</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n="alojamientos.help4">Conocimiento local</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
