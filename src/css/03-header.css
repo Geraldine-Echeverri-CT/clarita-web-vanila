@@ -65,15 +65,19 @@
 }
 .logo-img--footer { height: 36px; filter: none; }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  flex-wrap: nowrap;
-  white-space: nowrap;
+/* Menú principal: es un .navbar-expand-xl de Bootstrap con offcanvas
+   (header.html). Desde xl (1200px) el offcanvas se muestra en línea como una
+   fila de links; por debajo queda oculto y se abre con la hamburguesa. */
+.navbar {
+  --bs-navbar-padding-y: 0;
+  /* Sin padding lateral propio en los links: la separación la da el gap. */
+  --bs-navbar-nav-link-padding-x: 0;
 }
+.nav-links { gap: 18px; white-space: nowrap; }
 
 .nav-links__link {
+  --bs-nav-link-padding-x: 0;
+  --bs-nav-link-padding-y: 0;
   font-size: 0.76rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -83,18 +87,44 @@
   border-bottom: 2px solid transparent;
   transition: color 0.2s, border-color 0.2s;
 }
+.navbar-nav .nav-links__link.active,
 .nav-links__link:hover,
+.nav-links__link:focus,
 .nav-links__link--active { color: var(--verde); border-color: var(--verde); }
 
 .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 
 .nav-toggle {
-  display: none;
   background: none;
   border: none;
+  padding: 4px;
   font-size: 1.5rem;
   color: var(--verde-oscuro);
   cursor: pointer;
+}
+.nav-toggle:focus { box-shadow: none; }
+.nav-toggle:focus-visible { box-shadow: 0 0 0 3px var(--terracota); }
+
+.navbar-brand.logo { margin-right: 0; padding: 0; }
+
+@media (min-width: 1200px) {
+  /* En línea: el offcanvas ocupa el espacio entre logo y acciones y centra
+     los links. */
+  .nav-offcanvas .offcanvas-body { justify-content: center; }
+}
+
+@media (max-width: 1199.98px) {
+  /* backdrop-filter en .site-header crea un "containing block" para
+     descendientes position:fixed (spec CSS Filter Effects): el offcanvas
+     quedaría encerrado dentro del header en vez de cubrir la pantalla. */
+  .site-header { backdrop-filter: none; }
+  .nav-offcanvas { --bs-offcanvas-width: min(340px, 86vw); }
+  .nav-offcanvas .offcanvas-header { border-bottom: 1px solid var(--borde); }
+  .nav-offcanvas .offcanvas-body { padding: 26px 24px; }
+  .nav-links { gap: 20px; white-space: normal; }
+  .nav-links__link { font-size: 0.95rem; display: inline-block; }
+  .nav-actions .btn span { display: none; }
+  .nav-actions .btn { padding: 10px 14px; }
 }
 
 /* ---------- Selector de idioma (dropdown) ---------- */
@@ -118,27 +148,15 @@
 }
 .lang-dropdown__toggle:hover { border-color: var(--verde-oscuro); }
 .lang-dropdown__toggle i { font-size: 0.6rem; color: var(--texto-suave); transition: transform 0.2s; }
-.lang-dropdown--open .lang-dropdown__toggle i { transform: rotate(180deg); }
+.lang-dropdown__toggle[aria-expanded="true"] i { transform: rotate(180deg); }
+/* Mostrar/ocultar y posicionar lo hace el dropdown de Bootstrap (.show + Popper). */
 .lang-dropdown__menu {
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  background: var(--superficie);
-  border: 1px solid var(--borde);
-  border-radius: 8px;
   box-shadow: var(--sombra);
   min-width: 150px;
   padding: 6px;
-  display: none;
   z-index: 50;
 }
-.lang-dropdown--open .lang-dropdown__menu { display: block; }
 .lang-dropdown__menu-button {
-  display: block;
-  width: 100%;
-  text-align: left;
-  border: none;
-  background: none;
   padding: 9px 10px;
   border-radius: 6px;
   font-family: var(--ff-cuerpo);

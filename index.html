@@ -15,10 +15,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BF%3C/text%3E%3C/svg%3E">
+<!-- Bootstrap 5 (solo CSS de grilla/utilidades/componentes; los estilos propios de src/css/ cargan después y lo tematizan) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="src/css/00-tokens.css">
+<link rel="stylesheet" href="src/css/00a-bootstrap-theme.css">
 <link rel="stylesheet" href="src/css/01-base.css">
 <link rel="stylesheet" href="src/css/02-buttons.css">
 <link rel="stylesheet" href="src/css/03-header.css">
@@ -48,31 +51,41 @@
 <body>
 
 <header class="site-header">
-  <div class="container nav">
-    <button type="button" class="nav-toggle" data-nav-toggle aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
-    <a href="index.html" class="logo"><img src="src/assets/logo.png" alt="Clarita Property Care" class="logo-img"></a>
-    <nav class="nav-links" data-nav-menu aria-label="Principal">
-      <a href="index.html" class="nav-links__link nav-links__link--active" data-page="inicio" data-i18n="nav.inicio" aria-current="page">Inicio</a>
-      <a href="quienes-somos.html" class="nav-links__link" data-page="quienes" data-i18n="nav.quienes">Quiénes somos</a>
-      <a href="servicios.html" class="nav-links__link" data-page="servicios" data-i18n="nav.servicios">Servicios</a>
-      <a href="alojamientos.html" class="nav-links__link" data-page="alojamientos" data-i18n="nav.alojamientos">Alojamientos</a>
-      <a href="alianza-propietarios.html" class="nav-links__link" data-page="alianza" data-i18n="nav.alianza">Alianza con propietarios</a>
-      <a href="contacto.html" class="nav-links__link" data-page="contacto" data-i18n="nav.contacto">Contacto</a>
-    </nav>
-    <div class="nav-actions">
-      <div class="lang-dropdown" data-lang-dropdown>
-        <button type="button" class="lang-dropdown__toggle" data-lang-toggle aria-haspopup="true" aria-expanded="false">
-          <span class="lang-current">ES</span> <i class="fa-solid fa-chevron-down"></i>
-        </button>
-        <div class="lang-dropdown__menu">
-          <button type="button" class="lang-dropdown__menu-button" data-lang="es">Español</button>
-          <button type="button" class="lang-dropdown__menu-button" data-lang="en">English</button>
-          <button type="button" class="lang-dropdown__menu-button" data-lang="fr">Français</button>
+  <nav class="navbar navbar-expand-xl p-0" aria-label="Principal">
+    <div class="container nav">
+      <button type="button" class="navbar-toggler nav-toggle" data-bs-toggle="offcanvas" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+      <a href="index.html" class="navbar-brand logo"><img src="src/assets/logo.png" alt="Clarita Property Care" class="logo-img"></a>
+      <div class="offcanvas offcanvas-start nav-offcanvas" tabindex="-1" id="menu-principal" aria-label="Menú">
+        <div class="offcanvas-header">
+          <a href="index.html" class="logo"><img src="src/assets/logo.png" alt="Clarita Property Care" class="logo-img"></a>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar menú"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav nav-links">
+            <li class="nav-item"><a href="index.html" class="nav-link nav-links__link nav-links__link--active active" data-page="inicio" data-i18n="nav.inicio" aria-current="page">Inicio</a></li>
+            <li class="nav-item"><a href="quienes-somos.html" class="nav-link nav-links__link" data-page="quienes" data-i18n="nav.quienes">Quiénes somos</a></li>
+            <li class="nav-item"><a href="servicios.html" class="nav-link nav-links__link" data-page="servicios" data-i18n="nav.servicios">Servicios</a></li>
+            <li class="nav-item"><a href="alojamientos.html" class="nav-link nav-links__link" data-page="alojamientos" data-i18n="nav.alojamientos">Alojamientos</a></li>
+            <li class="nav-item"><a href="alianza-propietarios.html" class="nav-link nav-links__link" data-page="alianza" data-i18n="nav.alianza">Alianza con propietarios</a></li>
+            <li class="nav-item"><a href="contacto.html" class="nav-link nav-links__link" data-page="contacto" data-i18n="nav.contacto">Contacto</a></li>
+          </ul>
         </div>
       </div>
-      <a class="btn btn-primary" href="https://wa.me/50688888888" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span data-i18n="nav.whatsapp">Hablar por WhatsApp</span></a>
+      <div class="nav-actions">
+        <div class="dropdown lang-dropdown">
+          <button type="button" class="lang-dropdown__toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Idioma">
+            <span class="lang-current">ES</span> <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end lang-dropdown__menu">
+            <li><button type="button" class="dropdown-item lang-dropdown__menu-button" data-lang="es">Español</button></li>
+            <li><button type="button" class="dropdown-item lang-dropdown__menu-button" data-lang="en">English</button></li>
+            <li><button type="button" class="dropdown-item lang-dropdown__menu-button" data-lang="fr">Français</button></li>
+          </ul>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/50688888888" target="_blank" rel="noopener" aria-label="Hablar por WhatsApp"><i class="fa-brands fa-whatsapp"></i><span data-i18n="nav.whatsapp">Hablar por WhatsApp</span></a>
+      </div>
     </div>
-  </div>
+  </nav>
 </header>
 
 
@@ -96,15 +109,15 @@
   <div class="values-strip">
     <div class="container">
       <h3 class="strip-title" data-i18n="home.paraPropietarios">Para propietarios</h3>
-      <div class="values-grid">
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4 justify-content-center values-grid">
         <div class="value-item"><div class="icon"><i class="fa-solid fa-shield-halved"></i></div><h4 data-i18n="home.v1t">Confianza</h4><p data-i18n="home.v1d">Comunicación clara y cuidado constante.</p></div>
         <div class="value-item"><div class="icon"><i class="fa-solid fa-house"></i></div><h4 data-i18n="home.v2t">Cuidado integral</h4><p data-i18n="home.v2d">Tu propiedad siempre en óptimas condiciones.</p></div>
         <div class="value-item"><div class="icon"><i class="fa-solid fa-user-tie"></i></div><h4 data-i18n="home.v3t">Experiencia</h4><p data-i18n="home.v3d">Equipo local y atención profesional.</p></div>
         <div class="value-item"><div class="icon"><i class="fa-solid fa-chart-column"></i></div><h4 data-i18n="home.v4t">Resultados</h4><p data-i18n="home.v4d">Gestión eficiente y mejor rendimiento.</p></div>
         <div class="value-item"><div class="icon"><i class="fa-solid fa-seedling"></i></div><h4 data-i18n="home.v5t">Sostenibilidad</h4><p data-i18n="home.v5d">Prácticas responsables para tu propiedad.</p></div>
       </div>
-      <h3 class="strip-title" style="margin-top:50px;" data-i18n="home.paraInquilinos">Para inquilinos</h3>
-      <div class="values-grid">
+      <h3 class="strip-title mt-5" data-i18n="home.paraInquilinos">Para inquilinos</h3>
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4 justify-content-center values-grid">
         <div class="value-item"><div class="icon"><i class="fa-solid fa-location-dot"></i></div><h4 data-i18n="home.v6t">Cercanía</h4><p data-i18n="home.v6d">Te acompañamos desde antes de llegar.</p></div>
         <div class="value-item"><div class="icon"><i class="fa-regular fa-heart"></i></div><h4 data-i18n="home.v7t">Confianza</h4><p data-i18n="home.v7d">Espacios listos y atención responsable.</p></div>
         <div class="value-item"><div class="icon"><i class="fa-solid fa-concierge-bell"></i></div><h4 data-i18n="home.v8t">Servicio</h4><p data-i18n="home.v8d">Soluciones prácticas antes, durante y después.</p></div>
@@ -115,17 +128,17 @@
   </div>
 
   <section class="section">
-    <div class="container split">
-      <div class="split-img">
+    <div class="container"><div class="row g-5 align-items-center split">
+      <div class="col-lg-6"><div class="split-img">
         <img src="src/assets/photos/terrace-1.webp" alt="Terraza de una casa en Nosara rodeada de vegetación" loading="lazy" decoding="async">
-      </div>
-      <div>
+      </div></div>
+      <div class="col-lg-6">
         <span class="eyebrow" data-i18n="home.quienesEyebrow">Quiénes somos</span>
         <h2 data-i18n="home.quienesTitle">Cuidamos cada detalle para que vos disfrutés lo importante.</h2>
         <p class="lead" data-i18n="home.quienesLead">En Clarita Property Care ofrecemos soluciones integrales de cuidado de propiedades y para que cada huésped viva una experiencia auténtica en Nosara. Nacimos inspirados en la tranquilidad, la naturaleza y la vida sencilla de este rincón de Guanacaste.</p>
         <a href="quienes-somos.html" class="btn btn-outline" data-i18n="home.quienesCta">Conocé nuestra historia</a>
       </div>
-    </div>
+    </div></div>
   </section>
 
   <section class="section section--bg-alt">
@@ -134,7 +147,7 @@
       <h2 data-i18n="home.serviciosTitle">Cuidado, hospitalidad y experiencias en un solo lugar</h2>
       <hr class="divider">
       <p class="section-lead" data-i18n="home.serviciosLead">Soluciones integrales para propietarios, huéspedes y aliados locales en cada estadía.</p>
-      <div class="audience-grid" id="audience-grid-home"></div>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 text-start audience-grid" id="audience-grid-home"></div>
     </div>
   </section>
 
@@ -144,8 +157,8 @@
       <h2 data-i18n="home.blogTitle">Historias y consejos desde Nosara</h2>
       <hr class="divider">
       <p class="section-lead" data-i18n="home.blogLead">Guías, recomendaciones y novedades sobre Nosara, gestión de propiedades y hospitalidad.</p>
-      <div class="blog-grid" id="home-blog-grid" style="text-align:left;"></div>
-      <a href="blogs.html" class="btn btn-outline" style="margin-top:40px;" data-i18n="home.blogCta">Ver todos los artículos</a>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 text-start blog-grid" id="home-blog-grid"></div>
+      <a href="blogs.html" class="btn btn-outline mt-5" data-i18n="home.blogCta">Ver todos los artículos</a>
     </div>
   </section>
 
@@ -155,8 +168,8 @@
       <h2 data-i18n="home.testiTitle">Lo que dicen quienes ya confiaron en Clarita</h2>
       <hr class="divider">
       <p class="section-lead" data-i18n="home.testiLead">Propietarios que nos confían el cuidado de su propiedad, y huéspedes que vivieron Nosara con nosotros.</p>
-      <div class="testi-grid" style="text-align:left;" id="testi-grid-home"></div>
-      <a href="testimoniales.html" class="btn btn-outline" style="margin-top:40px;" data-i18n="home.testiCta">Ver todos los testimoniales</a>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 text-start testi-grid" id="testi-grid-home"></div>
+      <a href="testimoniales.html" class="btn btn-outline mt-5" data-i18n="home.testiCta">Ver todos los testimoniales</a>
     </div>
   </section>
 
@@ -170,7 +183,7 @@
       </div>
       <div id="faq-list-home"></div>
       <div class="center">
-        <a href="faq.html" class="btn btn-outline" style="margin-top:26px;" data-i18n="home.faqCta">Ver todas las preguntas</a>
+        <a href="faq.html" class="btn btn-outline mt-4" data-i18n="home.faqCta">Ver todas las preguntas</a>
       </div>
     </div>
   </section>
@@ -179,7 +192,7 @@
     <div class="container center cta-band">
       <h2 data-i18n="home.ctaBandTitle">¿Tenés una propiedad en Nosara o buscás dónde hospedarte?</h2>
       <p data-i18n="home.ctaBandLead">Contanos qué necesitás y te ayudamos a encontrar la solución ideal, ya seas propietario, huésped o aliado local.</p>
-      <div class="hero-actions" style="justify-content:center;">
+      <div class="hero-actions justify-content-center">
         <a href="alojamientos.html" class="btn btn-white" data-i18n="home.ctaVerAlojamientos">Ver alojamientos</a>
         <a href="https://wa.me/50688888888" target="_blank" rel="noopener" class="btn btn-outline"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="nav.whatsapp">Hablar por WhatsApp</span></a>
       </div>
@@ -188,8 +201,9 @@
 </main>
 
 <footer class="site-footer">
-  <div class="container footer-grid">
-    <div class="footer-about">
+  <div class="container">
+    <div class="row g-4 g-lg-5 footer-grid">
+    <div class="col-12 col-lg-4 footer-about">
       <a href="index.html" class="logo"><img src="src/assets/logo_dark.png" alt="Clarita Property Care" class="logo-img logo-img--footer" loading="lazy" decoding="async"></a>
       <p data-i18n="footer.desc">Gestión integral de propiedades y experiencias de hospitalidad en Nosara, Guanacaste, Costa Rica.</p>
       <div class="footer-social">
@@ -198,7 +212,7 @@
         <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
       </div>
     </div>
-    <div class="footer-col">
+    <div class="col-6 col-md-4 col-lg-2 footer-col">
       <h4 data-i18n="footer.nav">Navegación</h4>
       <ul>
         <li><a href="quienes-somos.html" data-i18n="nav.quienes">Quiénes somos</a></li>
@@ -210,7 +224,7 @@
         <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
       </ul>
     </div>
-    <div class="footer-col">
+    <div class="col-6 col-md-4 col-lg-3 footer-col">
       <h4 data-i18n="footer.servicios">Servicios</h4>
       <ul>
         <li><a href="servicios.html" data-i18n="footer.paraPropietarios">Para propietarios</a></li>
@@ -218,13 +232,14 @@
         <li><a href="contacto.html" data-i18n="footer.paraAliados">Para aliados locales</a></li>
       </ul>
     </div>
-    <div class="footer-col">
+    <div class="col-12 col-md-4 col-lg-3 footer-col">
       <h4 data-i18n="footer.contacto">Contacto</h4>
       <ul>
         <li><i class="fa-brands fa-whatsapp"></i> +506 8888 8888</li>
         <li><i class="fa-regular fa-envelope"></i> info@claritapropertycare.com</li>
         <li><i class="fa-solid fa-location-dot"></i> Nosara, Guanacaste, Costa Rica</li>
       </ul>
+    </div>
     </div>
   </div>
   <div class="container footer-bottom">
@@ -264,6 +279,7 @@
 }
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="src/js/data/i18n.es.js"></script>
 <script src="src/js/data/i18n.en.js"></script>
 <script src="src/js/data/i18n.fr.js"></script>
@@ -273,7 +289,6 @@
 <script src="src/js/data/faq.js"></script>
 <script src="src/js/data/service-cards.js"></script>
 <script src="src/js/modules/i18n.js"></script>
-<script src="src/js/modules/nav.js"></script>
 <script src="src/js/modules/lightbox.js"></script>
 <script src="src/js/modules/faq.js"></script>
 <script src="src/js/modules/listings.js"></script>

@@ -197,12 +197,9 @@
   flex-shrink: 0;
 }
 
-.listing-grid {
-  margin-top: 46px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
+/* .listing-grid es una .row de Bootstrap; listings.js envuelve cada tarjeta
+   en una .col (y oculta esa .col al filtrar). */
+.listing-grid { margin-top: 30px; }
 .listing-card {
   background: var(--superficie);
   border-radius: var(--radio);
@@ -210,6 +207,7 @@
   box-shadow: var(--sombra);
   display: flex;
   flex-direction: column;
+  height: 100%;
   transition: transform 0.2s ease;
 }
 .listing-card:hover { transform: translateY(-4px); }

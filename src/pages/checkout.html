@@ -8,7 +8,7 @@ page: checkout
     <div class="container">
       <span class="eyebrow" id="checkout-hero-eyebrow" data-i18n="checkout.eyebrow">Reserva</span>
       <h1 id="checkout-hero-title" data-i18n="checkout.title">Confirmá tu reserva</h1>
-      <p style="color:var(--texto-suave);" id="checkout-hero-lead" data-i18n="checkout.lead">Completá los datos para reservar tu alojamiento en Nosara.</p>
+      <p class="text-body-secondary" id="checkout-hero-lead" data-i18n="checkout.lead">Completá los datos para reservar tu alojamiento en Nosara.</p>
     </div>
   </section>
 
@@ -19,7 +19,8 @@ page: checkout
         <span data-i18n="checkout.demoNote">Esta pasarela de pago está en modo demostración: la reserva se procesa visualmente, pero no se realiza ningún cobro real todavía. La integración con un proveedor de pagos real queda preparada para una etapa posterior.</span>
       </div>
 
-      <div class="checkout-wrap">
+      <div class="row g-4 g-lg-5 checkout-wrap">
+        <div class="col-lg-7">
         <div id="checkout-card-panel">
           <div class="checkout-card">
             <div class="steps-indicator">
@@ -30,49 +31,49 @@ page: checkout
 
             <div id="checkout-step-1">
               <h2 data-i18n="checkout.tuAlojamiento">Tu alojamiento</h2>
-              <div class="form-grid" style="margin-bottom:10px;">
-                <div class="field">
+              <div class="row g-3 mb-2 form-grid">
+                <div class="col-md-6 field">
                   <label data-i18n="checkout.propiedad">Propiedad</label>
                   <div class="field-static"><i class="fa-solid fa-house"></i> <span id="summary-propiedad-nombre"></span></div>
                   <input type="hidden" id="summary-propiedad">
                 </div>
-                <div class="field">
+                <div class="col-md-6 field">
                   <label data-i18n="checkout.fechaLlegada">Fecha de llegada</label>
                   <div class="field-static"><i class="fa-regular fa-calendar"></i> <span id="summary-checkin-display"></span></div>
                   <input type="hidden" id="summary-checkin">
                 </div>
-                <div class="field">
+                <div class="col-md-6 field">
                   <label data-i18n="checkout.noches">Noches</label>
                   <div class="field-static"><i class="fa-regular fa-moon"></i> <span id="summary-noches-display"></span></div>
                   <input type="hidden" id="summary-noches" value="3">
                 </div>
-                <div class="field">
+                <div class="col-md-6 field">
                   <label data-i18n="checkout.huespedes">Huéspedes</label>
                   <div class="field-static"><i class="fa-solid fa-user-group"></i> <span id="summary-huespedes-display"></span></div>
                   <input type="hidden" id="summary-huespedes" value="2">
                 </div>
               </div>
 
-              <h2 style="margin-top:26px;" data-i18n="checkout.tusDatos">Tus datos</h2>
-              <div class="form-grid">
-                <div class="field full">
+              <h2 class="mt-4" data-i18n="checkout.tusDatos">Tus datos</h2>
+              <div class="row g-3 form-grid">
+                <div class="col-12 field">
                   <label for="huesped-nombre" data-i18n="checkout.nombreCompleto">Nombre completo</label>
                   <input type="text" id="huesped-nombre" placeholder="Como aparece en tu identificación" data-i18n-placeholder="checkout.nombreCompletoPh">
                   <small class="error" data-i18n="checkout.nombreErr">Ingresá tu nombre completo.</small>
                 </div>
-                <div class="field">
+                <div class="col-md-6 field">
                   <label for="huesped-email" data-i18n="checkout.email">Correo electrónico</label>
                   <input type="email" id="huesped-email" placeholder="tucorreo@ejemplo.com" data-i18n-placeholder="checkout.emailPh">
                   <small class="error" data-i18n="checkout.emailErr">Ingresá un correo electrónico válido.</small>
                 </div>
-                <div class="field">
+                <div class="col-md-6 field">
                   <label for="huesped-telefono" data-i18n="checkout.telefono">Teléfono</label>
                   <input type="tel" id="huesped-telefono" placeholder="+506 8888 8888" data-i18n-placeholder="checkout.telefonoPh">
                   <small class="error" data-i18n="checkout.telefonoErr">Ingresá un teléfono válido.</small>
                 </div>
               </div>
 
-              <button type="button" class="btn btn-primary btn-block" id="btn-continuar-pago" style="margin-top:10px;">
+              <button type="button" class="btn btn-primary btn-block mt-2" id="btn-continuar-pago">
                 <span data-i18n="checkout.continuarPago">Continuar al pago</span> <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
@@ -80,7 +81,7 @@ page: checkout
             <div id="checkout-step-2" style="display:none;">
               <form id="form-pago" novalidate>
                 <div class="pay-header">
-                  <h2 style="margin-bottom:0;" data-i18n="checkout.metodoPago">Método de pago</h2>
+                  <h2 class="mb-0" data-i18n="checkout.metodoPago">Método de pago</h2>
                 </div>
                 <div class="pay-tabs">
                   <button type="button" class="pay-tab pay-tab--active" data-panel="panel-tarjeta"><i class="fa-solid fa-credit-card"></i> <span data-i18n="checkout.tarjeta">Tarjeta</span></button>
@@ -97,23 +98,23 @@ page: checkout
                       <span id="cvisual-expiry">MM/AA</span>
                     </div>
                   </div>
-                  <div class="form-grid">
-                    <div class="field full">
+                  <div class="row g-3 form-grid">
+                    <div class="col-12 field">
                       <label for="card-name" data-i18n="checkout.nombreTarjeta">Nombre en la tarjeta</label>
                       <input type="text" id="card-name" placeholder="Como aparece en la tarjeta" data-i18n-placeholder="checkout.nombreTarjetaPh">
                       <small class="error" data-i18n="checkout.nombreTarjetaErr">Ingresá el nombre tal como aparece en la tarjeta.</small>
                     </div>
-                    <div class="field full">
+                    <div class="col-12 field">
                       <label for="card-number" data-i18n="checkout.numeroTarjeta">Número de tarjeta</label>
                       <input type="text" id="card-number" inputmode="numeric" placeholder="1234 5678 9012 3456" maxlength="19">
                       <small class="error" data-i18n="checkout.numeroTarjetaErr">Ingresá un número de tarjeta válido.</small>
                     </div>
-                    <div class="field">
+                    <div class="col-md-6 field">
                       <label for="card-expiry" data-i18n="checkout.vencimiento">Vencimiento</label>
                       <input type="text" id="card-expiry" placeholder="MM/AA" maxlength="5">
                       <small class="error" data-i18n="checkout.vencimientoErr">Usá el formato MM/AA con una fecha vigente.</small>
                     </div>
-                    <div class="field">
+                    <div class="col-md-6 field">
                       <label for="card-cvv" data-i18n="checkout.cvv">CVV</label>
                       <input type="password" id="card-cvv" inputmode="numeric" placeholder="123" maxlength="4">
                       <small class="error" data-i18n="checkout.cvvErr">Ingresá un CVV válido.</small>
@@ -126,7 +127,7 @@ page: checkout
                     <i class="fa-solid fa-mobile-screen"></i>
                     <p data-i18n="checkout.sinpeText">Realizá tu SINPE Móvil al número:</p>
                     <strong>+506 8888 8888</strong>
-                    <p style="font-size:0.85rem;" data-i18n="checkout.sinpeNota">Guardá el comprobante — te lo pediremos para confirmar tu reserva.</p>
+                    <p class="small" data-i18n="checkout.sinpeNota">Guardá el comprobante — te lo pediremos para confirmar tu reserva.</p>
                   </div>
                 </div>
 
@@ -146,7 +147,7 @@ page: checkout
                   <i class="fa-solid fa-lock"></i> <span data-i18n="checkout.pagar">Pagar</span> <span id="pay-total-label">$0 USD</span>
                 </button>
                 <p class="secure-note"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="checkout.secureNote">Modo demo: no se realizará ningún cobro real.</span></p>
-                <a href="#" id="btn-volver-datos" style="display:block;text-align:center;font-size:0.85rem;color:var(--texto-suave);margin-top:14px;"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="checkout.volverDatos">Volver a tus datos</span></a>
+                <a href="#" id="btn-volver-datos" class="back-link back-link--center"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="checkout.volverDatos">Volver a tus datos</span></a>
               </form>
             </div>
           </div>
@@ -161,7 +162,9 @@ page: checkout
           <div class="success-row success-row--total"><span data-i18n="checkout.total">Total</span><strong id="success-total"></strong></div>
           <a href="index.html" class="btn btn-primary btn-block" data-i18n="checkout.volverInicio">Volver al inicio</a>
         </div>
+        </div>
 
+        <div class="col-lg-5">
         <aside class="summary-card">
           <div class="thumb"><img id="summary-thumb" src="" alt="" loading="lazy" decoding="async"></div>
           <div class="content">
@@ -173,6 +176,7 @@ page: checkout
             <div class="summary-total-row summary-total-row--total"><span data-i18n="checkout.total">Total</span><span id="summary-total"></span></div>
           </div>
         </aside>
+        </div>
       </div>
     </div>
   </section>

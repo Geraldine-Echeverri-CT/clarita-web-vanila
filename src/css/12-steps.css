@@ -1,11 +1,9 @@
 /* ---------- Pasos numerados ---------- */
-.steps {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 26px;
-  position: relative;
-}
+/* .steps es una .row de Bootstrap (row-cols-* en el HTML). La línea punteada
+   que une los 4 pasos solo tiene sentido cuando están en una misma fila (lg+). */
+.steps { position: relative; }
 .steps::before {
+  display: none;
   content: "";
   position: absolute;
   top: 46px;
@@ -13,6 +11,9 @@
   right: 12.5%;
   border-top: 2px dotted var(--verde-claro);
   z-index: 0;
+}
+@media (min-width: 992px) {
+  .steps::before { display: block; }
 }
 .step { text-align: center; position: relative; z-index: 1; }
 .step-icon {

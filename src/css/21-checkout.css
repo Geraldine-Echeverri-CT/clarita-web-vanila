@@ -3,16 +3,13 @@
    ======================================================== */
 .checkout-hero { padding: 44px 0 0; }
 .checkout-hero h1 { font-size: 2rem; }
-.checkout-wrap {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 34px;
-  align-items: start;
-  margin-top: 30px;
-}
+/* .checkout-wrap es una .row de Bootstrap: col-lg-7 (pasos / éxito) y
+   col-lg-5 (resumen). Las columnas se estiran al alto de la fila, así el
+   .summary-card puede quedar sticky dentro de la suya. */
+.checkout-wrap { margin-top: 30px; }
 /* Al confirmar el pago, la tarjeta de éxito queda al lado de la de resumen:
    que ambas tengan el mismo alto en vez de que la más corta quede a mitad. */
-.checkout-wrap--success { align-items: stretch; }
+.checkout-wrap--success .success-screen { height: 100%; }
 .checkout-card {
   background: var(--superficie);
   border-radius: var(--radio);

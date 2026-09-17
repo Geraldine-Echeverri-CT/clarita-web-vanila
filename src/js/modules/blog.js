@@ -8,7 +8,7 @@ function renderBlogsListado(targetId, limit) {
   if (limit) slugs = slugs.slice(0, limit);
   grid.innerHTML = slugs.map((slug) => {
     const post = POSTS[slug];
-    return '<a href="blog-articulo.html?post=' + slug + '" class="blog-card">' +
+    return '<div class="col"><a href="blog-articulo.html?post=' + slug + '" class="blog-card">' +
       '<div class="blog-card__thumb"><img src="' + post.cover + '" alt="' + t(post.titulo) + '" loading="lazy" decoding="async"></div>' +
       '<div class="blog-card__body">' +
         '<span class="blog-card__date">' + t(post.fecha) + '</span>' +
@@ -16,7 +16,7 @@ function renderBlogsListado(targetId, limit) {
         '<p class="blog-card__excerpt">' + t(post.extracto) + '</p>' +
         '<span class="blog-card__read-more">' + d["common.verMas"] + ' <i class="fa-solid fa-arrow-right"></i></span>' +
       '</div>' +
-    '</a>';
+    '</a></div>';
   }).join("");
 }
 

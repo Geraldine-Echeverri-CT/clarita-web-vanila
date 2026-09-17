@@ -15,10 +15,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BF%3C/text%3E%3C/svg%3E">
+<!-- Bootstrap 5 (solo CSS de grilla/utilidades/componentes; los estilos propios de src/css/ cargan después y lo tematizan) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="src/css/00-tokens.css">
+<link rel="stylesheet" href="src/css/00a-bootstrap-theme.css">
 <link rel="stylesheet" href="src/css/01-base.css">
 <link rel="stylesheet" href="src/css/02-buttons.css">
 <link rel="stylesheet" href="src/css/03-header.css">
@@ -48,31 +51,41 @@
 <body>
 
 <header class="site-header">
-  <div class="container nav">
-    <button type="button" class="nav-toggle" data-nav-toggle aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
-    <a href="index.html" class="logo"><img src="src/assets/logo.png" alt="Clarita Property Care" class="logo-img"></a>
-    <nav class="nav-links" data-nav-menu aria-label="Principal">
-      <a href="index.html" class="nav-links__link" data-page="inicio" data-i18n="nav.inicio">Inicio</a>
-      <a href="quienes-somos.html" class="nav-links__link" data-page="quienes" data-i18n="nav.quienes">Quiénes somos</a>
-      <a href="servicios.html" class="nav-links__link" data-page="servicios" data-i18n="nav.servicios">Servicios</a>
-      <a href="alojamientos.html" class="nav-links__link" data-page="alojamientos" data-i18n="nav.alojamientos">Alojamientos</a>
-      <a href="alianza-propietarios.html" class="nav-links__link" data-page="alianza" data-i18n="nav.alianza">Alianza con propietarios</a>
-      <a href="contacto.html" class="nav-links__link nav-links__link--active" data-page="contacto" data-i18n="nav.contacto" aria-current="page">Contacto</a>
-    </nav>
-    <div class="nav-actions">
-      <div class="lang-dropdown" data-lang-dropdown>
-        <button type="button" class="lang-dropdown__toggle" data-lang-toggle aria-haspopup="true" aria-expanded="false">
-          <span class="lang-current">ES</span> <i class="fa-solid fa-chevron-down"></i>
-        </button>
-        <div class="lang-dropdown__menu">
-          <button type="button" class="lang-dropdown__menu-button" data-lang="es">Español</button>
-          <button type="button" class="lang-dropdown__menu-button" data-lang="en">English</button>
-          <button type="button" class="lang-dropdown__menu-button" data-lang="fr">Français</button>
+  <nav class="navbar navbar-expand-xl p-0" aria-label="Principal">
+    <div class="container nav">
+      <button type="button" class="navbar-toggler nav-toggle" data-bs-toggle="offcanvas" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+      <a href="index.html" class="navbar-brand logo"><img src="src/assets/logo.png" alt="Clarita Property Care" class="logo-img"></a>
+      <div class="offcanvas offcanvas-start nav-offcanvas" tabindex="-1" id="menu-principal" aria-label="Menú">
+        <div class="offcanvas-header">
+          <a href="index.html" class="logo"><img src="src/assets/logo.png" alt="Clarita Property Care" class="logo-img"></a>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar menú"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav nav-links">
+            <li class="nav-item"><a href="index.html" class="nav-link nav-links__link" data-page="inicio" data-i18n="nav.inicio">Inicio</a></li>
+            <li class="nav-item"><a href="quienes-somos.html" class="nav-link nav-links__link" data-page="quienes" data-i18n="nav.quienes">Quiénes somos</a></li>
+            <li class="nav-item"><a href="servicios.html" class="nav-link nav-links__link" data-page="servicios" data-i18n="nav.servicios">Servicios</a></li>
+            <li class="nav-item"><a href="alojamientos.html" class="nav-link nav-links__link" data-page="alojamientos" data-i18n="nav.alojamientos">Alojamientos</a></li>
+            <li class="nav-item"><a href="alianza-propietarios.html" class="nav-link nav-links__link" data-page="alianza" data-i18n="nav.alianza">Alianza con propietarios</a></li>
+            <li class="nav-item"><a href="contacto.html" class="nav-link nav-links__link nav-links__link--active active" data-page="contacto" data-i18n="nav.contacto" aria-current="page">Contacto</a></li>
+          </ul>
         </div>
       </div>
-      <a class="btn btn-primary" href="https://wa.me/50688888888" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span data-i18n="nav.whatsapp">Hablar por WhatsApp</span></a>
+      <div class="nav-actions">
+        <div class="dropdown lang-dropdown">
+          <button type="button" class="lang-dropdown__toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Idioma">
+            <span class="lang-current">ES</span> <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end lang-dropdown__menu">
+            <li><button type="button" class="dropdown-item lang-dropdown__menu-button" data-lang="es">Español</button></li>
+            <li><button type="button" class="dropdown-item lang-dropdown__menu-button" data-lang="en">English</button></li>
+            <li><button type="button" class="dropdown-item lang-dropdown__menu-button" data-lang="fr">Français</button></li>
+          </ul>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/50688888888" target="_blank" rel="noopener" aria-label="Hablar por WhatsApp"><i class="fa-brands fa-whatsapp"></i><span data-i18n="nav.whatsapp">Hablar por WhatsApp</span></a>
+      </div>
     </div>
-  </div>
+  </nav>
 </header>
 
 
@@ -83,7 +96,7 @@
         <span class="eyebrow" data-i18n="contacto.eyebrow">Contacto</span>
         <h1 data-i18n="contacto.title">Hablemos</h1>
         <p class="lead" data-i18n="contacto.lead">Nuestro equipo está disponible para ayudarte. Ya seas propietario, huésped o aliado local, estamos aquí para brindarte una atención cercana, rápida y personalizada.</p>
-        <div class="contact-info-grid">
+        <div class="row row-cols-1 row-cols-sm-2 g-3 contact-info-grid">
           <div class="contact-info-item">
             <div class="icon-circle"><i class="fa-brands fa-whatsapp"></i></div>
             <div>
@@ -120,30 +133,31 @@
   <section class="section section--flush-top">
     <div class="container">
       <div class="form-card form-card--split">
-        <div class="form-intro">
+        <div class="row g-4 g-lg-5 align-items-start">
+        <div class="col-lg-4 form-intro">
           <h2 class="form-intro__title" data-i18n="contacto.formTitle">Escribinos</h2>
           <span class="form-intro__divider"></span>
           <p class="form-intro__text" data-i18n="contacto.formLead">Completá el formulario y nos pondremos en contacto con vos a la brevedad.</p>
         </div>
-        <div class="form-fields">
+        <div class="col-lg-8 form-fields">
           <form id="form-contacto" novalidate>
-            <div class="form-grid">
-              <div class="field">
+            <div class="row g-3 form-grid">
+              <div class="col-md-6 field">
                 <label for="nombre" data-i18n="contacto.nombre">Nombre completo</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" data-i18n-placeholder="contacto.nombrePh" required>
                 <small class="error" data-i18n="contacto.nombreErr">Ingresá tu nombre completo.</small>
               </div>
-              <div class="field">
+              <div class="col-md-6 field">
                 <label for="email" data-i18n="contacto.email">Correo electrónico</label>
                 <input type="email" id="email" name="email" placeholder="Ej: juan@ejemplo.com" data-i18n-placeholder="contacto.emailPh" required>
                 <small class="error" data-i18n="contacto.emailErr">Ingresá un correo electrónico válido.</small>
               </div>
-              <div class="field">
+              <div class="col-md-6 field">
                 <label for="whatsapp" data-i18n="contacto.whatsappField">WhatsApp</label>
                 <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: +506 8888 8888" data-i18n-placeholder="contacto.whatsappPh" required>
                 <small class="error" data-i18n="contacto.whatsappErr">Ingresá tu número de WhatsApp.</small>
               </div>
-              <div class="field">
+              <div class="col-md-6 field">
                 <label data-i18n="contacto.motivo">Motivo de consulta</label>
                 <div class="form-dropdown" data-field="motivo">
                   <button type="button" class="form-dropdown__trigger" data-dropdown-toggle>
@@ -160,7 +174,7 @@
                 </div>
                 <small class="error" data-i18n="contacto.motivoErr">Seleccioná un motivo de consulta.</small>
               </div>
-              <div class="field full">
+              <div class="col-12 field">
                 <label for="mensaje" data-i18n="contacto.mensaje">Mensaje</label>
                 <textarea id="mensaje" name="mensaje" placeholder="Contanos cómo podemos ayudarte..." data-i18n-placeholder="contacto.mensajePh" required></textarea>
                 <small class="error" data-i18n="contacto.mensajeErr">Escribí tu mensaje.</small>
@@ -172,42 +186,44 @@
             <div id="contacto-msg" class="form-msg"></div>
           </form>
         </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section section--flush-top">
     <div class="container">
-      <div class="audience-footer-cards">
-        <div class="audience-footer-card">
-          <div class="icon-circle" style="background: var(--verde);"><i class="fa-solid fa-house-chimney"></i></div>
+      <div class="row g-4 audience-footer-cards">
+        <div class="col-md-6 col-lg-4"><div class="audience-footer-card h-100">
+          <div class="icon-circle"><i class="fa-solid fa-house-chimney"></i></div>
           <div>
             <h4 data-i18n="contacto.acceso1">Propietarios</h4>
             <p data-i18n="contacto.acceso1d">Consultas sobre cuidado y gestión de propiedades.</p>
           </div>
-        </div>
-        <div class="audience-footer-card">
-          <div class="icon-circle" style="background: var(--azul);"><i class="fa-solid fa-suitcase-rolling"></i></div>
+        </div></div>
+        <div class="col-md-6 col-lg-4"><div class="audience-footer-card h-100">
+          <div class="icon-circle icon-circle--azul"><i class="fa-solid fa-suitcase-rolling"></i></div>
           <div>
             <h4 data-i18n="contacto.acceso2">Turistas y huéspedes</h4>
             <p data-i18n="contacto.acceso2d">Ayuda para alojamientos, experiencias y asistencia.</p>
           </div>
-        </div>
-        <div class="audience-footer-card">
-          <div class="icon-circle" style="background: var(--terracota);"><i class="fa-solid fa-handshake"></i></div>
+        </div></div>
+        <div class="col-md-6 col-lg-4"><div class="audience-footer-card h-100">
+          <div class="icon-circle icon-circle--terracota"><i class="fa-solid fa-handshake"></i></div>
           <div>
             <h4 data-i18n="contacto.acceso3">Aliados locales</h4>
             <p data-i18n="contacto.acceso3d">Conectá tu negocio con nuestros huéspedes.</p>
           </div>
-        </div>
+        </div></div>
       </div>
     </div>
   </section>
 </main>
 
 <footer class="site-footer">
-  <div class="container footer-grid">
-    <div class="footer-about">
+  <div class="container">
+    <div class="row g-4 g-lg-5 footer-grid">
+    <div class="col-12 col-lg-4 footer-about">
       <a href="index.html" class="logo"><img src="src/assets/logo_dark.png" alt="Clarita Property Care" class="logo-img logo-img--footer" loading="lazy" decoding="async"></a>
       <p data-i18n="footer.desc">Gestión integral de propiedades y experiencias de hospitalidad en Nosara, Guanacaste, Costa Rica.</p>
       <div class="footer-social">
@@ -216,7 +232,7 @@
         <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
       </div>
     </div>
-    <div class="footer-col">
+    <div class="col-6 col-md-4 col-lg-2 footer-col">
       <h4 data-i18n="footer.nav">Navegación</h4>
       <ul>
         <li><a href="quienes-somos.html" data-i18n="nav.quienes">Quiénes somos</a></li>
@@ -228,7 +244,7 @@
         <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
       </ul>
     </div>
-    <div class="footer-col">
+    <div class="col-6 col-md-4 col-lg-3 footer-col">
       <h4 data-i18n="footer.servicios">Servicios</h4>
       <ul>
         <li><a href="servicios.html" data-i18n="footer.paraPropietarios">Para propietarios</a></li>
@@ -236,13 +252,14 @@
         <li><a href="contacto.html" data-i18n="footer.paraAliados">Para aliados locales</a></li>
       </ul>
     </div>
-    <div class="footer-col">
+    <div class="col-12 col-md-4 col-lg-3 footer-col">
       <h4 data-i18n="footer.contacto">Contacto</h4>
       <ul>
         <li><i class="fa-brands fa-whatsapp"></i> +506 8888 8888</li>
         <li><i class="fa-regular fa-envelope"></i> info@claritapropertycare.com</li>
         <li><i class="fa-solid fa-location-dot"></i> Nosara, Guanacaste, Costa Rica</li>
       </ul>
+    </div>
     </div>
   </div>
   <div class="container footer-bottom">
@@ -282,6 +299,7 @@
 }
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="src/js/data/i18n.es.js"></script>
 <script src="src/js/data/i18n.en.js"></script>
 <script src="src/js/data/i18n.fr.js"></script>
@@ -291,7 +309,6 @@
 <script src="src/js/data/faq.js"></script>
 <script src="src/js/data/service-cards.js"></script>
 <script src="src/js/modules/i18n.js"></script>
-<script src="src/js/modules/nav.js"></script>
 <script src="src/js/modules/lightbox.js"></script>
 <script src="src/js/modules/faq.js"></script>
 <script src="src/js/modules/listings.js"></script>

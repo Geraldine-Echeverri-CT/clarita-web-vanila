@@ -10,7 +10,7 @@ page: contacto
         <span class="eyebrow" data-i18n="contacto.eyebrow">Contacto</span>
         <h1 data-i18n="contacto.title">Hablemos</h1>
         <p class="lead" data-i18n="contacto.lead">Nuestro equipo está disponible para ayudarte. Ya seas propietario, huésped o aliado local, estamos aquí para brindarte una atención cercana, rápida y personalizada.</p>
-        <div class="contact-info-grid">
+        <div class="row row-cols-1 row-cols-sm-2 g-3 contact-info-grid">
           <div class="contact-info-item">
             <div class="icon-circle"><i class="fa-brands fa-whatsapp"></i></div>
             <div>
@@ -47,30 +47,31 @@ page: contacto
   <section class="section section--flush-top">
     <div class="container">
       <div class="form-card form-card--split">
-        <div class="form-intro">
+        <div class="row g-4 g-lg-5 align-items-start">
+        <div class="col-lg-4 form-intro">
           <h2 class="form-intro__title" data-i18n="contacto.formTitle">Escribinos</h2>
           <span class="form-intro__divider"></span>
           <p class="form-intro__text" data-i18n="contacto.formLead">Completá el formulario y nos pondremos en contacto con vos a la brevedad.</p>
         </div>
-        <div class="form-fields">
+        <div class="col-lg-8 form-fields">
           <form id="form-contacto" novalidate>
-            <div class="form-grid">
-              <div class="field">
+            <div class="row g-3 form-grid">
+              <div class="col-md-6 field">
                 <label for="nombre" data-i18n="contacto.nombre">Nombre completo</label>
                 <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" data-i18n-placeholder="contacto.nombrePh" required>
                 <small class="error" data-i18n="contacto.nombreErr">Ingresá tu nombre completo.</small>
               </div>
-              <div class="field">
+              <div class="col-md-6 field">
                 <label for="email" data-i18n="contacto.email">Correo electrónico</label>
                 <input type="email" id="email" name="email" placeholder="Ej: juan@ejemplo.com" data-i18n-placeholder="contacto.emailPh" required>
                 <small class="error" data-i18n="contacto.emailErr">Ingresá un correo electrónico válido.</small>
               </div>
-              <div class="field">
+              <div class="col-md-6 field">
                 <label for="whatsapp" data-i18n="contacto.whatsappField">WhatsApp</label>
                 <input type="tel" id="whatsapp" name="whatsapp" placeholder="Ej: +506 8888 8888" data-i18n-placeholder="contacto.whatsappPh" required>
                 <small class="error" data-i18n="contacto.whatsappErr">Ingresá tu número de WhatsApp.</small>
               </div>
-              <div class="field">
+              <div class="col-md-6 field">
                 <label data-i18n="contacto.motivo">Motivo de consulta</label>
                 <div class="form-dropdown" data-field="motivo">
                   <button type="button" class="form-dropdown__trigger" data-dropdown-toggle>
@@ -87,7 +88,7 @@ page: contacto
                 </div>
                 <small class="error" data-i18n="contacto.motivoErr">Seleccioná un motivo de consulta.</small>
               </div>
-              <div class="field full">
+              <div class="col-12 field">
                 <label for="mensaje" data-i18n="contacto.mensaje">Mensaje</label>
                 <textarea id="mensaje" name="mensaje" placeholder="Contanos cómo podemos ayudarte..." data-i18n-placeholder="contacto.mensajePh" required></textarea>
                 <small class="error" data-i18n="contacto.mensajeErr">Escribí tu mensaje.</small>
@@ -99,34 +100,35 @@ page: contacto
             <div id="contacto-msg" class="form-msg"></div>
           </form>
         </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section section--flush-top">
     <div class="container">
-      <div class="audience-footer-cards">
-        <div class="audience-footer-card">
-          <div class="icon-circle" style="background: var(--verde);"><i class="fa-solid fa-house-chimney"></i></div>
+      <div class="row g-4 audience-footer-cards">
+        <div class="col-md-6 col-lg-4"><div class="audience-footer-card h-100">
+          <div class="icon-circle"><i class="fa-solid fa-house-chimney"></i></div>
           <div>
             <h4 data-i18n="contacto.acceso1">Propietarios</h4>
             <p data-i18n="contacto.acceso1d">Consultas sobre cuidado y gestión de propiedades.</p>
           </div>
-        </div>
-        <div class="audience-footer-card">
-          <div class="icon-circle" style="background: var(--azul);"><i class="fa-solid fa-suitcase-rolling"></i></div>
+        </div></div>
+        <div class="col-md-6 col-lg-4"><div class="audience-footer-card h-100">
+          <div class="icon-circle icon-circle--azul"><i class="fa-solid fa-suitcase-rolling"></i></div>
           <div>
             <h4 data-i18n="contacto.acceso2">Turistas y huéspedes</h4>
             <p data-i18n="contacto.acceso2d">Ayuda para alojamientos, experiencias y asistencia.</p>
           </div>
-        </div>
-        <div class="audience-footer-card">
-          <div class="icon-circle" style="background: var(--terracota);"><i class="fa-solid fa-handshake"></i></div>
+        </div></div>
+        <div class="col-md-6 col-lg-4"><div class="audience-footer-card h-100">
+          <div class="icon-circle icon-circle--terracota"><i class="fa-solid fa-handshake"></i></div>
           <div>
             <h4 data-i18n="contacto.acceso3">Aliados locales</h4>
             <p data-i18n="contacto.acceso3d">Conectá tu negocio con nuestros huéspedes.</p>
           </div>
-        </div>
+        </div></div>
       </div>
     </div>
   </section>

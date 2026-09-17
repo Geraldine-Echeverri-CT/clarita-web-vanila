@@ -1,0 +1,80 @@
+/* ---------- Bootstrap 5: tema y compatibilidad ----------
+   Bootstrap se carga antes que todo src/css/ (ver head-common.html), así que
+   cada regla propia con la misma especificidad le gana por orden. Este archivo
+   hace dos cosas:
+   1. Pasa los tokens de la marca (00-tokens.css) a las variables --bs-* para
+      que los componentes de Bootstrap (offcanvas, dropdown, foco de botones)
+      usen la paleta de Clarita en vez del azul por defecto.
+   2. Neutraliza los estilos de Bootstrap que chocan con clases que el sitio ya
+      usaba con otro significado (.lead, .nav, .btn, <hr class="divider">). */
+
+:root {
+  --bs-body-font-family: var(--ff-cuerpo);
+  --bs-body-color: var(--texto);
+  --bs-body-bg: var(--crema);
+  --bs-body-line-height: 1.6;
+  --bs-primary: #6f7a4a;
+  --bs-primary-rgb: 111, 122, 74;
+  --bs-secondary-color: var(--texto-suave);
+  --bs-border-color: var(--borde);
+  --bs-border-radius: var(--radio);
+  --bs-link-color: var(--verde-oscuro);
+  --bs-link-color-rgb: 44, 74, 48;
+  --bs-link-hover-color: var(--verde);
+  --bs-link-hover-color-rgb: 111, 122, 74;
+  --bs-heading-color: var(--texto);
+  --bs-emphasis-color: var(--texto);
+  /* Separación entre columnas de .row (g-* la pisa donde haga falta). */
+  --bs-gutter-x: 1.75rem;
+}
+
+/* Bootstrap define .lead como texto grande y fino (1.25rem / 300). En este
+   sitio .lead es solo "párrafo introductorio": tamaño y peso los fija cada
+   sección. */
+.lead { font-size: inherit; font-weight: inherit; }
+
+/* .nav de Bootstrap envuelve (flex-wrap) y quita padding; el header lo usa
+   como fila única de logo + menú + acciones. */
+.nav { flex-wrap: nowrap; }
+
+/* hr de Bootstrap: opacidad 0.25 y borde superior — .divider es una barra
+   sólida de color. */
+hr.divider { opacity: 1; color: inherit; }
+
+/* Botones: los colores ya los define 02-buttons.css; acá solo se ajustan los
+   estados que agrega Bootstrap (foco/activo) para que no aparezca el azul. */
+.btn {
+  --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(111, 122, 74, 0.35);
+  --bs-btn-line-height: 1.4;
+  --bs-btn-border-radius: 8px;
+}
+.btn-primary {
+  --bs-btn-active-bg: var(--verde-oscuro);
+  --bs-btn-active-border-color: var(--verde-oscuro);
+  --bs-btn-active-color: var(--blanco);
+  --bs-btn-disabled-bg: var(--verde);
+  --bs-btn-disabled-border-color: transparent;
+}
+.btn:first-child:active,
+.btn.active { background: var(--verde-oscuro); color: var(--blanco); border-color: var(--verde-oscuro); }
+
+/* Offcanvas y dropdown con la paleta de la marca. */
+.offcanvas {
+  --bs-offcanvas-bg: var(--crema);
+  --bs-offcanvas-color: var(--texto);
+  --bs-offcanvas-border-color: var(--borde);
+}
+.dropdown-menu {
+  --bs-dropdown-bg: var(--superficie);
+  --bs-dropdown-border-color: var(--borde);
+  --bs-dropdown-border-radius: 8px;
+  --bs-dropdown-link-color: var(--texto);
+  --bs-dropdown-link-hover-bg: var(--crema-2);
+  --bs-dropdown-link-hover-color: var(--texto);
+  --bs-dropdown-link-active-bg: var(--crema-2);
+  --bs-dropdown-link-active-color: var(--verde-oscuro);
+}
+
+/* Reboot de Bootstrap pone label inline-block y legend flotando: el sitio
+   espera los valores del navegador. */
+legend { float: none; }

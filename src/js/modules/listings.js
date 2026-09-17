@@ -40,7 +40,7 @@ function renderAlojamientosListado() {
   const d = dict();
   grid.innerHTML = Object.keys(PROPIEDADES).map((key) => {
     const p = PROPIEDADES[key];
-    return '<article class="listing-card" data-key="' + key + '" data-zona="' + zonaKeyFor(key) + '" data-huespedes="' + p.huespedes + '">' +
+    return '<div class="col"><article class="listing-card" data-key="' + key + '" data-zona="' + zonaKeyFor(key) + '" data-huespedes="' + p.huespedes + '">' +
       '<div class="listing-card__thumb"><img src="' + p.img + '" alt="' + p.nombre + ', ' + t(p.zona) + '" loading="lazy" decoding="async"></div>' +
       '<div class="listing-card__body">' +
         '<h3 class="listing-card__title">' + p.nombre + '</h3>' +
@@ -55,7 +55,7 @@ function renderAlojamientosListado() {
           '<a href="alojamiento-detalle.html?propiedad=' + key + '" class="btn btn-primary btn-sm">' + d["alojamientos.verDetalle"] + '</a>' +
         '</div>' +
       '</div>' +
-    '</article>';
+    '</article></div>';
   }).join("");
 }
 
@@ -285,7 +285,9 @@ function initFiltro() {
       const matchZona = zona === "todas" || cardZona === zona;
       const matchHuespedes = !huespedes || cardHuespedes >= huespedes;
       const matchFechas = !(checkin && checkout) || isPropertyAvailable(card.dataset.key, checkin, checkout);
-      card.style.display = matchZona && matchHuespedes && matchFechas ? "" : "none";
+      // Se oculta la columna (.col) que envuelve la tarjeta, no solo la tarjeta:
+      // si no, la columna vacía seguiría ocupando su lugar en la grilla.
+      card.parentElement.style.display = matchZona && matchHuespedes && matchFechas ? "" : "none";
     });
   });
 }

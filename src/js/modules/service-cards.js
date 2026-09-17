@@ -6,13 +6,13 @@ function serviceCardHtml(card, d) {
   const items = card.items
     .map((it) => '<li><i class="fa-solid ' + it.icon + '"></i><span>' + d[it.textKey] + '</span></li>')
     .join("");
-  return '<div class="' + cls + '">' +
+  return '<div class="col"><div class="' + cls + '">' +
     '<div class="icon-circle"><i class="fa-solid ' + card.icon + '"></i></div>' +
     '<span class="eyebrow">' + d[card.eyebrowKey] + '</span>' +
     '<h3>' + d[card.titleKey] + '</h3>' +
     '<ul>' + items + '</ul>' +
     '<a href="' + card.ctaHref + '" class="btn btn-primary btn-block">' + d[card.ctaKey] + '</a>' +
-  '</div>';
+  '</div></div>';
 }
 
 function renderServiceCards(targetId, cards) {

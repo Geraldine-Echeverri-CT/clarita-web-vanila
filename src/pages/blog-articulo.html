@@ -6,9 +6,9 @@ page: blog-articulo
 <main id="articulo-blog">
   <section class="section section--flush-bottom">
     <div class="container" style="max-width:760px;">
-      <a href="blogs.html" style="font-size:0.85rem;color:var(--texto-suave);display:inline-flex;align-items:center;gap:6px;margin-bottom:16px;"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="blog.volver">Volver al blog</span></a>
+      <a href="blogs.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="blog.volver">Volver al blog</span></a>
       <div class="article-meta"><i class="fa-regular fa-calendar"></i> <span id="articulo-fecha"></span></div>
-      <h1 id="articulo-titulo" style="font-size:2.1rem;"></h1>
+      <h1 id="articulo-titulo" class="article-title"></h1>
     </div>
   </section>
 
@@ -23,7 +23,7 @@ page: blog-articulo
     <div class="container center">
       <span class="eyebrow" data-i18n="blog.relacionadosEyebrow">También te puede interesar</span>
       <h2 data-i18n="blog.relacionadosTitle">Más artículos</h2>
-      <div class="blog-grid" id="articulos-relacionados" style="margin-top:30px;text-align:left;"></div>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-2 text-start blog-grid" id="articulos-relacionados"></div>
     </div>
   </section>
 </main>

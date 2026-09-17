@@ -5,13 +5,9 @@
   box-shadow: var(--sombra);
   padding: 40px;
 }
-.form-card--split {
-  display: grid;
-  grid-template-columns: 0.85fr 2fr;
-  gap: 48px;
-  align-items: start;
-  padding: 32px;
-}
+/* Intro a la izquierda + campos a la derecha: .row interna con col-lg-4 /
+   col-lg-8 (contacto.html). */
+.form-card--split { padding: 32px; }
 .form-intro {
   align-self: center;
   position: relative;
@@ -37,9 +33,7 @@
   margin: 0;
   max-width: 38ch;
 }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.form-grid .full { grid-column: 1 / -1; }
-.form-card--split .form-grid { gap: 16px; }
+/* .form-grid es una .row g-3 de Bootstrap: cada .field lleva col-md-6 o col-12. */
 .form-submit {
   display: flex;
   justify-content: flex-end;

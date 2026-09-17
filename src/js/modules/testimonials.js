@@ -10,14 +10,14 @@ function starsHtml(stars) {
 }
 
 function testiCardHtml(item, d) {
-  return '<div class="testi-card">' +
+  return '<div class="col"><div class="testi-card">' +
     '<div class="testi-card__stars">' + starsHtml(item.stars) + '</div>' +
     '<p class="testi-card__comment">' + d[item.commentKey] + '</p>' +
     '<div class="testi-card__person">' +
       '<div class="testi-card__avatar">' + item.avatar + '</div>' +
       '<div><strong>' + item.name + '</strong><span>' + d[item.roleKey] + '</span></div>' +
     '</div>' +
-  '</div>';
+  '</div></div>';
 }
 
 function renderTestimonials(targetId, commentKeys) {

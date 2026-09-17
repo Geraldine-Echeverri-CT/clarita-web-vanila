@@ -36,6 +36,9 @@ const DEFAULT_OG_IMAGE = "src/assets/photos/villa-pool-1.webp";
 // global, así que cada archivo debe cargar DESPUÉS de lo que usa (los datos antes
 // que los módulos que los consumen, y main.js al final porque llama a los init()).
 const SCRIPT_ORDER = [
+  // Bootstrap 5 (bundle con Popper): navbar/offcanvas y dropdown del header.
+  // Va primero y desde CDN, así que no se valida con existsSync más abajo.
+  "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js",
   "src/js/data/i18n.es.js",
   "src/js/data/i18n.en.js",
   "src/js/data/i18n.fr.js",
@@ -45,7 +48,6 @@ const SCRIPT_ORDER = [
   "src/js/data/faq.js",
   "src/js/data/service-cards.js",
   "src/js/modules/i18n.js",
-  "src/js/modules/nav.js",
   "src/js/modules/lightbox.js",
   "src/js/modules/faq.js",
   "src/js/modules/listings.js",
@@ -58,11 +60,19 @@ const SCRIPT_ORDER = [
   "src/js/modules/checkout.js",
   "src/js/main.js",
 ];
+const BOOTSTRAP_JS_SRI = "sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz";
 const GENERATED_NOTICE =
   "<!-- Generado por build.js a partir de src/pages + src/partials. No editar este archivo a mano: los cambios se pierden en el próximo build. -->";
 
+// Con git core.autocrlf=true (default en Windows) los .html se descargan con
+// CRLF: se normaliza a LF para que los regex de abajo (bloque META) funcionen
+// igual en cualquier sistema.
 function read(relPath) {
-  return fs.readFileSync(path.join(ROOT, relPath), "utf8");
+  return readNormalized(path.join(ROOT, relPath));
+}
+
+function readNormalized(absPath) {
+  return fs.readFileSync(absPath, "utf8").replace(/\r\n/g, "\n");
 }
 
 function parsePage(raw) {
@@ -106,16 +116,17 @@ function buildCssLinks(cssFiles) {
 }
 
 function buildNav(headerPartial, activePage) {
-  // Marca como activo el link <a class="nav-links__link" ... data-page="X"> que coincide
-  // con la página actual, agregando el modificador BEM a la clase ya existente (nunca un
-  // segundo atributo class="", que el navegador ignoraría).
+  // Marca como activo el link <a class="nav-link nav-links__link" ... data-page="X"> que
+  // coincide con la página actual, agregando el modificador BEM y la clase "active" de
+  // Bootstrap a la clase ya existente (nunca un segundo atributo class="", que el
+  // navegador ignoraría).
   return headerPartial.replace(
     /<a ([^>]*data-page="([^"]+)"[^>]*)>/g,
     (full, attrs, page) => {
       if (page !== activePage) return `<a ${attrs}>`;
       const withModifier = attrs.replace(
         /class="([^"]*)"/,
-        (m, classes) => `class="${classes} nav-links__link--active"`
+        (m, classes) => `class="${classes} nav-links__link--active active"`
       );
       return `<a ${withModifier} aria-current="page">`;
     }
@@ -134,12 +145,17 @@ function main() {
   const cssLinksHtml = buildCssLinks(cssFiles);
 
   for (const rel of SCRIPT_ORDER) {
+    if (/^https?:/.test(rel)) continue;
     if (!fs.existsSync(path.join(ROOT, rel))) throw new Error("Falta " + rel + " (revisar SCRIPT_ORDER en build.js)");
   }
-  const scriptTagsHtml = SCRIPT_ORDER.map((rel) => `<script src="${rel}"></script>`).join("\n");
+  const scriptTagsHtml = SCRIPT_ORDER.map((rel) =>
+    /^https?:/.test(rel)
+      ? `<script src="${rel}" integrity="${BOOTSTRAP_JS_SRI}" crossorigin="anonymous"></script>`
+      : `<script src="${rel}"></script>`
+  ).join("\n");
 
   for (const filename of pageFiles) {
-    const raw = fs.readFileSync(path.join(SRC_PAGES, filename), "utf8");
+    const raw = readNormalized(path.join(SRC_PAGES, filename));
     const { meta, mainHtml } = parsePage(raw);
     meta.filename = filename;
 

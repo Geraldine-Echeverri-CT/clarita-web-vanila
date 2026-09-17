@@ -39,32 +39,10 @@ function initI18n() {
   if (!I18N[lang]) lang = "es";
   currentLang = lang;
 
-  document.querySelectorAll("[data-lang-dropdown]").forEach((dropdown) => {
-    const toggle = dropdown.querySelector("[data-lang-toggle]");
-    const menu = dropdown.querySelector(".lang-dropdown__menu");
-
-    toggle.addEventListener("click", (e) => {
-      e.stopPropagation();
-      dropdown.classList.toggle("lang-dropdown--open");
-      toggle.setAttribute("aria-expanded", dropdown.classList.contains("lang-dropdown--open") ? "true" : "false");
-    });
-
-    menu.querySelectorAll("button").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        setLanguage(btn.dataset.lang);
-        dropdown.classList.remove("lang-dropdown--open");
-        toggle.setAttribute("aria-expanded", "false");
-      });
-    });
-  });
-
-  document.addEventListener("click", (e) => {
-    document.querySelectorAll(".lang-dropdown--open").forEach((dropdown) => {
-      if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove("lang-dropdown--open");
-        dropdown.querySelector("[data-lang-toggle]").setAttribute("aria-expanded", "false");
-      }
-    });
+  // Abrir/cerrar el menú lo maneja el dropdown de Bootstrap (data-bs-toggle="dropdown"
+  // en header.html); acá solo se escucha la elección de idioma.
+  document.querySelectorAll(".lang-dropdown__menu-button").forEach((btn) => {
+    btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
   });
 
   applyTranslations();

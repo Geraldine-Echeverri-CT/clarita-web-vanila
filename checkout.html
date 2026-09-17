@@ -15,10 +15,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BF%3C/text%3E%3C/svg%3E">
+<!-- Bootstrap 5 (solo CSS de grilla/utilidades/componentes; los estilos propios de src/css/ cargan después y lo tematizan) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="src/css/00-tokens.css">
+<link rel="stylesheet" href="src/css/00a-bootstrap-theme.css">
 <link rel="stylesheet" href="src/css/01-base.css">
 <link rel="stylesheet" href="src/css/02-buttons.css">
 <link rel="stylesheet" href="src/css/03-header.css">
@@ -48,31 +51,41 @@
 <body>
 
 <header class="site-header">
-  <div class="container nav">
-    <button type="button" class="nav-toggle" data-nav-toggle aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
-    <a href="index.html" class="logo"><img src="src/assets/logo.png" alt="Clarita Property Care" class="logo-img"></a>
-    <nav class="nav-links" data-nav-menu aria-label="Principal">
-      <a href="index.html" class="nav-links__link" data-page="inicio" data-i18n="nav.inicio">Inicio</a>
-      <a href="quienes-somos.html" class="nav-links__link" data-page="quienes" data-i18n="nav.quienes">Quiénes somos</a>
-      <a href="servicios.html" class="nav-links__link" data-page="servicios" data-i18n="nav.servicios">Servicios</a>
-      <a href="alojamientos.html" class="nav-links__link" data-page="alojamientos" data-i18n="nav.alojamientos">Alojamientos</a>
-      <a href="alianza-propietarios.html" class="nav-links__link" data-page="alianza" data-i18n="nav.alianza">Alianza con propietarios</a>
-      <a href="contacto.html" class="nav-links__link" data-page="contacto" data-i18n="nav.contacto">Contacto</a>
-    </nav>
-    <div class="nav-actions">
-      <div class="lang-dropdown" data-lang-dropdown>
-        <button type="button" class="lang-dropdown__toggle" data-lang-toggle aria-haspopup="true" aria-expanded="false">
-          <span class="lang-current">ES</span> <i class="fa-solid fa-chevron-down"></i>
-        </button>
-        <div class="lang-dropdown__menu">
-          <button type="button" class="lang-dropdown__menu-button" data-lang="es">Español</button>
-          <button type="button" class="lang-dropdown__menu-button" data-lang="en">English</button>
-          <button type="button" class="lang-dropdown__menu-button" data-lang="fr">Français</button>
+  <nav class="navbar navbar-expand-xl p-0" aria-label="Principal">
+    <div class="container nav">
+      <button type="button" class="navbar-toggler nav-toggle" data-bs-toggle="offcanvas" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+      <a href="index.html" class="navbar-brand logo"><img src="src/assets/logo.png" alt="Clarita Property Care" class="logo-img"></a>
+      <div class="offcanvas offcanvas-start nav-offcanvas" tabindex="-1" id="menu-principal" aria-label="Menú">
+        <div class="offcanvas-header">
+          <a href="index.html" class="logo"><img src="src/assets/logo.png" alt="Clarita Property Care" class="logo-img"></a>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar menú"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav nav-links">
+            <li class="nav-item"><a href="index.html" class="nav-link nav-links__link" data-page="inicio" data-i18n="nav.inicio">Inicio</a></li>
+            <li class="nav-item"><a href="quienes-somos.html" class="nav-link nav-links__link" data-page="quienes" data-i18n="nav.quienes">Quiénes somos</a></li>
+            <li class="nav-item"><a href="servicios.html" class="nav-link nav-links__link" data-page="servicios" data-i18n="nav.servicios">Servicios</a></li>
+            <li class="nav-item"><a href="alojamientos.html" class="nav-link nav-links__link" data-page="alojamientos" data-i18n="nav.alojamientos">Alojamientos</a></li>
+            <li class="nav-item"><a href="alianza-propietarios.html" class="nav-link nav-links__link" data-page="alianza" data-i18n="nav.alianza">Alianza con propietarios</a></li>
+            <li class="nav-item"><a href="contacto.html" class="nav-link nav-links__link" data-page="contacto" data-i18n="nav.contacto">Contacto</a></li>
+          </ul>
         </div>
       </div>
-      <a class="btn btn-primary" href="https://wa.me/50688888888" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span data-i18n="nav.whatsapp">Hablar por WhatsApp</span></a>
+      <div class="nav-actions">
+        <div class="dropdown lang-dropdown">
+          <button type="button" class="lang-dropdown__toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Idioma">
+            <span class="lang-current">ES</span> <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end lang-dropdown__menu">
+            <li><button type="button" class="dropdown-item lang-dropdown__menu-button" data-lang="es">Español</button></li>
+            <li><button type="button" class="dropdown-item lang-dropdown__menu-button" data-lang="en">English</button></li>
+            <li><button type="button" class="dropdown-item lang-dropdown__menu-button" data-lang="fr">Français</button></li>
+          </ul>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/50688888888" target="_blank" rel="noopener" aria-label="Hablar por WhatsApp"><i class="fa-brands fa-whatsapp"></i><span data-i18n="nav.whatsapp">Hablar por WhatsApp</span></a>
+      </div>
     </div>
-  </div>
+  </nav>
 </header>
 
 
@@ -81,7 +94,7 @@
     <div class="container">
       <span class="eyebrow" id="checkout-hero-eyebrow" data-i18n="checkout.eyebrow">Reserva</span>
       <h1 id="checkout-hero-title" data-i18n="checkout.title">Confirmá tu reserva</h1>
-      <p style="color:var(--texto-suave);" id="checkout-hero-lead" data-i18n="checkout.lead">Completá los datos para reservar tu alojamiento en Nosara.</p>
+      <p class="text-body-secondary" id="checkout-hero-lead" data-i18n="checkout.lead">Completá los datos para reservar tu alojamiento en Nosara.</p>
     </div>
   </section>
 
@@ -92,7 +105,8 @@
         <span data-i18n="checkout.demoNote">Esta pasarela de pago está en modo demostración: la reserva se procesa visualmente, pero no se realiza ningún cobro real todavía. La integración con un proveedor de pagos real queda preparada para una etapa posterior.</span>
       </div>
 
-      <div class="checkout-wrap">
+      <div class="row g-4 g-lg-5 checkout-wrap">
+        <div class="col-lg-7">
         <div id="checkout-card-panel">
           <div class="checkout-card">
             <div class="steps-indicator">
@@ -103,49 +117,49 @@
 
             <div id="checkout-step-1">
               <h2 data-i18n="checkout.tuAlojamiento">Tu alojamiento</h2>
-              <div class="form-grid" style="margin-bottom:10px;">
-                <div class="field">
+              <div class="row g-3 mb-2 form-grid">
+                <div class="col-md-6 field">
                   <label data-i18n="checkout.propiedad">Propiedad</label>
                   <div class="field-static"><i class="fa-solid fa-house"></i> <span id="summary-propiedad-nombre"></span></div>
                   <input type="hidden" id="summary-propiedad">
                 </div>
-                <div class="field">
+                <div class="col-md-6 field">
                   <label data-i18n="checkout.fechaLlegada">Fecha de llegada</label>
                   <div class="field-static"><i class="fa-regular fa-calendar"></i> <span id="summary-checkin-display"></span></div>
                   <input type="hidden" id="summary-checkin">
                 </div>
-                <div class="field">
+                <div class="col-md-6 field">
                   <label data-i18n="checkout.noches">Noches</label>
                   <div class="field-static"><i class="fa-regular fa-moon"></i> <span id="summary-noches-display"></span></div>
                   <input type="hidden" id="summary-noches" value="3">
                 </div>
-                <div class="field">
+                <div class="col-md-6 field">
                   <label data-i18n="checkout.huespedes">Huéspedes</label>
                   <div class="field-static"><i class="fa-solid fa-user-group"></i> <span id="summary-huespedes-display"></span></div>
                   <input type="hidden" id="summary-huespedes" value="2">
                 </div>
               </div>
 
-              <h2 style="margin-top:26px;" data-i18n="checkout.tusDatos">Tus datos</h2>
-              <div class="form-grid">
-                <div class="field full">
+              <h2 class="mt-4" data-i18n="checkout.tusDatos">Tus datos</h2>
+              <div class="row g-3 form-grid">
+                <div class="col-12 field">
                   <label for="huesped-nombre" data-i18n="checkout.nombreCompleto">Nombre completo</label>
                   <input type="text" id="huesped-nombre" placeholder="Como aparece en tu identificación" data-i18n-placeholder="checkout.nombreCompletoPh">
                   <small class="error" data-i18n="checkout.nombreErr">Ingresá tu nombre completo.</small>
                 </div>
-                <div class="field">
+                <div class="col-md-6 field">
                   <label for="huesped-email" data-i18n="checkout.email">Correo electrónico</label>
                   <input type="email" id="huesped-email" placeholder="tucorreo@ejemplo.com" data-i18n-placeholder="checkout.emailPh">
                   <small class="error" data-i18n="checkout.emailErr">Ingresá un correo electrónico válido.</small>
                 </div>
-                <div class="field">
+                <div class="col-md-6 field">
                   <label for="huesped-telefono" data-i18n="checkout.telefono">Teléfono</label>
                   <input type="tel" id="huesped-telefono" placeholder="+506 8888 8888" data-i18n-placeholder="checkout.telefonoPh">
                   <small class="error" data-i18n="checkout.telefonoErr">Ingresá un teléfono válido.</small>
                 </div>
               </div>
 
-              <button type="button" class="btn btn-primary btn-block" id="btn-continuar-pago" style="margin-top:10px;">
+              <button type="button" class="btn btn-primary btn-block mt-2" id="btn-continuar-pago">
                 <span data-i18n="checkout.continuarPago">Continuar al pago</span> <i class="fa-solid fa-arrow-right"></i>
               </button>
             </div>
@@ -153,7 +167,7 @@
             <div id="checkout-step-2" style="display:none;">
               <form id="form-pago" novalidate>
                 <div class="pay-header">
-                  <h2 style="margin-bottom:0;" data-i18n="checkout.metodoPago">Método de pago</h2>
+                  <h2 class="mb-0" data-i18n="checkout.metodoPago">Método de pago</h2>
                 </div>
                 <div class="pay-tabs">
                   <button type="button" class="pay-tab pay-tab--active" data-panel="panel-tarjeta"><i class="fa-solid fa-credit-card"></i> <span data-i18n="checkout.tarjeta">Tarjeta</span></button>
@@ -170,23 +184,23 @@
                       <span id="cvisual-expiry">MM/AA</span>
                     </div>
                   </div>
-                  <div class="form-grid">
-                    <div class="field full">
+                  <div class="row g-3 form-grid">
+                    <div class="col-12 field">
                       <label for="card-name" data-i18n="checkout.nombreTarjeta">Nombre en la tarjeta</label>
                       <input type="text" id="card-name" placeholder="Como aparece en la tarjeta" data-i18n-placeholder="checkout.nombreTarjetaPh">
                       <small class="error" data-i18n="checkout.nombreTarjetaErr">Ingresá el nombre tal como aparece en la tarjeta.</small>
                     </div>
-                    <div class="field full">
+                    <div class="col-12 field">
                       <label for="card-number" data-i18n="checkout.numeroTarjeta">Número de tarjeta</label>
                       <input type="text" id="card-number" inputmode="numeric" placeholder="1234 5678 9012 3456" maxlength="19">
                       <small class="error" data-i18n="checkout.numeroTarjetaErr">Ingresá un número de tarjeta válido.</small>
                     </div>
-                    <div class="field">
+                    <div class="col-md-6 field">
                       <label for="card-expiry" data-i18n="checkout.vencimiento">Vencimiento</label>
                       <input type="text" id="card-expiry" placeholder="MM/AA" maxlength="5">
                       <small class="error" data-i18n="checkout.vencimientoErr">Usá el formato MM/AA con una fecha vigente.</small>
                     </div>
-                    <div class="field">
+                    <div class="col-md-6 field">
                       <label for="card-cvv" data-i18n="checkout.cvv">CVV</label>
                       <input type="password" id="card-cvv" inputmode="numeric" placeholder="123" maxlength="4">
                       <small class="error" data-i18n="checkout.cvvErr">Ingresá un CVV válido.</small>
@@ -199,7 +213,7 @@
                     <i class="fa-solid fa-mobile-screen"></i>
                     <p data-i18n="checkout.sinpeText">Realizá tu SINPE Móvil al número:</p>
                     <strong>+506 8888 8888</strong>
-                    <p style="font-size:0.85rem;" data-i18n="checkout.sinpeNota">Guardá el comprobante — te lo pediremos para confirmar tu reserva.</p>
+                    <p class="small" data-i18n="checkout.sinpeNota">Guardá el comprobante — te lo pediremos para confirmar tu reserva.</p>
                   </div>
                 </div>
 
@@ -219,7 +233,7 @@
                   <i class="fa-solid fa-lock"></i> <span data-i18n="checkout.pagar">Pagar</span> <span id="pay-total-label">$0 USD</span>
                 </button>
                 <p class="secure-note"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="checkout.secureNote">Modo demo: no se realizará ningún cobro real.</span></p>
-                <a href="#" id="btn-volver-datos" style="display:block;text-align:center;font-size:0.85rem;color:var(--texto-suave);margin-top:14px;"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="checkout.volverDatos">Volver a tus datos</span></a>
+                <a href="#" id="btn-volver-datos" class="back-link back-link--center"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="checkout.volverDatos">Volver a tus datos</span></a>
               </form>
             </div>
           </div>
@@ -234,7 +248,9 @@
           <div class="success-row success-row--total"><span data-i18n="checkout.total">Total</span><strong id="success-total"></strong></div>
           <a href="index.html" class="btn btn-primary btn-block" data-i18n="checkout.volverInicio">Volver al inicio</a>
         </div>
+        </div>
 
+        <div class="col-lg-5">
         <aside class="summary-card">
           <div class="thumb"><img id="summary-thumb" src="" alt="" loading="lazy" decoding="async"></div>
           <div class="content">
@@ -246,14 +262,16 @@
             <div class="summary-total-row summary-total-row--total"><span data-i18n="checkout.total">Total</span><span id="summary-total"></span></div>
           </div>
         </aside>
+        </div>
       </div>
     </div>
   </section>
 </main>
 
 <footer class="site-footer">
-  <div class="container footer-grid">
-    <div class="footer-about">
+  <div class="container">
+    <div class="row g-4 g-lg-5 footer-grid">
+    <div class="col-12 col-lg-4 footer-about">
       <a href="index.html" class="logo"><img src="src/assets/logo_dark.png" alt="Clarita Property Care" class="logo-img logo-img--footer" loading="lazy" decoding="async"></a>
       <p data-i18n="footer.desc">Gestión integral de propiedades y experiencias de hospitalidad en Nosara, Guanacaste, Costa Rica.</p>
       <div class="footer-social">
@@ -262,7 +280,7 @@
         <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
       </div>
     </div>
-    <div class="footer-col">
+    <div class="col-6 col-md-4 col-lg-2 footer-col">
       <h4 data-i18n="footer.nav">Navegación</h4>
       <ul>
         <li><a href="quienes-somos.html" data-i18n="nav.quienes">Quiénes somos</a></li>
@@ -274,7 +292,7 @@
         <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
       </ul>
     </div>
-    <div class="footer-col">
+    <div class="col-6 col-md-4 col-lg-3 footer-col">
       <h4 data-i18n="footer.servicios">Servicios</h4>
       <ul>
         <li><a href="servicios.html" data-i18n="footer.paraPropietarios">Para propietarios</a></li>
@@ -282,13 +300,14 @@
         <li><a href="contacto.html" data-i18n="footer.paraAliados">Para aliados locales</a></li>
       </ul>
     </div>
-    <div class="footer-col">
+    <div class="col-12 col-md-4 col-lg-3 footer-col">
       <h4 data-i18n="footer.contacto">Contacto</h4>
       <ul>
         <li><i class="fa-brands fa-whatsapp"></i> +506 8888 8888</li>
         <li><i class="fa-regular fa-envelope"></i> info@claritapropertycare.com</li>
         <li><i class="fa-solid fa-location-dot"></i> Nosara, Guanacaste, Costa Rica</li>
       </ul>
+    </div>
     </div>
   </div>
   <div class="container footer-bottom">
@@ -328,6 +347,7 @@
 }
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="src/js/data/i18n.es.js"></script>
 <script src="src/js/data/i18n.en.js"></script>
 <script src="src/js/data/i18n.fr.js"></script>
@@ -337,7 +357,6 @@
 <script src="src/js/data/faq.js"></script>
 <script src="src/js/data/service-cards.js"></script>
 <script src="src/js/modules/i18n.js"></script>
-<script src="src/js/modules/nav.js"></script>
 <script src="src/js/modules/lightbox.js"></script>
 <script src="src/js/modules/faq.js"></script>
 <script src="src/js/modules/listings.js"></script>

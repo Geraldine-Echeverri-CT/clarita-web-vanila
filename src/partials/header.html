@@ -1,27 +1,37 @@
 <header class="site-header">
-  <div class="container nav">
-    <button type="button" class="nav-toggle" data-nav-toggle aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
-    <a href="index.html" class="logo"><img src="src/assets/logo.png" alt="Clarita Property Care" class="logo-img"></a>
-    <nav class="nav-links" data-nav-menu aria-label="Principal">
-      <a href="index.html" class="nav-links__link" data-page="inicio" data-i18n="nav.inicio">Inicio</a>
-      <a href="quienes-somos.html" class="nav-links__link" data-page="quienes" data-i18n="nav.quienes">Quiénes somos</a>
-      <a href="servicios.html" class="nav-links__link" data-page="servicios" data-i18n="nav.servicios">Servicios</a>
-      <a href="alojamientos.html" class="nav-links__link" data-page="alojamientos" data-i18n="nav.alojamientos">Alojamientos</a>
-      <a href="alianza-propietarios.html" class="nav-links__link" data-page="alianza" data-i18n="nav.alianza">Alianza con propietarios</a>
-      <a href="contacto.html" class="nav-links__link" data-page="contacto" data-i18n="nav.contacto">Contacto</a>
-    </nav>
-    <div class="nav-actions">
-      <div class="lang-dropdown" data-lang-dropdown>
-        <button type="button" class="lang-dropdown__toggle" data-lang-toggle aria-haspopup="true" aria-expanded="false">
-          <span class="lang-current">ES</span> <i class="fa-solid fa-chevron-down"></i>
-        </button>
-        <div class="lang-dropdown__menu">
-          <button type="button" class="lang-dropdown__menu-button" data-lang="es">Español</button>
-          <button type="button" class="lang-dropdown__menu-button" data-lang="en">English</button>
-          <button type="button" class="lang-dropdown__menu-button" data-lang="fr">Français</button>
+  <nav class="navbar navbar-expand-xl p-0" aria-label="Principal">
+    <div class="container nav">
+      <button type="button" class="navbar-toggler nav-toggle" data-bs-toggle="offcanvas" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+      <a href="index.html" class="navbar-brand logo"><img src="src/assets/logo.png" alt="Clarita Property Care" class="logo-img"></a>
+      <div class="offcanvas offcanvas-start nav-offcanvas" tabindex="-1" id="menu-principal" aria-label="Menú">
+        <div class="offcanvas-header">
+          <a href="index.html" class="logo"><img src="src/assets/logo.png" alt="Clarita Property Care" class="logo-img"></a>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar menú"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav nav-links">
+            <li class="nav-item"><a href="index.html" class="nav-link nav-links__link" data-page="inicio" data-i18n="nav.inicio">Inicio</a></li>
+            <li class="nav-item"><a href="quienes-somos.html" class="nav-link nav-links__link" data-page="quienes" data-i18n="nav.quienes">Quiénes somos</a></li>
+            <li class="nav-item"><a href="servicios.html" class="nav-link nav-links__link" data-page="servicios" data-i18n="nav.servicios">Servicios</a></li>
+            <li class="nav-item"><a href="alojamientos.html" class="nav-link nav-links__link" data-page="alojamientos" data-i18n="nav.alojamientos">Alojamientos</a></li>
+            <li class="nav-item"><a href="alianza-propietarios.html" class="nav-link nav-links__link" data-page="alianza" data-i18n="nav.alianza">Alianza con propietarios</a></li>
+            <li class="nav-item"><a href="contacto.html" class="nav-link nav-links__link" data-page="contacto" data-i18n="nav.contacto">Contacto</a></li>
+          </ul>
         </div>
       </div>
-      <a class="btn btn-primary" href="https://wa.me/50688888888" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span data-i18n="nav.whatsapp">Hablar por WhatsApp</span></a>
+      <div class="nav-actions">
+        <div class="dropdown lang-dropdown">
+          <button type="button" class="lang-dropdown__toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Idioma">
+            <span class="lang-current">ES</span> <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end lang-dropdown__menu">
+            <li><button type="button" class="dropdown-item lang-dropdown__menu-button" data-lang="es">Español</button></li>
+            <li><button type="button" class="dropdown-item lang-dropdown__menu-button" data-lang="en">English</button></li>
+            <li><button type="button" class="dropdown-item lang-dropdown__menu-button" data-lang="fr">Français</button></li>
+          </ul>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/50688888888" target="_blank" rel="noopener" aria-label="Hablar por WhatsApp"><i class="fa-brands fa-whatsapp"></i><span data-i18n="nav.whatsapp">Hablar por WhatsApp</span></a>
+      </div>
     </div>
-  </div>
+  </nav>
 </header>

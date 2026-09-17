@@ -1,5 +1,5 @@
 /* ---------- Contacto: info lateral ---------- */
-.contact-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 26px; }
+.contact-info-grid { margin-top: 10px; }
 .contact-info-item { display: flex; gap: 14px; align-items: flex-start; min-width: 0; }
 .contact-info-item .icon-circle {
   width: 44px; height: 44px; border-radius: 50%;
@@ -32,12 +32,8 @@
 .social-row a:hover { background: var(--verde-oscuro); }
 
 /* ---------- Audiencia: tarjetas footer contacto ---------- */
-.audience-footer-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  padding: 10px 0 20px;
-}
+/* .audience-footer-cards es una .row g-4; cada tarjeta va en su columna. */
+.audience-footer-cards { padding: 10px 0 20px; }
 .audience-footer-card {
   background: var(--superficie);
   border-radius: var(--radio);
@@ -51,7 +47,10 @@
   width: 56px; height: 56px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   color: var(--blanco); font-size: 1.25rem;
+  background: var(--verde);
   flex-shrink: 0;
 }
+.audience-footer-card .icon-circle--azul { background: var(--azul); }
+.audience-footer-card .icon-circle--terracota { background: var(--terracota); }
 .audience-footer-card h4 { font-size: 1.05rem; margin-bottom: 4px; }
 .audience-footer-card p { margin: 0; font-size: 0.88rem; color: var(--texto-suave); line-height: 1.5; }

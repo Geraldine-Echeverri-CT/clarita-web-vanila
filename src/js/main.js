@@ -7,7 +7,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   initI18n();
-  initNav();
   initLightbox();
   initFaq();
   initListings();

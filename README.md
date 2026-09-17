@@ -1,6 +1,6 @@
 # Clarita Property Care — sitio web
 
-Sitio estático (HTML + CSS + JS, sin framework ni bundler) para Clarita Property Care, gestión de propiedades y hospitalidad en Nosara, Costa Rica.
+Sitio estático (HTML + CSS + JS, sin bundler; usa Bootstrap 5 desde CDN para la grilla responsive y el menú) para Clarita Property Care, gestión de propiedades y hospitalidad en Nosara, Costa Rica.
 
 ## Cómo correrlo en local
 
@@ -68,14 +68,25 @@ Los `<script>` son clásicos (sin `type="module"`) y todo vive en un scope globa
 
 ---
 
+## Bootstrap 5
+
+Bootstrap 5.3 se carga desde jsDelivr (con SRI): el CSS en `src/partials/head-common.html`, **antes** de todo `src/css/`, y el JS (bundle con Popper) primero en `SCRIPT_ORDER` de `build.js`. Se usa para:
+
+- **Grilla responsive**: las secciones de columnas (`.split`, tarjetas de servicios/blog/testimonios/alojamientos, footer, formularios, checkout, detalle) son `.row` + `.col-*` / `row-cols-*`. Los breakpoints son los de Bootstrap: `sm` 576px, `md` 768px, `lg` 992px, `xl` 1200px. Para cambiar cuántas columnas se ven en cada tamaño se editan esas clases en el HTML, no el CSS.
+- **Header**: `navbar-expand-xl` con **offcanvas** (hamburguesa por debajo de 1200px) y **dropdown** para el selector de idioma.
+- Utilidades puntuales (`mt-*`, `justify-content-center`, `text-start`...) en lugar de `style=""` inline.
+
+Las clases propias siguen existiendo al lado de las de Bootstrap (ej. `class="row g-4 blog-grid"`) para estilos y ganchos de JS. `src/css/00a-bootstrap-theme.css` pasa la paleta de marca a las variables `--bs-*` y neutraliza choques de nombres (`.lead`, `.nav`, `.btn`, `hr.divider`).
+
+Los grids que generan los módulos JS (`blog.js`, `testimonials.js`, `service-cards.js`, `listings.js`, `detalle-blog.js`) envuelven cada tarjeta en un `<div class="col">`; el filtro de alojamientos oculta esa columna, no solo la tarjeta.
+
 ## Los módulos JS, uno por uno
 
 Cada archivo de `src/js/modules/` expone una función `initX()` que **main.js** llama al cargar la página. Todas revisan primero si el elemento que necesitan existe (`if (!el) return;`), así que es seguro llamarlas todas en cualquier página aunque esa página no tenga ese componente.
 
 | Archivo | Qué controla |
 |---|---|
-| `i18n.js` | Selector de idioma ES/EN/FR, motor de traducción (`data-i18n`), dispara `clarita:languagechange` |
-| `nav.js` | Menú hamburguesa mobile |
+| `i18n.js` | Selector de idioma ES/EN/FR (el abrir/cerrar lo hace el dropdown de Bootstrap), motor de traducción (`data-i18n`), dispara `clarita:languagechange` |
 | `lightbox.js` | Modal de imagen ampliada al hacer clic en una foto de galería |
 | `faq.js` | Acordeón de preguntas frecuentes |
 | `listings.js` | Buscador y listado de alojamientos: los 4 dropdowns (destino/fechas/zona/huéspedes), el mini-calendario de rango de fechas, y el filtro que oculta/muestra tarjetas |
@@ -116,7 +127,7 @@ Editá `src/js/data/properties.js` — copiá una entrada existente como plantil
 3. Corré `node build.js` — genera `nueva-pagina.html` en la raíz automáticamente (build.js recorre todo `src/pages/`, no hace falta registrarla en ningún lado más).
 
 **Cambiar el estilo de una sección:**
-Los archivos de `src/css/` están numerados por orden de aparición típico en una página (`00-tokens` = colores/fuentes, `01-base` = reset, `02-buttons`, `03-header`, ... hasta `24-detalle-alojamiento`, y `99-responsive.css` al final con los ajustes de mobile/tablet). Buscá el nombre de la clase en el HTML y grepeala en `src/css/` para encontrar dónde se define.
+Los archivos de `src/css/` están numerados por orden de aparición típico en una página (`00-tokens` = colores/fuentes, `00a-bootstrap-theme` = tema/compatibilidad con Bootstrap, `01-base` = reset, `02-buttons`, `03-header`, ... hasta `24-detalle-alojamiento`, y `99-responsive.css` al final con los ajustes de mobile/tablet). Buscá el nombre de la clase en el HTML y grepeala en `src/css/` para encontrar dónde se define.
 
 **Conectar una pasarela de pagos real:**
 Hoy `checkout.js` simula el pago: el `submit` del formulario (dentro de `initCheckout()`, línea ~215) valida los campos y después de un `setTimeout` de 1.6s (línea ~247, solo ahí para que se vea el spinner) genera un código de reserva random y muestra la pantalla de éxito — **no se contacta ningún servidor**. Para conectar un proveedor real (Stripe, dLocal, Tilopay, lo que sea):

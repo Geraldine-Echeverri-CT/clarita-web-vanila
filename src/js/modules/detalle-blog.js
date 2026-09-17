@@ -32,7 +32,10 @@ function renderBlogArticulo() {
       card.innerHTML =
         '<div class="blog-card__thumb"><img src="' + rp.cover + '" alt="' + t(rp.titulo) + '" loading="lazy" decoding="async"></div>' +
         '<div class="blog-card__body"><span class="blog-card__date">' + t(rp.fecha) + '</span><h3 class="blog-card__title">' + t(rp.titulo) + '</h3><p class="blog-card__excerpt">' + t(rp.extracto) + '</p></div>';
-      relacionadosEl.appendChild(card);
+      const col = document.createElement("div");
+      col.className = "col";
+      col.appendChild(card);
+      relacionadosEl.appendChild(col);
     });
   }
 }

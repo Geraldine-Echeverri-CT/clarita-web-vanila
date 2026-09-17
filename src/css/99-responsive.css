@@ -1,31 +1,15 @@
 /* ---------- Responsive ---------- */
-/* La nav de 9 items + selector de idioma + toggle de tema + botón de WhatsApp
-   no entra en una sola fila sin verse saturada, incluso en pantallas grandes
-   (el .container del header tiene un ancho máximo). Por eso el menú colapsa
-   a hamburguesa bastante antes que el resto del layout responsive. */
-@media (max-width: 1240px) {
-  .nav-links { position: fixed; top: 68px; left: 0; right: 0; bottom: 0; background: var(--crema); flex-direction: column; align-items: stretch; padding: 30px 24px; gap: 22px; transform: translateX(-100%); transition: transform 0.3s ease; overflow-y: auto; overflow-x: hidden; white-space: normal; }
-  .nav-links__link { max-width: 100%; font-size: 0.95rem; }
-  .nav-links--open { transform: translateX(0); }
-  .nav-toggle { display: block; }
-  /* backdrop-filter en .site-header crea un "containing block" para
-     descendientes position:fixed (spec CSS Filter Effects), lo que rompe
-     por completo el menú móvil (queda encerrado dentro del header en vez
-     de cubrir la pantalla). Se desactiva mientras el menú puede abrirse. */
-  .site-header { backdrop-filter: none; }
-  .nav-actions .btn span { display: none; }
-  .nav-actions .btn { padding: 10px 14px; }
-}
+/* El menú del header (hamburguesa/offcanvas) se resuelve en 03-header.css
+   con el breakpoint xl de Bootstrap. */
 
-@media (max-width: 980px) {
-  .hero .container, .page-hero .container, .split, .checkout-wrap, .mv-grid, .footer-grid, .detalle-layout { grid-template-columns: 1fr; }
+/* Breakpoints alineados con Bootstrap: lg = 992px, md = 768px. Las grillas
+   de columnas (.split, tarjetas, footer, formularios...) ya no se ajustan acá:
+   son .row/.col-* de Bootstrap y se apilan solas. */
+@media (max-width: 991.98px) {
+  .hero .container, .page-hero .container { grid-template-columns: 1fr; }
   .hero-split-bleed { grid-template-columns: 1fr; padding: 28px 24px 0; }
   .hero-split-bleed-text { padding-left: 0; padding-right: 0; }
   .hero-split-bleed-media { border-radius: var(--radio); margin-top: 24px; }
-  .split--reverse .split-img { order: 0; }
-  .audience-grid, .values-grid, .listing-grid, .contact-info-grid, .audience-footer, .audience-footer-cards, .steps, .form-grid, .blog-grid, .testi-grid, .trust-row { grid-template-columns: 1fr 1fr; }
-  .form-card--split { grid-template-columns: 1fr; gap: 24px; }
-  .steps { grid-template-columns: 1fr 1fr; row-gap: 34px; }
   .search-bar { flex-wrap: wrap; border-radius: var(--radio); margin-top: 30px; }
   .search-field { flex: 1 1 50%; border-right: none; border-bottom: 1px solid var(--borde); }
   /* En una sola fila el alto se lo daba align-items:stretch contra los campos
@@ -37,7 +21,7 @@
   .detalle-gallery { height: 340px; }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 767.98px) {
   .nav-actions { gap: 6px; }
   .logo-img { height: 34px; }
   .hero h1, .page-hero h1 { font-size: 1.9rem; }
@@ -46,11 +30,10 @@
   .hero-banner-copy-text { max-width: 100%; }
   .hero-banner-copy h1 { font-size: 1.6rem; }
   .hero-banner-copy .hero-actions { flex-direction: column; align-items: stretch; }
-  .audience-grid, .values-grid, .listing-grid, .contact-info-grid, .audience-footer, .audience-footer-cards, .steps, .form-grid, .blog-grid, .testi-grid, .amenities-grid, .trust-row, .cta-social-row { grid-template-columns: 1fr; }
+  .cta-social-row { grid-template-columns: 1fr; }
   .cta-social-row { gap: 18px; }
   .search-field { flex: 1 1 100%; }
   .search-field__panel { left: 0; right: 0; min-width: 0; }
-  .form-card--split { gap: 18px; }
   .form-submit { justify-content: stretch; }
   .form-submit .btn { width: 100%; justify-content: center; }
   .trust-item { padding: 14px 0; }

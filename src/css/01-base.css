@@ -53,6 +53,13 @@ p { margin: 0 0 1em; }
 /* Párrafo introductorio centrado bajo un título de sección — repetido idéntico
    4 veces como style="" inline en index.html antes de esto. */
 .section-lead { max-width: 60ch; margin: 0 auto 50px; color: var(--texto-suave); }
+/* Párrafo corto antes de los botones de cierre de sección (FAQ, testimoniales). */
+.section-close-lead { max-width: 520px; margin: 0 auto 24px; color: var(--texto-suave); }
+
+/* Link "← Volver a ..." arriba de detalle de alojamiento / artículo / checkout. */
+.back-link { font-size: 0.85rem; color: var(--texto-suave); display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; }
+.back-link:hover { color: var(--verde-oscuro); }
+.back-link--center { display: flex; justify-content: center; margin: 14px 0 0; }
 
 .eyebrow {
   display: inline-block;

@@ -1,9 +1,6 @@
 /* ---------- Tarjetas de audiencia (3 columnas) ---------- */
-.audience-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
+/* .audience-grid es una .row de Bootstrap (row-cols-* en el HTML); cada
+   tarjeta va dentro de una .col generada por service-cards.js. */
 .audience-card {
   background: var(--superficie);
   border-radius: var(--radio);
@@ -12,6 +9,7 @@
   border-top: 4px solid var(--verde);
   display: flex;
   flex-direction: column;
+  height: 100%;
   /* Sin esto, el <li> flex anidado hace que el navegador calcule mal el
      tamaño mínimo de esta tarjeta como ítem de grid, y la desborda hacia
      la derecha en mobile (columna única) en vez de encogerse al ancho
@@ -48,11 +46,6 @@
 .audience-card--terracota li i { color: var(--terracota); }
 
 /* ---------- Fila de confianza (icono + texto centrados) ---------- */
-.audience-footer {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-}
 .audience-footer .item {
   display: flex;
   flex-direction: row;
