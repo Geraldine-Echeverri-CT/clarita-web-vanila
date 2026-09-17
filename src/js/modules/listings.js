@@ -44,11 +44,11 @@ function renderAlojamientosListado() {
       '<div class="listing-card__thumb"><img src="' + p.img + '" alt="' + p.nombre + ', ' + t(p.zona) + '" loading="lazy" decoding="async"></div>' +
       '<div class="listing-card__body">' +
         '<h3 class="listing-card__title">' + p.nombre + '</h3>' +
-        '<p class="listing-card__loc"><i class="fa-solid fa-location-dot"></i> ' + t(p.zona) + '</p>' +
+        '<p class="listing-card__loc"><i class="ti ti-map-pin"></i> ' + t(p.zona) + '</p>' +
         '<div class="listing-card__meta">' +
-          '<span><i class="fa-solid fa-user"></i> ' + p.huespedes + ' ' + d["common.huespedes"] + '</span>' +
-          '<span><i class="fa-solid fa-bed"></i> ' + p.habitaciones + ' ' + d["common.habitaciones"] + '</span>' +
-          '<span><i class="fa-solid fa-star"></i> ' + t(p.amenity) + '</span>' +
+          '<span><i class="ti ti-user"></i> ' + p.huespedes + ' ' + d["common.huespedes"] + '</span>' +
+          '<span><i class="ti ti-bed"></i> ' + p.habitaciones + ' ' + d["common.habitaciones"] + '</span>' +
+          '<span><i class="ti ti-star-filled"></i> ' + t(p.amenity) + '</span>' +
         '</div>' +
         '<div class="listing-card__footer">' +
           '<p class="listing-card__price">$' + p.precio + ' <span>' + d["common.nochePorNoche"] + '</span></p>' +

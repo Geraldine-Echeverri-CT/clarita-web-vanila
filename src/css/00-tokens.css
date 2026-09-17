@@ -1,25 +1,39 @@
 /* ========================================================
-   Clarita Property Care — hoja de estilos principal
+   Clarita Property Care — tokens de marca
+   Paleta y tipografías del manual de marca. Ningún otro archivo escribe un
+   color o una fuente a mano: todos usan estas variables.
    ======================================================== */
 
 :root {
-  --verde-oscuro: #2c4a30;
-  --verde: #6f7a4a;
-  --verde-claro: #96a56b;
-  --azul: #6f8a90;
-  --terracota: #9b5e3f;
-  --terracota-claro: #c9a26a;
-  --crema: #faf9f6;
-  --crema-2: #f2f1ea;
-  --texto: #23261f;
-  --texto-suave: #6f6f68;
-  --blanco: #ffffff;
-  --superficie: #ffffff;
-  --borde: #e4e2d8;
-  --header-bg: rgba(250, 249, 246, 0.96);
-  --sombra: 0 10px 30px rgba(30, 40, 25, 0.10);
-  --radio: 10px;
-  --ff-titulo: "Cormorant Garamond", Georgia, serif;
-  --ff-cuerpo: "Jost", "Segoe UI", sans-serif;
-}
+  /* Paleta oficial */
+  --petroleo-oscuro: #255957;   /* verde petróleo: footer, franjas oscuras, hover */
+  --petroleo: #437c90;          /* azul petróleo: color principal (logo, botones, íconos) */
+  --sol: #f7c549;               /* amarillo: acentos y CTA destacados */
+  --dorado: #a98843;            /* ocre: detalles decorativos */
+  --crema-2: #efebd4;           /* crema de marca: fondos alternos */
 
+  /* Derivados (tintes/sombras de la paleta, para textos y fondos suaves) */
+  --petroleo-claro: #8db4c1;
+  --petroleo-tenue: #e3eeef;
+  --sol-hover: #eeb52c;
+  --sol-tenue: #fdf1cf;
+  --dorado-oscuro: #7f6429;     /* ocre con contraste AA para texto chico */
+  --crema: #f8f5e9;             /* fondo general, un tono más claro que --crema-2 */
+
+  --texto: #1e3b3a;
+  --texto-suave: #566a69;
+  --blanco: #ffffff;
+  --superficie: #fffdf8;
+  --borde: #e1dbc1;
+  --header-bg: rgba(248, 245, 233, 0.94);
+  --sombra: 0 12px 32px rgba(37, 89, 87, 0.10);
+  --sombra-hover: 0 18px 40px rgba(37, 89, 87, 0.16);
+  --radio: 14px;
+
+  /* Tipografías de marca: All Round Gothic (títulos) y Filson Pro (texto) son
+     de Adobe Fonts. Si se agrega el kit de Adobe (<link> de use.typekit.net
+     en head-common.html) se usan solas; mientras tanto se ven Quicksand y
+     Figtree de Google Fonts, las alternativas libres más parecidas. */
+  --ff-titulo: "all-round-gothic", "Quicksand", "Nunito", system-ui, sans-serif;
+  --ff-cuerpo: "filson-pro", "Figtree", "Segoe UI", system-ui, sans-serif;
+}

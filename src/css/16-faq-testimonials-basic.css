@@ -9,9 +9,11 @@
 .faq-category:first-child { margin-top: 0; }
 .faq-item {
   background: var(--superficie);
-  border-radius: 10px;
+  border-radius: var(--radio);
+  border-left: 4px solid transparent;
   box-shadow: var(--sombra);
   margin-bottom: 14px;
+  transition: border-color 0.2s ease;
   overflow: hidden;
 }
 .faq-item__question {
@@ -23,14 +25,15 @@
   font-family: var(--ff-cuerpo);
   font-weight: 600;
   font-size: 0.98rem;
-  color: var(--verde-oscuro);
+  color: var(--petroleo-oscuro);
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
 }
-.faq-item__question i { transition: transform 0.25s ease; color: var(--terracota); }
+.faq-item__question i { transition: transform 0.25s ease; color: var(--petroleo); font-size: 1.2rem; }
+.faq-item--open { border-left-color: var(--sol); }
 .faq-item--open .faq-item__question i { transform: rotate(45deg); }
 .faq-item__answer {
   max-height: 0;

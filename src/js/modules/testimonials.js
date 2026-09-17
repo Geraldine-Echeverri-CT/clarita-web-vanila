@@ -4,8 +4,8 @@ function starsHtml(stars) {
   const full = Math.floor(stars);
   const half = stars % 1 !== 0;
   let html = "";
-  for (let i = 0; i < full; i++) html += '<i class="fa-solid fa-star"></i>';
-  if (half) html += '<i class="fa-solid fa-star-half-stroke"></i>';
+  for (let i = 0; i < full; i++) html += '<i class="ti ti-star-filled"></i>';
+  if (half) html += '<i class="ti ti-star-half-filled"></i>';
   return html;
 }
 

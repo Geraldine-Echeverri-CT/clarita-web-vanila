@@ -20,11 +20,26 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 h1, h2, h3, h4 {
   font-family: var(--ff-titulo);
-  font-weight: 600;
-  color: var(--texto);
+  font-weight: 700;
+  color: var(--petroleo-oscuro);
   line-height: 1.2;
+  letter-spacing: -0.01em;
   margin: 0 0 0.5em;
 }
+
+/* Palabras destacadas en títulos (<em>): en vez de cursiva, color de marca
+   con un subrayado tipo marcador en amarillo sol — cálido y llamativo. */
+h1 em, h2 em {
+  font-style: normal;
+  color: var(--petroleo);
+  background: linear-gradient(transparent 62%, rgba(247, 197, 73, 0.55) 62%, rgba(247, 197, 73, 0.55) 92%, transparent 92%);
+  padding: 0 0.08em;
+}
+
+/* Spinner para los íconos de carga (reemplaza fa-spin de Font Awesome). */
+.ti-spin { display: inline-block; animation: ti-spin 0.9s linear infinite; }
+@keyframes ti-spin { to { transform: rotate(360deg); } }
+.ti { line-height: 1; vertical-align: -0.125em; }
 
 p { margin: 0 0 1em; }
 
@@ -58,7 +73,7 @@ p { margin: 0 0 1em; }
 
 /* Link "← Volver a ..." arriba de detalle de alojamiento / artículo / checkout. */
 .back-link { font-size: 0.85rem; color: var(--texto-suave); display: inline-flex; align-items: center; gap: 6px; margin-bottom: 16px; }
-.back-link:hover { color: var(--verde-oscuro); }
+.back-link:hover { color: var(--petroleo-oscuro); }
 .back-link--center { display: flex; justify-content: center; margin: 14px 0 0; }
 
 .eyebrow {
@@ -66,15 +81,16 @@ p { margin: 0 0 1em; }
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--verde);
+  font-weight: 700;
+  color: var(--dorado-oscuro);
   margin-bottom: 14px;
 }
 
 .divider {
-  width: 60px;
-  height: 3px;
-  background: var(--verde);
+  width: 64px;
+  height: 4px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--petroleo) 0 55%, var(--sol) 55% 100%);
   border: none;
   margin: 18px 0 24px;
 }
@@ -83,7 +99,7 @@ p { margin: 0 0 1em; }
 .center .divider { margin-left: auto; margin-right: auto; }
 
 :focus-visible {
-  outline: 3px solid var(--terracota);
+  outline: 3px solid var(--dorado);
   outline-offset: 2px;
 }
 

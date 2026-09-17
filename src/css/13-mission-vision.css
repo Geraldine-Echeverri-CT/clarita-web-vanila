@@ -1,7 +1,7 @@
 /* ---------- Misión / Visión / bloques de dos columnas planos ---------- */
 /* .mv-grid es una .row g-5 de Bootstrap; cada .mv-card es su col-lg-6. */
 .mv-card .icon-circle {
-  color: var(--verde);
+  color: var(--petroleo);
   font-size: 2rem;
   margin-bottom: 16px;
 }
@@ -15,11 +15,12 @@
   content: "";
   position: absolute;
   left: 0; bottom: 0;
-  width: 40px; height: 2px;
-  background: var(--verde);
+  width: 40px; height: 3px;
+  border-radius: 3px;
+  background: var(--sol);
 }
 .mv-card p { color: var(--texto-suave); font-size: 0.94rem; margin: 0; }
-.mv-card__tag { margin-top: 16px; color: var(--terracota); font-weight: 600; font-size: 0.9rem; }
+.mv-card__tag { margin-top: 16px; color: var(--dorado-oscuro); font-weight: 600; font-size: 0.9rem; }
 .mv-card--center { text-align: center; }
 .mv-card--center .icon-circle { margin-left: auto; margin-right: auto; }
 .mv-card--center h3::after { left: 50%; transform: translateX(-50%); }

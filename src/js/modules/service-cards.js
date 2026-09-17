@@ -4,10 +4,10 @@
 function serviceCardHtml(card, d) {
   const cls = "audience-card" + (card.modifier ? " " + card.modifier : "");
   const items = card.items
-    .map((it) => '<li><i class="fa-solid ' + it.icon + '"></i><span>' + d[it.textKey] + '</span></li>')
+    .map((it) => '<li><i class="ti ' + it.icon + '"></i><span>' + d[it.textKey] + '</span></li>')
     .join("");
   return '<div class="col"><div class="' + cls + '">' +
-    '<div class="icon-circle"><i class="fa-solid ' + card.icon + '"></i></div>' +
+    '<div class="icon-circle"><i class="ti ' + card.icon + '"></i></div>' +
     '<span class="eyebrow">' + d[card.eyebrowKey] + '</span>' +
     '<h3>' + d[card.titleKey] + '</h3>' +
     '<ul>' + items + '</ul>' +

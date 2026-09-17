@@ -38,7 +38,7 @@ function refreshCheckoutSummary() {
   thumb.src = propiedad.img;
   thumb.alt = propiedad.nombre;
   nombreEl.textContent = propiedad.nombre;
-  zonaEl.innerHTML = '<i class="fa-solid fa-location-dot"></i> ' + t(propiedad.zona);
+  zonaEl.innerHTML = '<i class="ti ti-map-pin"></i> ' + t(propiedad.zona);
   subtotalEl.textContent = "$" + subtotal + " USD (" + noches + " " + nocheTxt + ")";
   limpiezaEl.textContent = "$" + limpieza + " USD";
   totalEl.textContent = "$" + total + " USD";
@@ -242,7 +242,7 @@ function initCheckout() {
       if (!valid) return;
 
       payBtn.disabled = true;
-      payBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> ' + d["checkout.procesando"];
+      payBtn.innerHTML = '<i class="ti ti-loader-2 ti-spin"></i> ' + d["checkout.procesando"];
 
       setTimeout(() => {
         const d2 = dict();

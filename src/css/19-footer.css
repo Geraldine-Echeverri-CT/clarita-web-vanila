@@ -1,29 +1,26 @@
 /* ---------- Footer ----------
-   El verde es el mismo --verde que el botón de WhatsApp del navbar (antes el
-   footer usaba --verde-oscuro, un tono distinto) — los textos se aclararon
-   un poco respecto de antes para mantener buen contraste sobre el tono más
-   claro. */
-.site-footer { background: var(--verde); color: #f2f4ec; padding: 60px 0 26px; margin-top: 0; }
+   Verde petróleo con textos crema y títulos en amarillo sol (combinación de
+   "fondos permitidos" del manual de marca). */
+.site-footer { background: var(--petroleo-oscuro); color: var(--crema); padding: 64px 0 26px; margin-top: 0; }
 /* .footer-grid es una .row de Bootstrap con col-* por columna (footer.html). */
 .footer-grid .logo { color: var(--crema); }
-.footer-grid .logo small { color: var(--crema); }
-.footer-about p { color: #e4e8d9; font-size: 0.9rem; margin-top: 14px; }
-.footer-col h4 { color: var(--crema); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
-.footer-col ul li { margin-bottom: 10px; overflow-wrap: anywhere; }
-.footer-col a { color: #e4e8d9; font-size: 0.9rem; transition: color 0.2s; }
-.footer-col a:hover { color: var(--blanco); }
-.footer-social { display: flex; gap: 10px; margin-top: 16px; }
-.footer-social a { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; }
-.footer-social a:hover { background: var(--terracota); }
+.footer-about p { color: rgba(248, 245, 233, 0.82); font-size: 0.92rem; margin-top: 16px; max-width: 36ch; }
+.footer-col h4 { color: var(--sol); font-family: var(--ff-cuerpo); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
+.footer-col ul li { margin-bottom: 10px; overflow-wrap: anywhere; color: rgba(248, 245, 233, 0.82); font-size: 0.9rem; }
+.footer-col li i { color: var(--sol); margin-right: 4px; }
+.footer-col a { color: rgba(248, 245, 233, 0.82); font-size: 0.9rem; transition: color 0.2s; }
+.footer-col a:hover { color: var(--sol); }
+.footer-social { display: flex; gap: 10px; margin-top: 18px; }
+.footer-social a { width: 38px; height: 38px; border-radius: 50%; background: rgba(248, 245, 233, 0.12); color: var(--crema); font-size: 1.15rem; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
+.footer-social a:hover { background: var(--sol); color: var(--petroleo-oscuro); }
 .footer-bottom {
   margin-top: 50px;
   padding-top: 22px;
-  border-top: 1px solid rgba(255,255,255,0.18);
+  border-top: 1px solid rgba(248, 245, 233, 0.16);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 10px;
   font-size: 0.8rem;
-  color: #dde2d0;
+  color: rgba(248, 245, 233, 0.7);
 }
-

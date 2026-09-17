@@ -207,7 +207,7 @@ function renderAlojamientoDetalle() {
 
   document.title = p.nombre + " | Clarita Property Care";
   document.getElementById("detalle-nombre").textContent = p.nombre;
-  document.getElementById("detalle-zona").innerHTML = '<i class="fa-solid fa-location-dot"></i> ' + t(p.zona);
+  document.getElementById("detalle-zona").innerHTML = '<i class="ti ti-map-pin"></i> ' + t(p.zona);
   document.getElementById("detalle-descripcion").textContent = t(p.descripcion);
   document.getElementById("detalle-huespedes-meta").textContent = p.huespedes + " " + d["common.huespedes"];
   document.getElementById("detalle-habitaciones-meta").textContent = p.habitaciones + " " + d["common.habitaciones"];
@@ -221,7 +221,7 @@ function renderAlojamientoDetalle() {
     amenitiesList.innerHTML = "";
     t(p.amenities).forEach((a) => {
       const span = document.createElement("span");
-      span.innerHTML = '<i class="fa-solid fa-circle-check"></i> ' + a;
+      span.innerHTML = '<i class="ti ti-circle-check"></i> ' + a;
       amenitiesList.appendChild(span);
     });
   }

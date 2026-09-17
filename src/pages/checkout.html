@@ -15,7 +15,7 @@ page: checkout
   <section class="section section--after-hero">
     <div class="container">
       <div class="demo-note" id="checkout-demo-note">
-        <i class="fa-solid fa-circle-info"></i>
+        <i class="ti ti-info-circle"></i>
         <span data-i18n="checkout.demoNote">Esta pasarela de pago está en modo demostración: la reserva se procesa visualmente, pero no se realiza ningún cobro real todavía. La integración con un proveedor de pagos real queda preparada para una etapa posterior.</span>
       </div>
 
@@ -34,22 +34,22 @@ page: checkout
               <div class="row g-3 mb-2 form-grid">
                 <div class="col-md-6 field">
                   <label data-i18n="checkout.propiedad">Propiedad</label>
-                  <div class="field-static"><i class="fa-solid fa-house"></i> <span id="summary-propiedad-nombre"></span></div>
+                  <div class="field-static"><i class="ti ti-home"></i> <span id="summary-propiedad-nombre"></span></div>
                   <input type="hidden" id="summary-propiedad">
                 </div>
                 <div class="col-md-6 field">
                   <label data-i18n="checkout.fechaLlegada">Fecha de llegada</label>
-                  <div class="field-static"><i class="fa-regular fa-calendar"></i> <span id="summary-checkin-display"></span></div>
+                  <div class="field-static"><i class="ti ti-calendar"></i> <span id="summary-checkin-display"></span></div>
                   <input type="hidden" id="summary-checkin">
                 </div>
                 <div class="col-md-6 field">
                   <label data-i18n="checkout.noches">Noches</label>
-                  <div class="field-static"><i class="fa-regular fa-moon"></i> <span id="summary-noches-display"></span></div>
+                  <div class="field-static"><i class="ti ti-moon"></i> <span id="summary-noches-display"></span></div>
                   <input type="hidden" id="summary-noches" value="3">
                 </div>
                 <div class="col-md-6 field">
                   <label data-i18n="checkout.huespedes">Huéspedes</label>
-                  <div class="field-static"><i class="fa-solid fa-user-group"></i> <span id="summary-huespedes-display"></span></div>
+                  <div class="field-static"><i class="ti ti-users"></i> <span id="summary-huespedes-display"></span></div>
                   <input type="hidden" id="summary-huespedes" value="2">
                 </div>
               </div>
@@ -74,7 +74,7 @@ page: checkout
               </div>
 
               <button type="button" class="btn btn-primary btn-block mt-2" id="btn-continuar-pago">
-                <span data-i18n="checkout.continuarPago">Continuar al pago</span> <i class="fa-solid fa-arrow-right"></i>
+                <span data-i18n="checkout.continuarPago">Continuar al pago</span> <i class="ti ti-arrow-right"></i>
               </button>
             </div>
 
@@ -84,9 +84,9 @@ page: checkout
                   <h2 class="mb-0" data-i18n="checkout.metodoPago">Método de pago</h2>
                 </div>
                 <div class="pay-tabs">
-                  <button type="button" class="pay-tab pay-tab--active" data-panel="panel-tarjeta"><i class="fa-solid fa-credit-card"></i> <span data-i18n="checkout.tarjeta">Tarjeta</span></button>
-                  <button type="button" class="pay-tab" data-panel="panel-sinpe"><i class="fa-solid fa-mobile-screen"></i> <span data-i18n="checkout.sinpe">SINPE Móvil</span></button>
-                  <button type="button" class="pay-tab" data-panel="panel-paypal"><i class="fa-brands fa-paypal"></i> <span data-i18n="checkout.paypal">PayPal</span></button>
+                  <button type="button" class="pay-tab pay-tab--active" data-panel="panel-tarjeta"><i class="ti ti-credit-card"></i> <span data-i18n="checkout.tarjeta">Tarjeta</span></button>
+                  <button type="button" class="pay-tab" data-panel="panel-sinpe"><i class="ti ti-device-mobile"></i> <span data-i18n="checkout.sinpe">SINPE Móvil</span></button>
+                  <button type="button" class="pay-tab" data-panel="panel-paypal"><i class="ti ti-brand-paypal"></i> <span data-i18n="checkout.paypal">PayPal</span></button>
                 </div>
 
                 <div class="pay-panel pay-panel--active" id="panel-tarjeta">
@@ -124,7 +124,7 @@ page: checkout
 
                 <div class="pay-panel" id="panel-sinpe">
                   <div class="sinpe-box">
-                    <i class="fa-solid fa-mobile-screen"></i>
+                    <i class="ti ti-device-mobile"></i>
                     <p data-i18n="checkout.sinpeText">Realizá tu SINPE Móvil al número:</p>
                     <strong>+506 8888 8888</strong>
                     <p class="small" data-i18n="checkout.sinpeNota">Guardá el comprobante — te lo pediremos para confirmar tu reserva.</p>
@@ -133,7 +133,7 @@ page: checkout
 
                 <div class="pay-panel" id="panel-paypal">
                   <div class="paypal-box">
-                    <i class="fa-brands fa-paypal"></i>
+                    <i class="ti ti-brand-paypal"></i>
                     <p data-i18n="checkout.paypalText">Serás redirigido a PayPal para completar el pago de forma segura (modo demo).</p>
                   </div>
                 </div>
@@ -144,17 +144,17 @@ page: checkout
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-block" id="btn-pagar">
-                  <i class="fa-solid fa-lock"></i> <span data-i18n="checkout.pagar">Pagar</span> <span id="pay-total-label">$0 USD</span>
+                  <i class="ti ti-lock"></i> <span data-i18n="checkout.pagar">Pagar</span> <span id="pay-total-label">$0 USD</span>
                 </button>
-                <p class="secure-note"><i class="fa-solid fa-shield-halved"></i> <span data-i18n="checkout.secureNote">Modo demo: no se realizará ningún cobro real.</span></p>
-                <a href="#" id="btn-volver-datos" class="back-link back-link--center"><i class="fa-solid fa-arrow-left"></i> <span data-i18n="checkout.volverDatos">Volver a tus datos</span></a>
+                <p class="secure-note"><i class="ti ti-shield-check"></i> <span data-i18n="checkout.secureNote">Modo demo: no se realizará ningún cobro real.</span></p>
+                <a href="#" id="btn-volver-datos" class="back-link back-link--center"><i class="ti ti-arrow-left"></i> <span data-i18n="checkout.volverDatos">Volver a tus datos</span></a>
               </form>
             </div>
           </div>
         </div>
 
         <div id="success-screen" class="checkout-card success-screen" style="display:none;">
-          <div class="icon-ok"><i class="fa-solid fa-check"></i></div>
+          <div class="icon-ok"><i class="ti ti-check"></i></div>
           <h2 data-i18n="checkout.exitoTitle">¡Reserva confirmada!</h2>
           <p class="success-lead" data-i18n="checkout.exitoLead">No se realizó ningún cobro real — esto es una simulación. En una integración real, acá se enviaría la confirmación por correo.</p>
           <div class="success-row"><span data-i18n="checkout.propiedad">Propiedad</span><strong id="success-property"></strong></div>

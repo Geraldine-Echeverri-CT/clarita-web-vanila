@@ -14,12 +14,15 @@
 <meta name="twitter:image" content="https://tu-dominio.com/src/assets/photos/villa-pool-1.webp">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BF%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#437c90">
+<link rel="icon" type="image/png" href="src/assets/favicon.png">
+<link rel="apple-touch-icon" href="src/assets/apple-touch-icon.png">
 <!-- Bootstrap 5 (solo CSS de grilla/utilidades/componentes; los estilos propios de src/css/ cargan después y lo tematizan) -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<!-- Íconos de línea (trazo redondeado, como la iconografía del manual de marca) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" integrity="sha384-XAeMOW3g/ahgKWjRcH7Xp+LVEQ/hkKrV0zkAUTnFwlaWK1aXfd9vVufdwqr/836i" crossorigin="anonymous">
 <link rel="stylesheet" href="src/css/00-tokens.css">
 <link rel="stylesheet" href="src/css/00a-bootstrap-theme.css">
 <link rel="stylesheet" href="src/css/01-base.css">
@@ -53,11 +56,11 @@
 <header class="site-header">
   <nav class="navbar navbar-expand-xl p-0" aria-label="Principal">
     <div class="container nav">
-      <button type="button" class="navbar-toggler nav-toggle" data-bs-toggle="offcanvas" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
-      <a href="index.html" class="navbar-brand logo"><img src="src/assets/logo.png" alt="Clarita Property Care" class="logo-img"></a>
+      <button type="button" class="navbar-toggler nav-toggle" data-bs-toggle="offcanvas" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-label="Abrir menú"><i class="ti ti-menu-2"></i></button>
+      <a href="index.html" class="navbar-brand logo"><img src="src/assets/logo-petroleo.png" alt="Clarita Property Care" class="logo-img"></a>
       <div class="offcanvas offcanvas-start nav-offcanvas" tabindex="-1" id="menu-principal" aria-label="Menú">
         <div class="offcanvas-header">
-          <a href="index.html" class="logo"><img src="src/assets/logo.png" alt="Clarita Property Care" class="logo-img"></a>
+          <a href="index.html" class="logo"><img src="src/assets/logo-petroleo.png" alt="Clarita Property Care" class="logo-img"></a>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar menú"></button>
         </div>
         <div class="offcanvas-body">
@@ -74,7 +77,7 @@
       <div class="nav-actions">
         <div class="dropdown lang-dropdown">
           <button type="button" class="lang-dropdown__toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Idioma">
-            <span class="lang-current">ES</span> <i class="fa-solid fa-chevron-down"></i>
+            <span class="lang-current">ES</span> <i class="ti ti-chevron-down"></i>
           </button>
           <ul class="dropdown-menu dropdown-menu-end lang-dropdown__menu">
             <li><button type="button" class="dropdown-item lang-dropdown__menu-button" data-lang="es">Español</button></li>
@@ -82,7 +85,7 @@
             <li><button type="button" class="dropdown-item lang-dropdown__menu-button" data-lang="fr">Français</button></li>
           </ul>
         </div>
-        <a class="btn btn-primary" href="https://wa.me/50688888888" target="_blank" rel="noopener" aria-label="Hablar por WhatsApp"><i class="fa-brands fa-whatsapp"></i><span data-i18n="nav.whatsapp">Hablar por WhatsApp</span></a>
+        <a class="btn btn-primary" href="https://wa.me/50688888888" target="_blank" rel="noopener" aria-label="Hablar por WhatsApp"><i class="ti ti-brand-whatsapp"></i><span data-i18n="nav.whatsapp">Hablar por WhatsApp</span></a>
       </div>
     </div>
   </nav>
@@ -107,26 +110,26 @@
     <div class="container">
       <div class="row g-5 mv-grid">
         <div class="col-lg-6 mv-card">
-          <div class="icon-circle"><i class="fa-solid fa-house-chimney"></i></div>
+          <div class="icon-circle"><i class="ti ti-building-cottage"></i></div>
           <h3 data-i18n="quienes.card1Title">Para propietarios</h3>
           <p data-i18n="quienes.card1Desc">Nos encargamos de cuidar, mantener y preparar tu propiedad para que siempre esté en óptimas condiciones y lista para recibir huéspedes.</p>
           <ul class="checklist mt-3">
-            <li><i class="fa-solid fa-check"></i><span data-i18n="quienes.card1li1">Limpieza y mantenimiento</span></li>
-            <li><i class="fa-solid fa-check"></i><span data-i18n="quienes.card1li2">Administración y coordinación</span></li>
-            <li><i class="fa-solid fa-check"></i><span data-i18n="quienes.card1li3">Atención de necesidades</span></li>
-            <li><i class="fa-solid fa-check"></i><span data-i18n="quienes.card1li4">Preparación de la propiedad</span></li>
+            <li><i class="ti ti-check"></i><span data-i18n="quienes.card1li1">Limpieza y mantenimiento</span></li>
+            <li><i class="ti ti-check"></i><span data-i18n="quienes.card1li2">Administración y coordinación</span></li>
+            <li><i class="ti ti-check"></i><span data-i18n="quienes.card1li3">Atención de necesidades</span></li>
+            <li><i class="ti ti-check"></i><span data-i18n="quienes.card1li4">Preparación de la propiedad</span></li>
           </ul>
           <p class="mv-card__tag" data-i18n="quienes.card1Tag">Tu propiedad cuidada, estés donde estés.</p>
         </div>
         <div class="col-lg-6 mv-card">
-          <div class="icon-circle"><i class="fa-solid fa-suitcase-rolling"></i></div>
+          <div class="icon-circle"><i class="ti ti-luggage"></i></div>
           <h3 data-i18n="quienes.card2Title">Para turistas y huéspedes</h3>
           <p data-i18n="quienes.card2Desc">Te acompañamos antes, durante y después de tu estadía para que disfrutés Nosara de la manera más cómoda, sencilla y auténtica.</p>
           <ul class="checklist mt-3">
-            <li><i class="fa-solid fa-check"></i><span data-i18n="quienes.card2li1">Recomendaciones y experiencias locales</span></li>
-            <li><i class="fa-solid fa-check"></i><span data-i18n="quienes.card2li2">Transporte y tours</span></li>
-            <li><i class="fa-solid fa-check"></i><span data-i18n="quienes.card2li3">Compras y servicios</span></li>
-            <li><i class="fa-solid fa-check"></i><span data-i18n="quienes.card2li4">Asistencia personalizada</span></li>
+            <li><i class="ti ti-check"></i><span data-i18n="quienes.card2li1">Recomendaciones y experiencias locales</span></li>
+            <li><i class="ti ti-check"></i><span data-i18n="quienes.card2li2">Transporte y tours</span></li>
+            <li><i class="ti ti-check"></i><span data-i18n="quienes.card2li3">Compras y servicios</span></li>
+            <li><i class="ti ti-check"></i><span data-i18n="quienes.card2li4">Asistencia personalizada</span></li>
           </ul>
           <p class="mv-card__tag" data-i18n="quienes.card2Tag">Tu experiencia acompañada, para que vos solo te ocupés de disfrutar.</p>
         </div>
@@ -136,7 +139,7 @@
 
   <div class="quote-band">
     <div class="container">
-      <i class="fa-solid fa-feather quote-icon"></i>
+      <i class="ti ti-feather quote-icon"></i>
       <p data-i18n="quienes.quote">Nacimos en Nosara, inspirados en la tranquilidad, la naturaleza y la vida sencilla.</p>
       <p class="quote-sub" data-i18n="quienes.quoteSub">Evolucionamos hacia una propuesta integral que reúne cuidado de propiedades, mantenimiento, hospitalidad y experiencias, todo bajo una misma filosofía: hacerte la vida más fácil.</p>
     </div>
@@ -145,15 +148,20 @@
   <section class="section">
     <div class="container">
       <div class="row g-5 mv-grid">
-        <div class="col-lg-6 mv-card mv-card--center">
-          <div class="icon-circle"><i class="fa-solid fa-bullseye"></i></div>
+        <div class="col-lg-4 mv-card mv-card--center">
+          <div class="icon-circle"><i class="ti ti-target"></i></div>
           <h3 data-i18n="quienes.mision">Misión</h3>
           <p data-i18n="quienes.misionText">Brindar soluciones integrales para el cuidado, mantenimiento y administración de propiedades, acompañando a propietarios y huéspedes con un servicio cercano, confiable y personalizado que facilite cada experiencia antes, durante y después de cada estadía.</p>
         </div>
-        <div class="col-lg-6 mv-card mv-card--center">
-          <div class="icon-circle"><i class="fa-solid fa-eye"></i></div>
+        <div class="col-lg-4 mv-card mv-card--center">
+          <div class="icon-circle"><i class="ti ti-eye"></i></div>
           <h3 data-i18n="quienes.vision">Visión</h3>
           <p data-i18n="quienes.visionText">Convertirnos en una marca referente en Costa Rica y reconocida internacionalmente en cuidado integral de propiedades, hospitalidad y experiencias locales, expandiendo progresivamente nuestra presencia desde Nosara hacia otras zonas del país, siempre con cercanía, confianza y excelencia en el servicio.</p>
+        </div>
+        <div class="col-lg-4 mv-card mv-card--center">
+          <div class="icon-circle"><i class="ti ti-mood-smile"></i></div>
+          <h3 data-i18n="quienes.proposito">Propósito</h3>
+          <p data-i18n="quienes.propositoText">Facilitar la vida de propietarios y huéspedes a través de una gestión integral de propiedades que combine administración, cuidado y mantenimiento, con una experiencia de alquiler y hospitalidad confiable, cercana y bien coordinada.</p>
         </div>
       </div>
     </div>
@@ -162,11 +170,11 @@
   <section class="section section--bg-alt">
     <div class="container"><div class="row g-5 align-items-center split">
       <div class="col-lg-6">
-        <span class="eyebrow"><i class="fa-solid fa-paw"></i> <span data-i18n="quienes.socialEyebrow">Compromiso social</span></span>
+        <span class="eyebrow"><i class="ti ti-paw"></i> <span data-i18n="quienes.socialEyebrow">Compromiso social</span></span>
         <h2 data-i18n="quienes.socialTitle">Cuidar también es aportar a la comunidad</h2>
         <p class="lead" data-i18n="quienes.socialLead">En Clarita creemos que cuidar también significa aportar a nuestra comunidad. Por eso apoyamos iniciativas de castración y bienestar animal, especialmente para animales en condición de calle o de familias de escasos recursos, y ayudamos a reducir el abandono callejero. Nuestros propietarios y huéspedes también pueden sumarse a esta causa y ser parte del impacto positivo.</p>
         <p class="split__quote" data-i18n="quienes.socialQuote">En Clarita somos una marca cercana, confiable y resolutiva, comprometida con cuidar cada detalle que a vos realmente te importa.</p>
-        <a href="https://wa.me/50688888888" target="_blank" rel="noopener" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> <span data-i18n="nav.whatsapp">Hablar por WhatsApp</span></a>
+        <a href="https://wa.me/50688888888" target="_blank" rel="noopener" class="btn btn-primary"><i class="ti ti-brand-whatsapp"></i> <span data-i18n="nav.whatsapp">Hablar por WhatsApp</span></a>
       </div>
       <div class="col-lg-6"><div class="split-img">
         <img src="src/assets/photos/island-houses-1.webp" alt="Comunidad local de Nosara junto a la naturaleza" loading="lazy" decoding="async">
@@ -179,12 +187,12 @@
   <div class="container">
     <div class="row g-4 g-lg-5 footer-grid">
     <div class="col-12 col-lg-4 footer-about">
-      <a href="index.html" class="logo"><img src="src/assets/logo_dark.png" alt="Clarita Property Care" class="logo-img logo-img--footer" loading="lazy" decoding="async"></a>
+      <a href="index.html" class="logo"><img src="src/assets/logo-crema.png" alt="Clarita Property Care" class="logo-img logo-img--footer" loading="lazy" decoding="async"></a>
       <p data-i18n="footer.desc">Gestión integral de propiedades y experiencias de hospitalidad en Nosara, Guanacaste, Costa Rica.</p>
       <div class="footer-social">
-        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook"></i></a>
+        <a href="#" aria-label="TikTok"><i class="ti ti-brand-tiktok"></i></a>
       </div>
     </div>
     <div class="col-6 col-md-4 col-lg-2 footer-col">
@@ -210,9 +218,9 @@
     <div class="col-12 col-md-4 col-lg-3 footer-col">
       <h4 data-i18n="footer.contacto">Contacto</h4>
       <ul>
-        <li><i class="fa-brands fa-whatsapp"></i> +506 8888 8888</li>
-        <li><i class="fa-regular fa-envelope"></i> info@claritapropertycare.com</li>
-        <li><i class="fa-solid fa-location-dot"></i> Nosara, Guanacaste, Costa Rica</li>
+        <li><i class="ti ti-brand-whatsapp"></i> +506 8888 8888</li>
+        <li><i class="ti ti-mail"></i> info@claritapropertycare.com</li>
+        <li><i class="ti ti-map-pin"></i> Nosara, Guanacaste, Costa Rica</li>
       </ul>
     </div>
     </div>
@@ -225,14 +233,14 @@
 
 
 <div id="lightbox" class="lightbox">
-  <button class="lightbox-close" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
-  <button class="lightbox-nav lightbox-nav--prev" aria-label="Foto anterior"><i class="fa-solid fa-chevron-left"></i></button>
+  <button class="lightbox-close" aria-label="Cerrar"><i class="ti ti-x"></i></button>
+  <button class="lightbox-nav lightbox-nav--prev" aria-label="Foto anterior"><i class="ti ti-chevron-left"></i></button>
   <img src="" alt="">
-  <button class="lightbox-nav lightbox-nav--next" aria-label="Foto siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+  <button class="lightbox-nav lightbox-nav--next" aria-label="Foto siguiente"><i class="ti ti-chevron-right"></i></button>
   <span class="lightbox-counter"></span>
 </div>
 
-<a href="https://wa.me/50688888888" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Hablar por WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<a href="https://wa.me/50688888888" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Hablar por WhatsApp"><i class="ti ti-brand-whatsapp"></i></a>
 
 <script type="application/ld+json">
 {

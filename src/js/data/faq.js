@@ -3,7 +3,7 @@
 
 const FAQ_CATEGORIES = [
   {
-    icon: "fa-house-chimney", color: "verde", labelKey: "faq.catPropietarios",
+    icon: "ti-building-cottage", color: "petroleo", labelKey: "faq.catPropietarios",
     items: [
       { q: "faq.p1q", a: "faq.p1a" },
       { q: "faq.p2q", a: "faq.p2a" },
@@ -12,7 +12,7 @@ const FAQ_CATEGORIES = [
     ],
   },
   {
-    icon: "fa-suitcase", color: "azul", labelKey: "faq.catHuespedes",
+    icon: "ti-luggage", color: "petroleo-oscuro", labelKey: "faq.catHuespedes",
     items: [
       { q: "faq.h1q", a: "faq.h1a" },
       { q: "faq.h2q", a: "faq.h2a" },
@@ -21,7 +21,7 @@ const FAQ_CATEGORIES = [
     ],
   },
   {
-    icon: "fa-handshake", color: "terracota", labelKey: "faq.catAliados",
+    icon: "ti-heart-handshake", color: "dorado", labelKey: "faq.catAliados",
     items: [
       { q: "faq.a1q", a: "faq.a1a" },
       { q: "faq.a2q", a: "faq.a2a" },

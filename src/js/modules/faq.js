@@ -6,7 +6,7 @@
 
 function faqItemHtml(item, d) {
   return '<div class="faq-item">' +
-    '<button class="faq-item__question" data-faq-toggle><span>' + d[item.q] + '</span> <i class="fa-solid fa-plus"></i></button>' +
+    '<button class="faq-item__question" data-faq-toggle><span>' + d[item.q] + '</span> <i class="ti ti-plus"></i></button>' +
     '<div class="faq-item__answer"><p>' + d[item.a] + '</p></div>' +
   '</div>';
 }
@@ -16,7 +16,7 @@ function renderFaqFull(targetId) {
   if (!container) return;
   const d = dict();
   container.innerHTML = FAQ_CATEGORIES.map((cat) =>
-    '<h3 class="faq-category"><i class="fa-solid ' + cat.icon + '" style="color:var(--' + cat.color + ');margin-right:8px;"></i><span>' + d[cat.labelKey] + '</span></h3>' +
+    '<h3 class="faq-category"><i class="ti ' + cat.icon + '" style="color:var(--' + cat.color + ');margin-right:8px;"></i><span>' + d[cat.labelKey] + '</span></h3>' +
     cat.items.map((item) => faqItemHtml(item, d)).join("")
   ).join("");
 }

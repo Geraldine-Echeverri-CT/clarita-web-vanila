@@ -3,7 +3,7 @@
 .contact-info-item { display: flex; gap: 14px; align-items: flex-start; min-width: 0; }
 .contact-info-item .icon-circle {
   width: 44px; height: 44px; border-radius: 50%;
-  background: var(--verde); color: var(--blanco);
+  background: var(--petroleo); color: var(--blanco);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0; font-size: 1rem;
 }
@@ -25,11 +25,11 @@
 .social-row { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
 .social-row a {
   width: 40px; height: 40px; border-radius: 50%;
-  background: var(--verde); color: var(--blanco);
+  background: var(--petroleo); color: var(--blanco);
   display: flex; align-items: center; justify-content: center;
   transition: background 0.2s;
 }
-.social-row a:hover { background: var(--verde-oscuro); }
+.social-row a:hover { background: var(--petroleo-oscuro); }
 
 /* ---------- Audiencia: tarjetas footer contacto ---------- */
 /* .audience-footer-cards es una .row g-4; cada tarjeta va en su columna. */
@@ -47,10 +47,10 @@
   width: 56px; height: 56px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   color: var(--blanco); font-size: 1.25rem;
-  background: var(--verde);
+  background: var(--petroleo);
   flex-shrink: 0;
 }
-.audience-footer-card .icon-circle--azul { background: var(--azul); }
-.audience-footer-card .icon-circle--terracota { background: var(--terracota); }
+.audience-footer-card .icon-circle--petroleo-oscuro { background: var(--petroleo-oscuro); }
+.audience-footer-card .icon-circle--dorado { background: var(--dorado); }
 .audience-footer-card h4 { font-size: 1.05rem; margin-bottom: 4px; }
 .audience-footer-card p { margin: 0; font-size: 0.88rem; color: var(--texto-suave); line-height: 1.5; }

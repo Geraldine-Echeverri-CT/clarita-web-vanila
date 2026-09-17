@@ -9,7 +9,7 @@
   letter-spacing: 3px;
   font-size: 0.95rem;
   font-family: var(--ff-cuerpo);
-  color: var(--verde-oscuro);
+  color: var(--petroleo-oscuro);
   margin: 0 0 30px;
 }
 .values-strip h3.strip-title::before,
@@ -24,11 +24,17 @@
 .value-item { text-align: center; padding-top: 10px; padding-bottom: 10px; }
 .value-item .icon {
   display: flex; align-items: center; justify-content: center;
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--superficie);
+  box-shadow: 0 6px 18px rgba(37, 89, 87, 0.08);
   margin: 0 auto 14px;
-  color: var(--texto);
-  font-size: 1.8rem;
+  color: var(--petroleo);
+  font-size: 1.9rem;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
-.value-item h4 { font-family: var(--ff-cuerpo); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.value-item:hover .icon { background: var(--petroleo); color: var(--crema); transform: translateY(-3px); }
+.value-item h4 { color: var(--petroleo-oscuro); font-family: var(--ff-cuerpo); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
 .value-item p { font-size: 0.85rem; color: var(--texto-suave); margin: 0; }
 
 /* Variante con circulo claro detras del icono (Alianza con propietarios). */
@@ -36,8 +42,8 @@
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: var(--crema-2);
-  color: var(--verde-oscuro);
-  font-size: 1.6rem;
+  background: var(--petroleo-tenue);
+  color: var(--petroleo);
+  font-size: 1.8rem;
 }
 

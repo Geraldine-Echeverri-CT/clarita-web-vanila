@@ -6,7 +6,8 @@
   border-radius: var(--radio);
   padding: 34px 28px;
   box-shadow: var(--sombra);
-  border-top: 4px solid var(--verde);
+  border-top: 5px solid var(--petroleo);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -16,19 +17,20 @@
      disponible. */
   min-width: 0;
 }
-.audience-card--blue { border-top-color: var(--azul); }
-.audience-card--terracota { border-top-color: var(--terracota); }
+.audience-card:hover { transform: translateY(-4px); box-shadow: var(--sombra-hover); }
+.audience-card--blue { border-top-color: var(--petroleo-oscuro); }
+.audience-card--dorado { border-top-color: var(--dorado); }
 .audience-card .icon-circle {
   width: 60px; height: 60px;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-size: 1.5rem;
   color: var(--blanco);
-  background: var(--verde);
+  background: var(--petroleo);
   margin-bottom: 18px;
 }
-.audience-card--blue .icon-circle { background: var(--azul); }
-.audience-card--terracota .icon-circle { background: var(--terracota); }
+.audience-card--blue .icon-circle { background: var(--petroleo-oscuro); }
+.audience-card--dorado .icon-circle { background: var(--dorado); }
 .audience-card .eyebrow { font-size: 0.7rem; }
 .audience-card h3 { font-size: 1.35rem; margin-bottom: 6px; }
 .audience-card ul { margin: 18px 0 26px; flex-grow: 1; }
@@ -41,9 +43,9 @@
   padding: 7px 0;
   border-bottom: 1px dashed var(--borde);
 }
-.audience-card li i { color: var(--verde); margin-top: 4px; }
-.audience-card--blue li i { color: var(--azul); }
-.audience-card--terracota li i { color: var(--terracota); }
+.audience-card li i { color: var(--petroleo); margin-top: 4px; }
+.audience-card--blue li i { color: var(--petroleo-oscuro); }
+.audience-card--dorado li i { color: var(--dorado-oscuro); }
 
 /* ---------- Fila de confianza (icono + texto centrados) ---------- */
 .audience-footer .item {
@@ -57,7 +59,7 @@
   width: auto;
   height: auto;
   background: none;
-  color: var(--verde);
+  color: var(--petroleo);
   font-size: 2.6rem;
   flex-shrink: 0;
 }

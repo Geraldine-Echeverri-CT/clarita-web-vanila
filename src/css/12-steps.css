@@ -9,7 +9,7 @@
   top: 46px;
   left: 12.5%;
   right: 12.5%;
-  border-top: 2px dotted var(--verde-claro);
+  border-top: 2px dotted var(--petroleo-claro);
   z-index: 0;
 }
 @media (min-width: 992px) {
@@ -20,7 +20,7 @@
   width: 92px; height: 92px;
   border-radius: 50%;
   background: var(--blanco);
-  color: var(--verde-oscuro);
+  color: var(--petroleo-oscuro);
   display: flex; align-items: center; justify-content: center;
   font-size: 2.2rem;
   margin: 0 auto 16px;
@@ -32,7 +32,7 @@
   top: -4px; left: -4px;
   width: 24px; height: 24px;
   border-radius: 50%;
-  background: var(--verde-oscuro);
+  background: var(--petroleo-oscuro);
   color: var(--blanco);
   display: flex; align-items: center; justify-content: center;
   font-family: var(--ff-cuerpo);

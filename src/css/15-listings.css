@@ -38,7 +38,7 @@
   transition: background 0.15s ease;
 }
 .search-field__trigger:hover { background: var(--crema-2); }
-.search-field__icon { color: var(--verde); font-size: 1rem; flex-shrink: 0; }
+.search-field__icon { color: var(--petroleo); font-size: 1rem; flex-shrink: 0; }
 .search-field__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
 .search-field__label {
   font-size: 0.66rem;
@@ -93,7 +93,7 @@
   cursor: pointer;
 }
 .search-field__option:hover { background: var(--crema-2); }
-.search-field__option.is-selected { background: var(--verde); color: var(--blanco); }
+.search-field__option.is-selected { background: var(--petroleo); color: var(--blanco); }
 
 .search-field__panel--dates { min-width: 300px; padding: 16px; }
 .search-field.is-open .search-field__panel--dates { display: block; }
@@ -127,7 +127,7 @@
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease;
 }
-.datepicker__nav:hover { background: var(--verde); color: var(--blanco); }
+.datepicker__nav:hover { background: var(--petroleo); color: var(--blanco); }
 .datepicker__weekdays {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -157,10 +157,10 @@
 .datepicker__day:hover:not(.is-disabled):not(.is-selected) { background: var(--crema-2); }
 .datepicker__day.is-outside { color: var(--borde); }
 .datepicker__day.is-disabled { color: var(--borde); cursor: not-allowed; }
-.datepicker__day.is-today { font-weight: 700; color: var(--verde-oscuro); }
+.datepicker__day.is-today { font-weight: 700; color: var(--petroleo-oscuro); }
 .datepicker__day.is-in-range { background: var(--crema-2); border-radius: 0; }
 .datepicker__day.is-selected {
-  background: var(--verde);
+  background: var(--petroleo);
   color: var(--blanco);
   font-weight: 600;
   border-radius: 50%;
@@ -184,7 +184,7 @@
   text-decoration: underline;
   cursor: pointer;
 }
-.search-field__dates-clear:hover { color: var(--verde-oscuro); }
+.search-field__dates-clear:hover { color: var(--petroleo-oscuro); }
 .search-field__dates-apply { border-radius: 8px !important; padding: 9px 20px; }
 
 .search-bar__submit {
@@ -216,10 +216,10 @@
 .listing-card__body { padding: 14px 16px 16px; display: flex; flex-direction: column; flex-grow: 1; }
 .listing-card__title { font-size: 1rem; margin-bottom: 3px; }
 .listing-card__loc { font-size: 0.76rem; color: var(--texto-suave); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
-.listing-card__loc i { color: var(--terracota); }
+.listing-card__loc i { color: var(--dorado); }
 .listing-card__meta { display: flex; gap: 10px; flex-wrap: wrap; font-size: 0.72rem; color: var(--texto-suave); margin-bottom: 10px; }
 .listing-card__meta span { display: flex; align-items: center; gap: 4px; }
-.listing-card__price { font-family: var(--ff-titulo); font-size: 1.02rem; color: var(--verde-oscuro); margin: 0; }
+.listing-card__price { font-family: var(--ff-titulo); font-size: 1.02rem; color: var(--petroleo-oscuro); margin: 0; }
 .listing-card__price span { font-family: var(--ff-cuerpo); font-size: 0.72rem; color: var(--texto-suave); }
 .listing-card__footer { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .listing-card__footer .btn { flex: none; }

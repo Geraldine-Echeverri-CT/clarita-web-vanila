@@ -1,30 +1,38 @@
-/* ---------- Botones ---------- */
+/* ---------- Botones ----------
+   Pastilla redondeada (eco de las formas suaves del logo). Tres jerarquías:
+   - .btn-primary: azul petróleo, la acción normal.
+   - .btn-accent:  amarillo sol, la acción que más importa en la pantalla
+                   (reservar, ver alojamientos) — una por sección como máximo.
+   - .btn-outline / .btn-white: secundarias. */
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 14px 28px;
-  border-radius: 8px;
+  border-radius: 999px;
   font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
   border: 2px solid transparent;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   white-space: nowrap;
 }
-.btn:hover { transform: translateY(-2px); box-shadow: var(--sombra); }
+.btn:hover { transform: translateY(-2px); box-shadow: var(--sombra-hover); }
 
-.btn-primary { background: var(--verde); color: var(--blanco); }
-.btn-primary:hover { background: var(--verde-oscuro); }
+.btn-primary { background: var(--petroleo); color: var(--blanco); }
+.btn-primary:hover { background: var(--petroleo-oscuro); color: var(--blanco); }
 
-.btn-outline { background: transparent; color: var(--verde-oscuro); border-color: var(--verde-oscuro); }
-.btn-outline:hover { background: var(--verde-oscuro); color: var(--blanco); }
+.btn-accent { background: var(--sol); color: var(--petroleo-oscuro); }
+.btn-accent:hover { background: var(--sol-hover); color: var(--petroleo-oscuro); }
 
-.btn-white { background: var(--blanco); color: var(--verde-oscuro); }
-.btn-white:hover { background: var(--crema-2); }
+.btn-outline { background: transparent; color: var(--petroleo-oscuro); border-color: var(--petroleo-oscuro); }
+.btn-outline:hover { background: var(--petroleo-oscuro); color: var(--crema); }
+
+.btn-white { background: var(--crema); color: var(--petroleo-oscuro); }
+.btn-white:hover { background: var(--blanco); color: var(--petroleo-oscuro); }
 
 .btn-block { width: 100%; justify-content: center; }
 .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-

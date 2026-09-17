@@ -38,7 +38,7 @@
   font-family: var(--ff-titulo);
   font-size: 1.5rem;
   letter-spacing: 1px;
-  color: var(--verde-oscuro);
+  color: var(--petroleo-oscuro);
   flex-shrink: 0;
 }
 .logo svg { flex-shrink: 0; }
@@ -47,7 +47,7 @@
   font-family: var(--ff-cuerpo);
   font-size: 0.55rem;
   letter-spacing: 3px;
-  color: var(--terracota);
+  color: var(--dorado);
   font-weight: 600;
 }
 
@@ -61,9 +61,8 @@
   height: 46px;
   width: auto;
   flex-shrink: 0;
-  filter: brightness(0) saturate(100%) invert(23%) sepia(15%) saturate(700%) hue-rotate(87deg) brightness(97%) contrast(90%);
 }
-.logo-img--footer { height: 36px; filter: none; }
+.logo-img--footer { height: 40px; }
 
 /* Menú principal: es un .navbar-expand-xl de Bootstrap con offcanvas
    (header.html). Desde xl (1200px) el offcanvas se muestra en línea como una
@@ -87,10 +86,10 @@
   border-bottom: 2px solid transparent;
   transition: color 0.2s, border-color 0.2s;
 }
-.navbar-nav .nav-links__link.active,
 .nav-links__link:hover,
-.nav-links__link:focus,
-.nav-links__link--active { color: var(--verde); border-color: var(--verde); }
+.nav-links__link:focus { color: var(--petroleo); border-color: var(--petroleo-claro); }
+.navbar-nav .nav-links__link.active,
+.nav-links__link--active { color: var(--petroleo-oscuro); font-weight: 700; border-color: var(--sol); }
 
 .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 
@@ -99,11 +98,11 @@
   border: none;
   padding: 4px;
   font-size: 1.5rem;
-  color: var(--verde-oscuro);
+  color: var(--petroleo-oscuro);
   cursor: pointer;
 }
 .nav-toggle:focus { box-shadow: none; }
-.nav-toggle:focus-visible { box-shadow: 0 0 0 3px var(--terracota); }
+.nav-toggle:focus-visible { box-shadow: 0 0 0 3px var(--dorado); }
 
 .navbar-brand.logo { margin-right: 0; padding: 0; }
 
@@ -146,7 +145,7 @@
   cursor: pointer;
   transition: border-color 0.2s;
 }
-.lang-dropdown__toggle:hover { border-color: var(--verde-oscuro); }
+.lang-dropdown__toggle:hover { border-color: var(--petroleo-oscuro); }
 .lang-dropdown__toggle i { font-size: 0.6rem; color: var(--texto-suave); transition: transform 0.2s; }
 .lang-dropdown__toggle[aria-expanded="true"] i { transform: rotate(180deg); }
 /* Mostrar/ocultar y posicionar lo hace el dropdown de Bootstrap (.show + Popper). */
@@ -166,5 +165,5 @@
   transition: background 0.2s;
 }
 .lang-dropdown__menu-button:hover { background: var(--crema-2); }
-.lang-dropdown__menu-button--active { color: var(--verde-oscuro); font-weight: 600; }
+.lang-dropdown__menu-button--active { color: var(--petroleo-oscuro); font-weight: 600; }
 

@@ -154,6 +154,16 @@ Cada `<img>` del sitio lleva `loading="lazy" decoding="async"` **excepto** la fo
 
 El logo (`logo.png` / `logo_dark.png`) se achicó de ~1900px de ancho a 600px — llegaba con una resolución absurda para mostrarse a 46px de alto en el header. Si lo reemplazás por una versión nueva, no hace falta que sea más ancha que eso.
 
+## Identidad de marca
+
+Todo sale del manual de marca y vive en `src/css/00-tokens.css`:
+
+- **Paleta**: verde petróleo `#255957` (`--petroleo-oscuro`), azul petróleo `#437c90` (`--petroleo`, color principal), amarillo sol `#f7c549` (`--sol`), ocre `#a98843` (`--dorado`) y crema `#efebd4` (`--crema-2`). El resto de variables son tintes derivados (`--petroleo-tenue`, `--dorado-oscuro` para texto chico con buen contraste, etc.). Ningún CSS escribe un color a mano.
+- **Botones**: `.btn-primary` (petróleo) para la acción normal y `.btn-accent` (amarillo sol) para la acción que más importa en cada pantalla (ver alojamientos, reservar).
+- **Tipografías**: All Round Gothic (títulos) y Filson Pro (texto) son de Adobe Fonts. Mientras no se agregue el kit de Adobe en `head-common.html`, se ven Quicksand y Figtree (Google Fonts), las alternativas libres más parecidas; al agregar el kit se usan solas porque van primero en `--ff-titulo` / `--ff-cuerpo`.
+- **Logo**: `logo-petroleo.png` (header) y `logo-crema.png` (footer) son el logo original recoloreado en los colores de marca; `favicon.png` y `apple-touch-icon.png` son el isotipo.
+- **Íconos**: [Tabler Icons](https://tabler.io/icons) (`<i class="ti ti-bed">`), de línea con trazo redondeado como la iconografía del manual. Reemplazaron a Font Awesome.
+
 ## SEO
 
 - Título y meta description únicos por página (bloque `<!--META-->` en cada `src/pages/*.html`).

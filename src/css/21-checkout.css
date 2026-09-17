@@ -25,7 +25,7 @@
   display: flex; align-items: center; justify-content: center;
   font-size: 0.85rem; font-weight: 700;
 }
-.steps-indicator__dot--active { background: var(--verde); color: var(--blanco); }
+.steps-indicator__dot--active { background: var(--petroleo); color: var(--blanco); }
 .steps-indicator__line { flex: 1; height: 2px; background: var(--borde); }
 
 .pay-tabs { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
@@ -43,14 +43,14 @@
   color: var(--texto);
   transition: border-color 0.2s, background 0.2s;
 }
-.pay-tab i { color: var(--verde); font-size: 1.1rem; }
-.pay-tab--active { border-color: var(--verde); background: #eef3e6; font-weight: 600; }
+.pay-tab i { color: var(--petroleo); font-size: 1.1rem; }
+.pay-tab--active { border-color: var(--petroleo); background: var(--petroleo-tenue); font-weight: 600; }
 
 .pay-panel { display: none; }
 .pay-panel--active { display: block; }
 
 .card-visual {
-  background: linear-gradient(135deg, var(--verde-oscuro), var(--verde));
+  background: linear-gradient(135deg, var(--petroleo-oscuro), var(--petroleo));
   color: var(--blanco);
   border-radius: 16px;
   padding: 24px;
@@ -78,14 +78,14 @@
   padding: 28px;
   text-align: center;
 }
-.sinpe-box i, .paypal-box i { font-size: 2.4rem; color: var(--verde); margin-bottom: 14px; }
-.sinpe-box strong { display: block; font-size: 1.3rem; color: var(--verde-oscuro); margin: 8px 0; }
+.sinpe-box i, .paypal-box i { font-size: 2.4rem; color: var(--petroleo); margin-bottom: 14px; }
+.sinpe-box strong { display: block; font-size: 1.3rem; color: var(--petroleo-oscuro); margin: 8px 0; }
 
 .terms-row { display: flex; align-items: flex-start; gap: 10px; margin: 20px 0; font-size: 0.85rem; color: var(--texto-suave); }
 .terms-row input { margin-top: 4px; }
 
 .secure-note { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--texto-suave); margin-top: 16px; justify-content: center; }
-.secure-note i { color: var(--verde); }
+.secure-note i { color: var(--petroleo); }
 
 /* Resumen de reserva */
 .summary-card {
@@ -101,18 +101,18 @@
 .summary-card .content { padding: 26px; }
 .summary-card h3 { font-size: 1.2rem; margin-bottom: 4px; }
 .summary-card .loc { font-size: 0.82rem; color: var(--texto-suave); margin-bottom: 18px; display: flex; align-items: center; gap: 6px; }
-.summary-card .loc i { color: var(--terracota); }
+.summary-card .loc i { color: var(--dorado); }
 .summary-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 14px; }
 .summary-row label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--texto-suave); }
 .summary-row input, .summary-row select { border: 1px solid var(--borde); border-radius: 8px; padding: 8px 10px; font-family: var(--ff-cuerpo); background: var(--crema); font-size: 0.88rem; }
 .summary-divider { border: none; border-top: 1px dashed var(--borde); margin: 18px 0; }
 .summary-total-row { display: flex; justify-content: space-between; font-size: 0.92rem; margin-bottom: 8px; color: var(--texto-suave); }
-.summary-total-row--total { font-size: 1.15rem; font-weight: 700; color: var(--verde-oscuro); font-family: var(--ff-titulo); border-top: 1px solid var(--borde); padding-top: 12px; margin-top: 10px; }
+.summary-total-row--total { font-size: 1.15rem; font-weight: 700; color: var(--petroleo-oscuro); font-family: var(--ff-titulo); border-top: 1px solid var(--borde); padding-top: 12px; margin-top: 10px; }
 
 .success-screen { display: flex; flex-direction: column; justify-content: center; text-align: center; height: 100%; }
 .success-screen .icon-ok {
   width: 84px; height: 84px; border-radius: 50%;
-  background: #e5efdc; color: var(--verde);
+  background: var(--petroleo-tenue); color: var(--petroleo);
   display: flex; align-items: center; justify-content: center;
   font-size: 2.3rem; margin: 0 auto 20px;
 }
@@ -130,6 +130,6 @@
 .success-row span { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--texto-suave); }
 .success-row strong { font-family: var(--ff-cuerpo); font-size: 0.92rem; color: var(--texto); font-weight: 600; }
 .success-row--total { border-bottom: none; padding-top: 16px; }
-.success-row--total span, .success-row--total strong { font-family: var(--ff-titulo); font-size: 1.15rem; color: var(--verde-oscuro); text-transform: none; letter-spacing: normal; font-weight: 700; }
+.success-row--total span, .success-row--total strong { font-family: var(--ff-titulo); font-size: 1.15rem; color: var(--petroleo-oscuro); text-transform: none; letter-spacing: normal; font-weight: 700; }
 .success-screen .btn { margin-top: 26px; }
 

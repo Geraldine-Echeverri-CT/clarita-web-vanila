@@ -14,7 +14,7 @@
   mask-image: linear-gradient(to right, transparent 0%, black 12%);
 }
 /* Frase destacada dentro de la columna de texto (Quiénes somos). */
-.split__quote { font-family: var(--ff-titulo); font-style: italic; color: var(--verde-oscuro); font-size: 1.1rem; }
+.split__quote { font-family: var(--ff-titulo); font-style: italic; color: var(--petroleo-oscuro); font-size: 1.1rem; }
 .split h2 { font-size: 2rem; }
 .split .lead { color: var(--texto-suave); }
 

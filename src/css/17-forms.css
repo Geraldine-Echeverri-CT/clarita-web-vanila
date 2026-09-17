@@ -23,7 +23,7 @@
   display: block;
   width: 52px;
   height: 2px;
-  background: var(--verde);
+  background: var(--petroleo);
   margin-bottom: 22px;
 }
 .form-intro__text {
@@ -51,7 +51,7 @@
   color: var(--texto);
   transition: border-color 0.2s;
 }
-.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--verde); outline: none; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--petroleo); outline: none; box-shadow: 0 0 0 3px rgba(67, 124, 144, 0.18); background: var(--superficie); }
 .field-static {
   display: flex;
   align-items: center;
@@ -65,7 +65,7 @@
   background: var(--crema-2);
   color: var(--texto);
 }
-.field-static i { color: var(--verde); }
+.field-static i { color: var(--petroleo); }
 
 /* Dropdown "bonito" para campos de formulario (mismo panel/opciones que el
    buscador de Alojamientos — .search-field__panel / .search-field__option,
@@ -88,8 +88,8 @@
   cursor: pointer;
   transition: border-color 0.2s;
 }
-.form-dropdown__trigger:hover { border-color: var(--verde); }
-.form-dropdown.is-open .form-dropdown__trigger { border-color: var(--verde); }
+.form-dropdown__trigger:hover { border-color: var(--petroleo); }
+.form-dropdown.is-open .form-dropdown__trigger { border-color: var(--petroleo); }
 .form-dropdown__value--placeholder { color: var(--texto-suave); }
 .form-dropdown .search-field__chevron { transition: transform 0.2s ease; }
 .form-dropdown.is-open .search-field__chevron { transform: rotate(180deg); }
@@ -103,4 +103,4 @@
 .field--invalid small.error { display: block; }
 .form-msg { margin-top: 18px; padding: 14px 18px; border-radius: 8px; font-size: 0.9rem; display: none; }
 .form-msg--show { display: block; }
-.form-msg--ok { background: #e5efdc; color: var(--verde-oscuro); }
+.form-msg--ok { background: var(--petroleo-tenue); color: var(--petroleo-oscuro); }

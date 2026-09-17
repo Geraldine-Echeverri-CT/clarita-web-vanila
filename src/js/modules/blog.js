@@ -14,7 +14,7 @@ function renderBlogsListado(targetId, limit) {
         '<span class="blog-card__date">' + t(post.fecha) + '</span>' +
         '<h3 class="blog-card__title">' + t(post.titulo) + '</h3>' +
         '<p class="blog-card__excerpt">' + t(post.extracto) + '</p>' +
-        '<span class="blog-card__read-more">' + d["common.verMas"] + ' <i class="fa-solid fa-arrow-right"></i></span>' +
+        '<span class="blog-card__read-more">' + d["common.verMas"] + ' <i class="ti ti-arrow-right"></i></span>' +
       '</div>' +
     '</a></div>';
   }).join("");
