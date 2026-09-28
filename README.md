@@ -154,6 +154,24 @@ Cada `<img>` del sitio lleva `loading="lazy" decoding="async"` **excepto** la fo
 
 El logo (`logo.png` / `logo_dark.png`) se achicó de ~1900px de ancho a 600px — llegaba con una resolución absurda para mostrarse a 46px de alto en el header. Si lo reemplazás por una versión nueva, no hace falta que sea más ancha que eso.
 
+## Selector de paletas (DEMO TEMPORAL)
+
+El header tiene un selector "P1 / P2 / P3" para ver el sitio con las tres
+paletas propuestas en el PPT y poder elegir. **Es temporal y hay que sacarlo
+antes de publicar la versión final.** La paleta 2 (petróleo) es la aprobada y
+la que está en `00-tokens.css`.
+
+Para sacarlo (todo está marcado con `DEMO PALETAS`):
+
+1. Borrar `src/css/97-paletas-demo.css`
+2. Borrar `src/js/modules/paleta-demo.js`
+3. Quitar los dos bloques del selector en `src/partials/header.html`
+4. Quitar el `<script>` anti-parpadeo de `src/partials/head-common.html`
+5. Quitar `paleta-demo.js` de `SCRIPT_ORDER` (`build.js`) y `initPaletaDemo()` de `src/js/main.js`
+6. Opcional: borrar `src/assets/logo-paleta1.png` y `logo-paleta3.png`
+
+Después correr `node build.js`.
+
 ## Identidad de marca
 
 Todo sale del manual de marca y vive en `src/css/00-tokens.css`:

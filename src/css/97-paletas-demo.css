@@ -1,0 +1,112 @@
+/* ========================================================
+   DEMO TEMPORAL — Selector de paletas del PPT
+   --------------------------------------------------------
+   Permite ver el sitio con las tres paletas propuestas en la presentación,
+   para elegir entre ellas. La paleta 2 es la aprobada y es la que está en
+   00-tokens.css: por eso no necesita bloque acá.
+
+   CÓMO SACAR ESTA DEMO cuando ya no haga falta (5 pasos, todos marcados
+   con "DEMO PALETAS"):
+     1. borrar este archivo
+     2. borrar src/js/modules/paleta-demo.js
+     3. quitar el bloque del selector en src/partials/header.html
+     4. quitar el <script> anti-parpadeo de src/partials/head-common.html
+     5. quitar la línea de paleta-demo.js en SCRIPT_ORDER (build.js) y la
+        llamada initPaletaDemo() en src/js/main.js
+   Después correr `node build.js`.
+   ======================================================== */
+
+/* -------- Opción 1: elegancia y confianza (azules) --------
+   #153244 · #294b63 · #70aaa1 · #eff0ec · #b4b8ab */
+:root[data-paleta="1"] {
+  --petroleo-oscuro: #153244;
+  --petroleo: #294b63;
+  --petroleo-claro: #70aaa1;
+  --petroleo-tenue: #e4eeec;
+  --dorado: #70aaa1;
+  --dorado-oscuro: #2f6b62;   /* versión con contraste AA para texto chico */
+  --crema: #f7f8f4;
+  --crema-2: #eff0ec;
+  --superficie: #ffffff;
+  --borde: #d7dad1;
+  --texto: #14222c;
+  --texto-suave: #55616b;
+  --header-bg: rgba(255, 255, 255, 0.96);
+  --sombra: 0 4px 16px rgba(21, 50, 68, 0.07);
+  --sombra-hover: 0 8px 24px rgba(21, 50, 68, 0.12);
+  --bs-primary: #294b63;
+  --bs-primary-rgb: 41, 75, 99;
+}
+
+/* -------- Opción 3: tranquilidad y frescura (verdes) --------
+   #597b7f · #3a4032 · #8dab7f · #efebd4 · #1e2019 */
+:root[data-paleta="3"] {
+  --petroleo-oscuro: #3a4032;
+  --petroleo: #597b7f;
+  --petroleo-claro: #8dab7f;
+  --petroleo-tenue: #e8ede4;
+  --dorado: #8dab7f;
+  --dorado-oscuro: #4f6a45;   /* versión con contraste AA para texto chico */
+  --crema: #f8f6ec;
+  --crema-2: #efebd4;
+  --superficie: #ffffff;
+  --borde: #e0ddc6;
+  --texto: #1e2019;
+  --texto-suave: #5c6155;
+  --header-bg: rgba(255, 255, 255, 0.96);
+  --sombra: 0 4px 16px rgba(30, 32, 25, 0.07);
+  --sombra-hover: 0 8px 24px rgba(30, 32, 25, 0.12);
+  --bs-primary: #597b7f;
+  --bs-primary-rgb: 89, 123, 127;
+}
+
+/* -------- Selector en el header (mismo look que el de idioma) -------- */
+.paleta-demo__toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px dashed var(--dorado-oscuro);
+  background: var(--superficie);
+  color: var(--texto);
+  font-family: var(--ff-cuerpo);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.paleta-demo__toggle i { font-size: 0.6rem; color: var(--texto-suave); transition: transform 0.2s; }
+.paleta-demo__toggle[aria-expanded="true"] i { transform: rotate(180deg); }
+.paleta-demo__menu { min-width: 230px; padding: 6px; box-shadow: var(--sombra-hover); }
+.paleta-demo__menu-button { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+.paleta-demo__menu-button--active { font-weight: 700; }
+.paleta-demo__muestra { display: inline-flex; border-radius: 4px; overflow: hidden; flex-shrink: 0; }
+.paleta-demo__muestra span { width: 13px; height: 13px; }
+.paleta-demo__nota {
+  padding: 8px 10px 4px;
+  font-size: 0.72rem;
+  color: var(--texto-suave);
+  border-top: 1px solid var(--borde);
+  margin-top: 4px;
+  white-space: normal;
+}
+
+@media (max-width: 1199.98px) {
+  /* En celular el header ya va justo: el selector se muestra dentro del menú. */
+  .nav-actions .paleta-demo { display: none; }
+  .nav-offcanvas .paleta-demo { display: block; margin-top: 24px; }
+}
+@media (min-width: 1200px) {
+  .nav-offcanvas .paleta-demo { display: none; }
+}
+
+/* El selector suma ancho al header: entre 1200 y 1400 el botón de WhatsApp
+   queda solo con el ícono para que la fila siga entrando (esto se va junto
+   con la demo). */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .nav-actions .btn span { display: none; }
+  .nav-actions .btn { padding: 10px 14px; }
+  .nav-actions { gap: 8px; }
+}

@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initDetalleAlojamiento();
   initDetalleBlog();
   initContactForm();
+  initPaletaDemo(); // DEMO PALETAS (temporal)
   initCheckout();
 
   const yearEl = document.getElementById("year");

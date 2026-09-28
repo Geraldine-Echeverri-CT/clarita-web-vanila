@@ -15,6 +15,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#437c90">
+<!-- DEMO PALETAS (temporal): aplica la paleta guardada antes de pintar, para que
+     no se vea un parpadeo de color al cargar la página. -->
+<script>try{var p=localStorage.getItem("clarita-paleta");if(p&&p!=="2")document.documentElement.setAttribute("data-paleta",p);}catch(e){}</script>
 <link rel="icon" type="image/png" href="src/assets/favicon.png">
 <link rel="apple-touch-icon" href="src/assets/apple-touch-icon.png">
 <!-- Bootstrap 5 (solo CSS de grilla/utilidades/componentes; los estilos propios de src/css/ cargan después y lo tematizan) -->
@@ -49,6 +52,7 @@
 <link rel="stylesheet" href="src/css/22-blog.css">
 <link rel="stylesheet" href="src/css/23-testimonials.css">
 <link rel="stylesheet" href="src/css/24-detalle-alojamiento.css">
+<link rel="stylesheet" href="src/css/97-paletas-demo.css">
 <link rel="stylesheet" href="src/css/99-responsive.css">
 </head>
 <body>
@@ -72,9 +76,33 @@
             <li class="nav-item"><a href="alianza-propietarios.html" class="nav-link nav-links__link nav-links__link--active active" data-page="alianza" data-i18n="nav.alianza" aria-current="page">Alianza con propietarios</a></li>
             <li class="nav-item"><a href="contacto.html" class="nav-link nav-links__link" data-page="contacto" data-i18n="nav.contacto">Contacto</a></li>
           </ul>
+          <!-- DEMO PALETAS (temporal): comparar las tres paletas del PPT -->
+          <div class="dropdown paleta-demo">
+            <button type="button" class="paleta-demo__toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Paleta de color (demo)">
+              <span data-paleta-actual>P2</span> <i class="ti ti-chevron-down"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end paleta-demo__menu">
+              <li><button type="button" class="dropdown-item paleta-demo__menu-button" data-paleta-opcion="1"><span class="paleta-demo__muestra"><span style="background:#153244"></span><span style="background:#294b63"></span><span style="background:#70aaa1"></span><span style="background:#eff0ec"></span></span> Paleta 1 · Azules</button></li>
+              <li><button type="button" class="dropdown-item paleta-demo__menu-button" data-paleta-opcion="2"><span class="paleta-demo__muestra"><span style="background:#255957"></span><span style="background:#437c90"></span><span style="background:#a98843"></span><span style="background:#efebd4"></span></span> Paleta 2 · Petróleo (actual)</button></li>
+              <li><button type="button" class="dropdown-item paleta-demo__menu-button" data-paleta-opcion="3"><span class="paleta-demo__muestra"><span style="background:#3a4032"></span><span style="background:#597b7f"></span><span style="background:#8dab7f"></span><span style="background:#efebd4"></span></span> Paleta 3 · Verdes</button></li>
+              <li><p class="paleta-demo__nota">Demo temporal para elegir paleta. La elección queda guardada en este navegador.</p></li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="nav-actions">
+        <!-- DEMO PALETAS (temporal): comparar las tres paletas del PPT -->
+        <div class="dropdown paleta-demo">
+          <button type="button" class="paleta-demo__toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Paleta de color (demo)">
+            <span data-paleta-actual>P2</span> <i class="ti ti-chevron-down"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end paleta-demo__menu">
+            <li><button type="button" class="dropdown-item paleta-demo__menu-button" data-paleta-opcion="1"><span class="paleta-demo__muestra"><span style="background:#153244"></span><span style="background:#294b63"></span><span style="background:#70aaa1"></span><span style="background:#eff0ec"></span></span> Paleta 1 · Azules</button></li>
+            <li><button type="button" class="dropdown-item paleta-demo__menu-button" data-paleta-opcion="2"><span class="paleta-demo__muestra"><span style="background:#255957"></span><span style="background:#437c90"></span><span style="background:#a98843"></span><span style="background:#efebd4"></span></span> Paleta 2 · Petróleo (actual)</button></li>
+            <li><button type="button" class="dropdown-item paleta-demo__menu-button" data-paleta-opcion="3"><span class="paleta-demo__muestra"><span style="background:#3a4032"></span><span style="background:#597b7f"></span><span style="background:#8dab7f"></span><span style="background:#efebd4"></span></span> Paleta 3 · Verdes</button></li>
+            <li><p class="paleta-demo__nota">Demo temporal para elegir paleta. La elección queda guardada en este navegador.</p></li>
+          </ul>
+        </div>
         <div class="dropdown lang-dropdown">
           <button type="button" class="lang-dropdown__toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Idioma">
             <span class="lang-current">ES</span> <i class="ti ti-chevron-down"></i>
@@ -306,6 +334,7 @@
 <script src="src/js/modules/detalle-alojamiento.js"></script>
 <script src="src/js/modules/detalle-blog.js"></script>
 <script src="src/js/modules/contact-form.js"></script>
+<script src="src/js/modules/paleta-demo.js"></script>
 <script src="src/js/modules/checkout.js"></script>
 <script src="src/js/main.js"></script>
 </body>
