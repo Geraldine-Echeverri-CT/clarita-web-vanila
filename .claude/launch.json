@@ -6,6 +6,24 @@
       "runtimeExecutable": "npx",
       "runtimeArgs": ["-y", "http-server", "-p", "8791", "-c-1", "."],
       "port": 8791
+    },
+    {
+      "name": "propuesta-conservadora",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "http-server", "C:/Users/juanp/AppData/Local/Temp/claude/Z--web-ct-clarita-web-vanila/fd28c84e-9776-45cb-bc9a-4f6872f77832/scratchpad/propuestas/conservadora", "-p", "8792", "-c-1"],
+      "port": 8792
+    },
+    {
+      "name": "propuesta-atrevida",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "http-server", "C:/Users/juanp/AppData/Local/Temp/claude/Z--web-ct-clarita-web-vanila/fd28c84e-9776-45cb-bc9a-4f6872f77832/scratchpad/propuestas/atrevida", "-p", "8793", "-c-1"],
+      "port": 8793
+    },
+    {
+      "name": "propuesta-oscura",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "http-server", "C:/Users/juanp/AppData/Local/Temp/claude/Z--web-ct-clarita-web-vanila/fd28c84e-9776-45cb-bc9a-4f6872f77832/scratchpad/propuestas/oscura", "-p", "8794", "-c-1"],
+      "port": 8794
     }
   ]
 }
