@@ -3,7 +3,9 @@
    claras (combinación "fondos permitidos" del manual de marca). */
 .quote-band {
   background: var(--petroleo);
-  color: var(--crema);
+  /* Blanco y no crema: sobre el azul petróleo el crema queda en 3.9:1 y el
+     blanco en 4.6:1 (AA para este tamaño de texto). */
+  color: var(--blanco);
   text-align: center;
   padding: 60px 0;
 }
@@ -12,12 +14,12 @@
   font-family: var(--ff-titulo);
   font-weight: 600;
   font-size: 1.6rem;
-  color: var(--crema);
+  color: var(--blanco);
   max-width: 760px;
   margin: 0 auto;
 }
 .quote-band em { color: var(--sol); font-style: normal; }
-.quote-band .quote-sub { font-family: var(--ff-cuerpo); font-size: 0.95rem; font-style: normal; font-weight: 400; color: rgba(248, 245, 233, 0.88); max-width: 640px; margin: 16px auto 0; }
+.quote-band .quote-sub { font-family: var(--ff-cuerpo); font-size: 0.95rem; font-style: normal; font-weight: 400; color: rgba(255, 255, 255, 0.95); max-width: 640px; margin: 16px auto 0; }
 
 /* ---------- Franja CTA de cierre (antes del footer) ---------- */
 .cta-band {
