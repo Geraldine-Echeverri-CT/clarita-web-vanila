@@ -19,7 +19,7 @@
   margin: 0 auto;
 }
 .quote-band em { color: var(--sol); font-style: normal; }
-.quote-band .quote-sub { font-family: var(--ff-cuerpo); font-size: 0.95rem; font-style: normal; font-weight: 400; color: rgba(255, 255, 255, 0.95); max-width: 640px; margin: 16px auto 0; }
+.quote-band .quote-sub { font-family: var(--ff-cuerpo); font-size: 0.95rem; font-style: normal; font-weight: 400; color: var(--blanco); max-width: 640px; margin: 16px auto 0; }
 
 /* ---------- Franja CTA de cierre (antes del footer) ---------- */
 .cta-band {
