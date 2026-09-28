@@ -87,9 +87,9 @@
   transition: color 0.2s, border-color 0.2s;
 }
 .nav-links__link:hover,
-.nav-links__link:focus { color: var(--petroleo); border-color: var(--petroleo-claro); }
+.nav-links__link:focus { color: var(--petroleo); border-color: var(--borde); }
 .navbar-nav .nav-links__link.active,
-.nav-links__link--active { color: var(--petroleo-oscuro); font-weight: 700; border-color: var(--sol); }
+.nav-links__link--active { color: var(--petroleo-oscuro); font-weight: 600; border-color: var(--petroleo-oscuro); }
 
 .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 

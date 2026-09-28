@@ -2,15 +2,21 @@
    Clarita Property Care — tokens de marca
    Paleta y tipografías del manual de marca. Ningún otro archivo escribe un
    color o una fuente a mano: todos usan estas variables.
+
+   TONO ELEGIDO: sobrio y atemporal (el aprobado en la propuesta publicada).
+   Fondos casi blancos, petróleo en títulos/botones/íconos y el ocre como
+   único acento fino. El amarillo sol queda fuera de la interfaz: sigue
+   definido acá porque es parte de la marca y se usa en piezas gráficas.
    ======================================================== */
 
 :root {
   /* Paleta oficial */
   --petroleo-oscuro: #255957;   /* verde petróleo: footer, franjas oscuras, hover */
   --petroleo: #437c90;          /* azul petróleo: color principal (logo, botones, íconos) */
-  --sol: #f7c549;               /* amarillo: acentos y CTA destacados */
+  --sol: #f7c549;               /* amarillo: reservado para piezas gráficas; la
+                                   interfaz del sitio no lo usa (ver abajo) */
   --dorado: #a98843;            /* ocre: detalles decorativos */
-  --crema-2: #efebd4;           /* crema de marca: fondos alternos */
+  --crema-2: #f3f0e2;           /* crema de marca (suavizado): fondos alternos */
 
   /* Derivados (tintes/sombras de la paleta, para textos y fondos suaves) */
   --petroleo-claro: #8db4c1;
@@ -18,17 +24,17 @@
   --sol-hover: #eeb52c;
   --sol-tenue: #fdf1cf;
   --dorado-oscuro: #7f6429;     /* ocre con contraste AA para texto chico */
-  --crema: #f8f5e9;             /* fondo general, un tono más claro que --crema-2 */
+  --crema: #fbfaf5;             /* fondo general: crema muy suave, casi blanco */
 
-  --texto: #1e3b3a;
-  --texto-suave: #566a69;
+  --texto: #243b3a;
+  --texto-suave: #5d6b69;
   --blanco: #ffffff;
-  --superficie: #fffdf8;
-  --borde: #e1dbc1;
-  --header-bg: rgba(248, 245, 233, 0.94);
-  --sombra: 0 12px 32px rgba(37, 89, 87, 0.10);
-  --sombra-hover: 0 18px 40px rgba(37, 89, 87, 0.16);
-  --radio: 14px;
+  --superficie: #ffffff;
+  --borde: #e6e1cc;
+  --header-bg: rgba(255, 255, 255, 0.96);
+  --sombra: 0 4px 16px rgba(37, 89, 87, 0.06);
+  --sombra-hover: 0 8px 24px rgba(37, 89, 87, 0.10);
+  --radio: 6px;
 
   /* Tipografías de marca: All Round Gothic (títulos) y Filson Pro (texto) son
      de Adobe Fonts. Si se agrega el kit de Adobe (<link> de use.typekit.net

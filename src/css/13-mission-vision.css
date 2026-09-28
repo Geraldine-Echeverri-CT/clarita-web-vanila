@@ -15,9 +15,8 @@
   content: "";
   position: absolute;
   left: 0; bottom: 0;
-  width: 40px; height: 3px;
-  border-radius: 3px;
-  background: var(--sol);
+  width: 40px; height: 2px;
+  background: var(--dorado);
 }
 .mv-card p { color: var(--texto-suave); font-size: 0.94rem; margin: 0; }
 .mv-card__tag { margin-top: 16px; color: var(--dorado-oscuro); font-weight: 600; font-size: 0.9rem; }

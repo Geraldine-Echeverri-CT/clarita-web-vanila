@@ -76,11 +76,11 @@
      el texto conserva contraste AA incluso sobre cielo o agua. Medido sobre
      los píxeles reales de cada banner, no a ojo. */
   background: linear-gradient(90deg,
-    rgba(20, 52, 51, 0.9) 0%,
-    rgba(20, 52, 51, 0.86) 40%,
-    rgba(20, 52, 51, 0.55) 58%,
-    rgba(20, 52, 51, 0.15) 72%,
-    rgba(20, 52, 51, 0) 84%);
+    rgba(37, 89, 87, 0.92) 0%,
+    rgba(37, 89, 87, 0.88) 40%,
+    rgba(37, 89, 87, 0.58) 58%,
+    rgba(37, 89, 87, 0.16) 72%,
+    rgba(37, 89, 87, 0) 84%);
 }
 .hero-banner-copy {
   position: relative;
@@ -94,7 +94,7 @@
   color: var(--blanco);
 }
 .hero-banner-copy-text { max-width: 560px; }
-.hero-banner-copy .eyebrow { color: var(--sol); }
+.hero-banner-copy .eyebrow { color: var(--crema-2); }
 .hero-banner-copy h1 { color: var(--crema); font-size: 2.6rem; }
 .hero-banner-copy p.lead { color: rgba(248, 245, 233, 0.9); font-size: 0.95rem; }
 .hero-banner-copy .hero-actions { margin-top: 18px; }
@@ -108,7 +108,7 @@
 @media (max-width: 1199.98px) {
   .hero-banner { display: block; min-height: 0; }
   .hero-banner-media { position: relative; height: clamp(230px, 32vw, 380px); }
-  .hero-banner-media::after { background: linear-gradient(rgba(20, 52, 51, 0.1), rgba(20, 52, 51, 0.1)); }
+  .hero-banner-media::after { background: linear-gradient(rgba(37, 89, 87, 0.08), rgba(37, 89, 87, 0.08)); }
   .hero-banner .hero-banner-copy { padding: 26px 20px 4px; color: var(--texto); }
   .hero-banner .hero-banner-copy h1 { color: var(--petroleo-oscuro); }
   .hero-banner .hero-banner-copy .eyebrow { color: var(--dorado-oscuro); background: none; padding: 0; }

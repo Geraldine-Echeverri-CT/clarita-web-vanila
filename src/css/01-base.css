@@ -20,20 +20,17 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 h1, h2, h3, h4 {
   font-family: var(--ff-titulo);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--petroleo-oscuro);
   line-height: 1.2;
-  letter-spacing: -0.01em;
   margin: 0 0 0.5em;
 }
 
-/* Palabras destacadas en títulos (<em>): en vez de cursiva, color de marca
-   con un subrayado tipo marcador en amarillo sol — cálido y llamativo. */
+/* Palabras destacadas en títulos (<em>): sin cursiva ni resaltado, solo el
+   azul petróleo de la marca. */
 h1 em, h2 em {
   font-style: normal;
   color: var(--petroleo);
-  background: linear-gradient(transparent 62%, rgba(247, 197, 73, 0.55) 62%, rgba(247, 197, 73, 0.55) 92%, transparent 92%);
-  padding: 0 0.08em;
 }
 
 /* Spinner para los íconos de carga (reemplaza fa-spin de Font Awesome). */
@@ -81,16 +78,16 @@ p { margin: 0 0 1em; }
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 0.78rem;
-  font-weight: 700;
+  letter-spacing: 2.5px;
+  font-weight: 600;
   color: var(--dorado-oscuro);
   margin-bottom: 14px;
 }
 
 .divider {
-  width: 64px;
-  height: 4px;
-  border-radius: 4px;
-  background: linear-gradient(90deg, var(--petroleo) 0 55%, var(--sol) 55% 100%);
+  width: 48px;
+  height: 2px;
+  background: var(--dorado);
   border: none;
   margin: 18px 0 24px;
 }

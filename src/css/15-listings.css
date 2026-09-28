@@ -210,7 +210,7 @@
   height: 100%;
   transition: transform 0.2s ease;
 }
-.listing-card:hover { transform: translateY(-4px); }
+.listing-card:hover { box-shadow: var(--sombra-hover); }
 .listing-card__thumb { aspect-ratio: 3/2; overflow: hidden; }
 .listing-card__thumb img { width: 100%; height: 100%; object-fit: cover; }
 .listing-card__body { padding: 14px 16px 16px; display: flex; flex-direction: column; flex-grow: 1; }

@@ -7,7 +7,7 @@
 
 /* .testi-grid es una .row de Bootstrap; testimonials.js envuelve cada tarjeta en una .col. */
 .testi-card { background: var(--superficie); border-radius: var(--radio); padding: 28px; box-shadow: var(--sombra); height: 100%; }
-.testi-card__stars { color: var(--sol); letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 12px; }
+.testi-card__stars { color: var(--dorado); letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 12px; }
 .testi-card__comment { color: var(--texto-suave); font-style: italic; margin-bottom: 20px; }
 .testi-card__person { display: flex; align-items: center; gap: 12px; }
 .testi-card__avatar { width: 46px; height: 46px; border-radius: 50%; background: var(--petroleo-tenue); color: var(--petroleo-oscuro); display: flex; align-items: center; justify-content: center; font-family: var(--ff-titulo); font-weight: 700; flex-shrink: 0; }

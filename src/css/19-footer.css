@@ -5,14 +5,14 @@
 /* .footer-grid es una .row de Bootstrap con col-* por columna (footer.html). */
 .footer-grid .logo { color: var(--crema); }
 .footer-about p { color: rgba(248, 245, 233, 0.82); font-size: 0.92rem; margin-top: 16px; max-width: 36ch; }
-.footer-col h4 { color: var(--sol); font-family: var(--ff-cuerpo); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
+.footer-col h4 { color: var(--crema); font-family: var(--ff-cuerpo); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
 .footer-col ul li { margin-bottom: 10px; overflow-wrap: anywhere; color: rgba(248, 245, 233, 0.82); font-size: 0.9rem; }
-.footer-col li i { color: var(--sol); margin-right: 4px; }
+.footer-col li i { color: var(--crema-2); margin-right: 4px; }
 .footer-col a { color: rgba(248, 245, 233, 0.82); font-size: 0.9rem; transition: color 0.2s; }
-.footer-col a:hover { color: var(--sol); }
+.footer-col a:hover { color: var(--blanco); }
 .footer-social { display: flex; gap: 10px; margin-top: 18px; }
 .footer-social a { width: 38px; height: 38px; border-radius: 50%; background: rgba(248, 245, 233, 0.12); color: var(--crema); font-size: 1.15rem; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
-.footer-social a:hover { background: var(--sol); color: var(--petroleo-oscuro); }
+.footer-social a:hover { background: var(--crema); color: var(--petroleo-oscuro); }
 .footer-bottom {
   margin-top: 50px;
   padding-top: 22px;

@@ -1,19 +1,19 @@
 /* ---------- Botones ----------
-   Pastilla redondeada (eco de las formas suaves del logo). Tres jerarquías:
+   Esquinas apenas redondeadas, sobrias. Tres jerarquías:
    - .btn-primary: azul petróleo, la acción normal.
-   - .btn-accent:  amarillo sol, la acción que más importa en la pantalla
-                   (reservar, ver alojamientos) — una por sección como máximo.
+   - .btn-accent:  verde petróleo oscuro, la acción que más importa en la
+                   pantalla (reservar, ver alojamientos) — una por sección.
    - .btn-outline / .btn-white: secundarias. */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 14px 28px;
-  border-radius: 999px;
+  padding: 13px 26px;
+  border-radius: 4px;
   font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.6px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   border: 2px solid transparent;
   cursor: pointer;
@@ -27,8 +27,8 @@
 .btn-primary { background: var(--petroleo); color: var(--blanco); }
 .btn-primary:hover { background: var(--petroleo-oscuro); color: var(--blanco); }
 
-.btn-accent { background: var(--sol); color: var(--petroleo-oscuro); }
-.btn-accent:hover { background: var(--sol-hover); color: var(--petroleo-oscuro); }
+.btn-accent { background: var(--petroleo-oscuro); color: var(--crema); }
+.btn-accent:hover { background: var(--petroleo); color: var(--blanco); }
 
 .btn-outline { background: transparent; color: var(--petroleo-oscuro); border-color: var(--petroleo-oscuro); }
 .btn-outline:hover { background: var(--petroleo-oscuro); color: var(--crema); }

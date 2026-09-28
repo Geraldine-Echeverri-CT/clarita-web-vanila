@@ -1,38 +1,34 @@
 /* ---------- Frase destacada ---------- */
-/* Franja en azul petróleo con texto crema: rompe el ritmo de las secciones
-   claras (combinación "fondos permitidos" del manual de marca). */
+/* Franja en crema: rompe el ritmo de las secciones blancas sin subir el tono. */
 .quote-band {
-  background: var(--petroleo);
-  /* Blanco y no crema: sobre el azul petróleo el crema queda en 3.9:1 y el
-     blanco en 4.6:1 (AA para este tamaño de texto). */
-  color: var(--blanco);
+  background: var(--crema-2);
+  color: var(--texto);
   text-align: center;
   padding: 60px 0;
 }
-.quote-band .quote-icon { color: var(--sol); font-size: 1.8rem; margin-bottom: 16px; display: inline-block; }
+.quote-band .quote-icon { color: var(--dorado); font-size: 1.8rem; margin-bottom: 16px; display: inline-block; }
 .quote-band p {
   font-family: var(--ff-titulo);
   font-weight: 600;
   font-size: 1.6rem;
-  color: var(--blanco);
+  color: var(--petroleo-oscuro);
   max-width: 760px;
   margin: 0 auto;
 }
-.quote-band em { color: var(--sol); font-style: normal; }
-.quote-band .quote-sub { font-family: var(--ff-cuerpo); font-size: 0.95rem; font-style: normal; font-weight: 400; color: var(--blanco); max-width: 640px; margin: 16px auto 0; }
+.quote-band em { color: var(--petroleo); font-style: normal; }
+.quote-band .quote-sub { font-family: var(--ff-cuerpo); font-size: 0.95rem; font-style: normal; font-weight: 400; color: var(--texto-suave); max-width: 640px; margin: 16px auto 0; }
 
 /* ---------- Franja CTA de cierre (antes del footer) ---------- */
 .cta-band {
-  /* Verde petróleo con un halo de sol arriba a la derecha: cierre cálido. */
-  background:
-    radial-gradient(circle at 88% 0%, rgba(247, 197, 73, 0.28), transparent 45%),
-    var(--petroleo-oscuro);
-  border-radius: 24px;
+  background: var(--petroleo-oscuro);
+  border-radius: var(--radio);
   padding: 56px 32px;
   color: var(--crema);
 }
 .cta-band h2 { color: var(--crema); }
 .cta-band p { max-width: 60ch; margin: 0 auto 26px; opacity: 0.9; }
+.cta-band .btn-accent { background: var(--crema); color: var(--petroleo-oscuro); }
+.cta-band .btn-accent:hover { background: var(--blanco); color: var(--petroleo-oscuro); }
 .cta-band .btn-outline { border-color: var(--crema); color: var(--crema); }
 .cta-band .btn-outline:hover { background: var(--crema); color: var(--petroleo-oscuro); }
 

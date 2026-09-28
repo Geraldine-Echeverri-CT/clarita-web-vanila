@@ -33,7 +33,7 @@
   gap: 12px;
 }
 .faq-item__question i { transition: transform 0.25s ease; color: var(--petroleo); font-size: 1.2rem; }
-.faq-item--open { border-left-color: var(--sol); }
+.faq-item--open { border-left-color: var(--dorado); }
 .faq-item--open .faq-item__question i { transform: rotate(45deg); }
 .faq-item__answer {
   max-height: 0;
