@@ -132,7 +132,9 @@
   font-family: var(--ff-titulo);
   font-size: 1.35rem;
   font-weight: 600;
-  color: var(--petroleo);
+  /* petróleo claro sobre crema queda en 4.4:1 — justo por debajo de AA para
+     este tamaño, así que la bajada usa el tono oscuro. */
+  color: var(--petroleo-oscuro);
   margin: -6px 0 14px;
 }
 /* Variante sin imagen (FAQ, blog, testimoniales): antes esto era un
