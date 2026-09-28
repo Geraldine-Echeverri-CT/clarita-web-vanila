@@ -19,3 +19,5 @@ npm-debug.log*
 # Variables de entorno (hoy no se usan, pero si mañana hay un backend)
 .env
 .env.*
+.vercel
+.env*
