@@ -1,6 +1,16 @@
 /* ---------- Contacto: info lateral ---------- */
 .contact-info-grid { margin-top: 10px; }
-.contact-info-item { display: flex; gap: 14px; align-items: flex-start; min-width: 0; }
+/* Toda la tarjeta es el enlace (WhatsApp / correo), no solo el texto. */
+.contact-info-item {
+  display: flex; gap: 14px; align-items: center; min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background: var(--superficie);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+a.contact-info-item:hover { border-color: var(--petroleo); transform: translateY(-2px); box-shadow: var(--sombra); }
+.contact-info-item p { overflow-wrap: anywhere; }
 .contact-info-item .icon-circle {
   width: 44px; height: 44px; border-radius: 50%;
   background: var(--petroleo); color: var(--blanco);
@@ -23,6 +33,7 @@
 .cta-social-row .social-inline { justify-self: start; }
 .social-label { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--texto-suave); font-weight: 600; margin-bottom: 4px; }
 .social-row { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+.social-row--center { justify-content: center; margin-top: 14px; }
 .social-row a {
   width: 40px; height: 40px; border-radius: 50%;
   background: var(--petroleo); color: var(--blanco);

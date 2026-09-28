@@ -20,7 +20,9 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   white-space: nowrap;
 }
-.btn:hover { transform: translateY(-2px); box-shadow: var(--sombra-hover); }
+/* El hover sube el botón y lo agranda apenas (1.03): suficiente para que se
+   entienda que es clickeable, sin que salte. */
+.btn:hover { transform: translateY(-2px) scale(1.03); box-shadow: var(--sombra-hover); }
 
 .btn-primary { background: var(--petroleo); color: var(--blanco); }
 .btn-primary:hover { background: var(--petroleo-oscuro); color: var(--blanco); }

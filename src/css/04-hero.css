@@ -127,6 +127,14 @@
 }
 .page-hero h1 { font-size: 2.3rem; }
 .hero-split-bleed-text .lead, .page-hero .lead { color: var(--texto-suave); }
+/* Bajada del título en Contacto ("De cómo podemos hacerte la vida más fácil"). */
+.contacto-subtitulo {
+  font-family: var(--ff-titulo);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--petroleo);
+  margin: -6px 0 14px;
+}
 /* Variante sin imagen (FAQ, blog, testimoniales): antes esto era un
    style="grid-template-columns:1fr;text-align:center;" puesto en el <section>,
    que no tenía ningún efecto real porque el grid de 2 columnas está definido
