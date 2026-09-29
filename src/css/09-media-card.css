@@ -8,14 +8,17 @@
 }
 .split-img-card img { width: 100%; height: 100%; object-fit: cover; }
 
+/* Abajo a la izquierda (antes a la derecha): en la foto de la pareja el cuadro
+   les caía encima. Acá se apoya sobre una zona libre y no invade los rostros. */
 .floating-check-card {
   position: absolute;
-  right: 20px;
-  bottom: 20px;
+  left: 18px;
+  bottom: 18px;
+  max-width: 45%;
   background: var(--superficie);
   border-radius: var(--radio);
   box-shadow: var(--sombra);
   padding: 18px 22px;
 }
-.floating-check-card .checklist li { font-size: 0.85rem; padding: 5px 0; }
+.floating-check-card .checklist li { font-size: 0.8rem; padding: 4px 0; }
 

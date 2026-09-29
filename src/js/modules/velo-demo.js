@@ -13,8 +13,31 @@
 //
 // Para sacar la demo, ver src/css/96-velo-demo.css.
 
-const VELO_KEY = "clarita-velo";
-const VELO_DEFECTO = { fuerza: 0.92, ancho: 96, fundido: 12 };
+// Cada página guarda su propio velo: la clave lleva el nombre del archivo, así
+// lo que se ajusta en Alojamientos no cambia el de Contacto.
+const VELO_KEY = "clarita-velo:" + (location.pathname.split("/").pop() || "index.html");
+const VELO_DEFECTO = { fuerza: 0.92, ancho: 96, fundido: 12, color: "#255957" };
+
+// Colores rápidos: se leen de la paleta activa, así las muestras cambian junto
+// con el selector de paletas (P1/P2/P3).
+function veloColoresPaleta() {
+  const cs = getComputedStyle(document.documentElement);
+  const tomar = (nombre) => cs.getPropertyValue(nombre).trim();
+  return [
+    { nombre: "Petróleo oscuro", color: tomar("--petroleo-oscuro") },
+    { nombre: "Petróleo", color: tomar("--petroleo") },
+    { nombre: "Ocre", color: tomar("--dorado") },
+    { nombre: "Beige", color: tomar("--crema-2") },
+    { nombre: "Negro", color: "#1c1f1b" },
+  // Solo hex: es lo que entiende el selector de color del navegador.
+  ].filter((c) => /^#[0-9a-f]{3,8}$/i.test(c.color));
+}
+
+function veloHexARgb(hex) {
+  const h = hex.trim().replace("#", "");
+  const largo = h.length === 3 ? h.split("").map((c) => c + c).join("") : h;
+  return [0, 2, 4].map((i) => parseInt(largo.slice(i, i + 2), 16));
+}
 
 function veloLeer() {
   try {
@@ -29,10 +52,23 @@ function veloGuardar(valores) {
 }
 
 function veloAplicar(valores) {
-  const raiz = document.documentElement.style;
-  raiz.setProperty("--velo-fuerza", String(valores.fuerza));
-  raiz.setProperty("--velo-ancho", String(valores.ancho));
-  raiz.setProperty("--fundido", String(valores.fundido));
+  // Las variables se ponen en el hero de esta página, no en :root: el velo es
+  // de cada vista y no se arrastra a las demás.
+  const heros = document.querySelectorAll(".hero-banner, .hero-split-bleed");
+  const rgb = veloHexARgb(valores.color);
+  heros.forEach((hero) => {
+    hero.style.setProperty("--velo-fuerza", String(valores.fuerza));
+    hero.style.setProperty("--velo-ancho", String(valores.ancho));
+    hero.style.setProperty("--fundido", String(valores.fundido));
+    hero.style.setProperty("--velo-rgb", rgb.join(", "));
+  });
+
+  // Con un velo claro (beige, por ejemplo) el texto blanco no se leería: el
+  // banner pasa a los colores oscuros, los mismos que usa en celular.
+  const claro = veloLuminancia(rgb[0], rgb[1], rgb[2]) > 0.35;
+  document.querySelectorAll(".hero-banner").forEach((el) => {
+    el.classList.toggle("hero-banner--velo-claro", claro);
+  });
 }
 
 // --- contraste real: dibuja la foto como la recorta el navegador, le aplica el
@@ -64,11 +100,12 @@ function veloMedirContraste(valores) {
     return null;
   }
 
-  // mismo degradado que 04-hero.css
+  // mismo degradado que 04-hero.css, con el color elegido
   const f = valores.fuerza, a = valores.ancho / 100;
+  const rgb = veloHexARgb(valores.color).join(", ");
   const grad = ctx.createLinearGradient(0, 0, ancho, 0);
   [[0, f], [0.476 * a, f * 0.957], [0.69 * a, f * 0.63], [0.857 * a, f * 0.174], [a, 0]].forEach(([pos, alfa]) => {
-    grad.addColorStop(Math.min(1, Math.max(0, pos)), "rgba(37, 89, 87, " + alfa + ")");
+    grad.addColorStop(Math.min(1, Math.max(0, pos)), "rgba(" + rgb + ", " + alfa + ")");
   });
   ctx.fillStyle = grad;
   ctx.fillRect(0, 0, ancho, alto);
@@ -123,6 +160,12 @@ function initVeloDemo() {
           '<input type="range" data-velo="fuerza" min="0" max="1" step="0.02"></label>' +
           '<label class="velo-demo__campo">Hasta dónde llega <output data-salida="ancho"></output>' +
           '<input type="range" data-velo="ancho" min="20" max="100" step="1"></label>' +
+          '<div class="velo-demo__campo">Color del velo' +
+            '<div class="velo-demo__colores" data-colores></div>' +
+            '<label class="velo-demo__custom">Otro color' +
+              '<input type="color" data-velo-color-custom>' +
+            "</label>" +
+          "</div>" +
           '<p class="velo-demo__medida" data-medida></p>'
         : '<label class="velo-demo__campo">Suavidad del borde <output data-salida="fundido"></output>' +
           '<input type="range" data-velo="fundido" min="0" max="50" step="1"></label>' +
@@ -143,6 +186,18 @@ function initVeloDemo() {
     if (!abierto) refrescar();
   });
 
+  // Muestras de color de la paleta activa (se rehacen si cambia la paleta)
+  const contenedorColores = panel.querySelector("[data-colores]");
+  function pintarColores() {
+    if (!contenedorColores) return;
+    contenedorColores.innerHTML = veloColoresPaleta().map((c) =>
+      '<button type="button" class="velo-demo__color" data-velo-color="' + c.color + '" title="' + c.nombre + '" aria-label="' + c.nombre + '" style="background:' + c.color + '"></button>'
+    ).join("");
+    contenedorColores.querySelectorAll("[data-velo-color]").forEach((b) => {
+      b.classList.toggle("velo-demo__color--activo", b.dataset.veloColor.toLowerCase() === valores.color.toLowerCase());
+    });
+  }
+
   function refrescar() {
     panel.querySelectorAll("[data-velo]").forEach((input) => {
       const clave = input.dataset.velo;
@@ -150,10 +205,13 @@ function initVeloDemo() {
       const salida = panel.querySelector('[data-salida="' + clave + '"]');
       if (salida) salida.textContent = clave === "fuerza" ? Math.round(valores.fuerza * 100) + "%" : valores[clave] + "%";
     });
+    pintarColores();
+    const custom = panel.querySelector("[data-velo-color-custom]");
+    if (custom) custom.value = valores.color;
     const css = panel.querySelector("[data-velo-css]");
     if (css) {
       css.textContent = banner
-        ? "--velo-fuerza: " + valores.fuerza + "; --velo-ancho: " + valores.ancho + ";"
+        ? "--velo-rgb: " + veloHexARgb(valores.color).join(", ") + "; --velo-fuerza: " + valores.fuerza + "; --velo-ancho: " + valores.ancho + ";"
         : "--fundido: " + valores.fundido + ";";
     }
     const medida = panel.querySelector("[data-medida]");
@@ -172,14 +230,29 @@ function initVeloDemo() {
     }
   }
 
-  panel.addEventListener("input", (e) => {
-    const input = e.target.closest("[data-velo]");
-    if (!input) return;
-    valores[input.dataset.velo] = parseFloat(input.value);
+  function cambiar(clave, valor) {
+    valores[clave] = valor;
     veloAplicar(valores);
     veloGuardar(valores);
     refrescar();
+  }
+
+  panel.addEventListener("input", (e) => {
+    const custom = e.target.closest("[data-velo-color-custom]");
+    if (custom) { cambiar("color", custom.value); return; }
+    const input = e.target.closest("[data-velo]");
+    if (!input) return;
+    cambiar(input.dataset.velo, parseFloat(input.value));
   });
+
+  panel.addEventListener("click", (e) => {
+    const muestra = e.target.closest("[data-velo-color]");
+    if (muestra) cambiar("color", muestra.dataset.veloColor);
+  });
+
+  // Si cambia la paleta, las muestras y el velo se actualizan solos.
+  document.addEventListener("clarita:languagechange", refrescar);
+  new MutationObserver(() => { pintarColores(); }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-paleta"] });
 
   panel.querySelector(".velo-demo__reset").addEventListener("click", () => {
     Object.assign(valores, VELO_DEFECTO);

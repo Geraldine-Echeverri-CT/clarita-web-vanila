@@ -1,5 +1,7 @@
 /* ---------- Contacto: info lateral ---------- */
-.contact-info-grid { margin-top: 10px; }
+/* Las dos tarjetas (WhatsApp y correo) van una debajo de la otra, al costado
+   del formulario. */
+.contact-info-grid { display: flex; flex-direction: column; gap: 12px; margin-top: 22px; }
 /* Toda la tarjeta es el enlace (WhatsApp / correo), no solo el texto. */
 .contact-info-item {
   display: flex; gap: 14px; align-items: center; min-width: 0;

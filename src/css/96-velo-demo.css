@@ -69,6 +69,25 @@
   margin-top: 8px;
 }
 
+/* Muestras de color: las de la paleta activa + un color libre */
+.velo-demo__colores { display: flex; gap: 8px; margin: 10px 0 8px; flex-wrap: wrap; }
+.velo-demo__color {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--borde);
+  padding: 0;
+  cursor: pointer;
+}
+.velo-demo__color--activo { border-color: var(--texto); box-shadow: 0 0 0 2px var(--superficie) inset; }
+.velo-demo__custom {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.72rem; font-weight: 600; text-transform: none; letter-spacing: 0;
+  color: var(--texto-suave);
+}
+.velo-demo__custom input[type="color"] {
+  width: 34px; height: 26px; padding: 0; border: 1px solid var(--borde); border-radius: 6px; background: none; cursor: pointer;
+}
+
 .velo-demo__medida {
   font-size: 0.78rem;
   margin: 0 0 10px;
@@ -103,6 +122,19 @@
   color: var(--texto-suave);
   word-break: break-all;
 }
+
+/* Con un velo claro (beige, ocre claro, un color propio claro) el texto blanco
+   no se leería: el banner usa los mismos tonos oscuros que en celular. La clase
+   la pone velo-demo.js según la luminancia del color elegido. */
+.hero-banner--velo-claro .hero-banner-copy { color: var(--texto); }
+.hero-banner--velo-claro .hero-banner-copy h1 { color: var(--petroleo-oscuro); }
+.hero-banner--velo-claro .hero-banner-copy h1 em { color: var(--petroleo); text-decoration-color: var(--dorado); }
+.hero-banner--velo-claro .hero-banner-copy .eyebrow { color: var(--dorado-oscuro); }
+.hero-banner--velo-claro .hero-banner-copy p.lead { color: var(--texto-suave); }
+.hero-banner--velo-claro .hero-banner-copy .contacto-subtitulo { color: var(--petroleo); }
+.hero-banner--velo-claro .hero-banner-copy .hero-divider span { background: var(--borde); }
+.hero-banner--velo-claro .hero-banner-copy .hero-divider i { color: var(--dorado); }
+.hero-banner--velo-claro .hero-banner-copy .btn-outline { border-color: var(--petroleo-oscuro); color: var(--petroleo-oscuro); }
 
 /* El botón flotante de WhatsApp está a la derecha: no se pisan. */
 @media (max-width: 575.98px) {

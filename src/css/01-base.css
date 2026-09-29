@@ -44,6 +44,30 @@ h1 em, h2 em {
 
 p { margin: 0 0 1em; }
 
+/* Los párrafos de contenido van justificados (pedido del cliente para todo el
+   sitio); con guionado automático para que no queden huecos grandes entre
+   palabras. Quedan alineados a la izquierda los textos cortos o centrados,
+   donde justificar se ve peor: tarjetas, pasos, pies y banners. */
+main p, .article-body p { text-align: justify; hyphens: auto; }
+.center p,
+.hero-banner-copy p,
+.value-item p,
+.step p,
+.testi-card p,
+.trust-item__text p,
+.mv-card__tag,
+.contact-info-item p,
+.audience-footer-card p,
+.blog-card__excerpt,
+.listing-card p,
+.summary-card p,
+.booking-card p,
+.field p,
+.form-msg,
+.demo-note,
+.secure-note,
+.success-lead { text-align: left; hyphens: manual; }
+
 .container {
   width: 100%;
   max-width: 1220px;
