@@ -84,14 +84,6 @@
 .paleta-demo__menu-button--active { font-weight: 700; }
 .paleta-demo__muestra { display: inline-flex; border-radius: 4px; overflow: hidden; flex-shrink: 0; }
 .paleta-demo__muestra span { width: 13px; height: 13px; }
-.paleta-demo__nota {
-  padding: 8px 10px 4px;
-  font-size: 0.72rem;
-  color: var(--texto-suave);
-  border-top: 1px solid var(--borde);
-  margin-top: 4px;
-  white-space: normal;
-}
 
 @media (max-width: 1199.98px) {
   /* En celular el header ya va justo: el selector se muestra dentro del menú. */

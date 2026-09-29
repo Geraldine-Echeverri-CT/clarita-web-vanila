@@ -41,22 +41,61 @@
    sólida de color. */
 hr.divider { opacity: 1; color: inherit; }
 
-/* Botones: los colores ya los define 02-buttons.css; acá solo se ajustan los
-   estados que agrega Bootstrap (foco/activo) para que no aparezca el azul. */
+/* Botones: los colores ya los define 02-buttons.css. Acá se reescriben los
+   estados de Bootstrap (hover, foco y activo), que vienen en azul fijo: el
+   borde toma el color del propio botón y el halo de foco es del color de la
+   marca. La primera declaración de la sombra es el respaldo para navegadores
+   sin color-mix(). */
 .btn {
-  --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(247, 197, 73, 0.55);
+  --bs-btn-focus-box-shadow: 0 0 0 0.2rem rgba(37, 89, 87, 0.3);
+  --bs-btn-focus-box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--petroleo) 40%, transparent);
   --bs-btn-line-height: 1.4;
   --bs-btn-border-radius: 999px;
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-border-color: transparent;
 }
 .btn-primary {
+  --bs-btn-hover-bg: var(--petroleo-oscuro);
+  --bs-btn-hover-color: var(--blanco);
+  --bs-btn-hover-border-color: var(--petroleo-oscuro);
   --bs-btn-active-bg: var(--petroleo-oscuro);
   --bs-btn-active-border-color: var(--petroleo-oscuro);
   --bs-btn-active-color: var(--blanco);
   --bs-btn-disabled-bg: var(--petroleo);
   --bs-btn-disabled-border-color: transparent;
 }
+.btn-accent {
+  --bs-btn-hover-bg: var(--petroleo);
+  --bs-btn-hover-color: var(--blanco);
+  --bs-btn-hover-border-color: var(--petroleo);
+  --bs-btn-active-bg: var(--petroleo);
+  --bs-btn-active-border-color: var(--petroleo);
+  --bs-btn-active-color: var(--blanco);
+}
+.btn-outline {
+  --bs-btn-hover-bg: var(--petroleo-oscuro);
+  --bs-btn-hover-color: var(--crema);
+  --bs-btn-hover-border-color: var(--petroleo-oscuro);
+  --bs-btn-active-bg: var(--petroleo-oscuro);
+  --bs-btn-active-border-color: var(--petroleo-oscuro);
+  --bs-btn-active-color: var(--crema);
+}
+.btn-white {
+  --bs-btn-hover-bg: var(--blanco);
+  --bs-btn-hover-color: var(--petroleo-oscuro);
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-bg: var(--blanco);
+  --bs-btn-active-border-color: transparent;
+  --bs-btn-active-color: var(--petroleo-oscuro);
+}
 .btn:first-child:active,
 .btn.active { background: var(--petroleo-oscuro); color: var(--blanco); border-color: var(--petroleo-oscuro); }
+
+/* Los links del menú también traen un halo azul fijo al navegar con teclado. */
+.nav-link:focus-visible {
+  box-shadow: 0 0 0 0.2rem rgba(37, 89, 87, 0.22);
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--petroleo) 30%, transparent);
+}
 
 /* Offcanvas y dropdown con la paleta de la marca. */
 .offcanvas {

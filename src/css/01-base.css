@@ -1,5 +1,9 @@
 * { box-sizing: border-box; }
 
+/* Checkboxes, radios y barras nativas del navegador: se marcan con el color
+   de la marca en vez del azul del sistema. */
+:root { accent-color: var(--petroleo); }
+
 html { scroll-behavior: smooth; }
 
 body {
