@@ -81,10 +81,10 @@
      valores que mueve la barra de la demo; los de acá son los aprobados. */
   background: linear-gradient(90deg,
     rgba(37, 89, 87, var(--velo-fuerza, 0.92)) 0%,
-    rgba(37, 89, 87, calc(var(--velo-fuerza, 0.92) * 0.957)) calc(var(--velo-ancho, 92) * 0.476%),
-    rgba(37, 89, 87, calc(var(--velo-fuerza, 0.92) * 0.63)) calc(var(--velo-ancho, 92) * 0.69%),
-    rgba(37, 89, 87, calc(var(--velo-fuerza, 0.92) * 0.174)) calc(var(--velo-ancho, 92) * 0.857%),
-    rgba(37, 89, 87, 0) calc(var(--velo-ancho, 92) * 1%));
+    rgba(37, 89, 87, calc(var(--velo-fuerza, 0.92) * 0.957)) calc(var(--velo-ancho, 96) * 0.476%),
+    rgba(37, 89, 87, calc(var(--velo-fuerza, 0.92) * 0.63)) calc(var(--velo-ancho, 96) * 0.69%),
+    rgba(37, 89, 87, calc(var(--velo-fuerza, 0.92) * 0.174)) calc(var(--velo-ancho, 96) * 0.857%),
+    rgba(37, 89, 87, 0) calc(var(--velo-ancho, 96) * 1%));
 }
 .hero-banner-copy {
   position: relative;
@@ -102,6 +102,23 @@
 .hero-banner-copy h1 { color: var(--crema); font-size: 2.6rem; }
 .hero-banner-copy p.lead { color: rgba(248, 245, 233, 0.9); font-size: 0.95rem; }
 .hero-banner-copy .hero-actions { margin-top: 18px; }
+/* Portada: título largo y foto protagonista, un poco más alto que el resto. */
+.hero-banner--alto { min-height: 460px; }
+.hero-banner--alto .hero-banner-copy-text { max-width: 620px; }
+.hero-banner--alto h1 { font-size: 2.5rem; }
+/* Sobre la foto, el divisor y la bajada de Contacto van en tonos claros. */
+.hero-banner-copy .hero-divider span { background: rgba(248, 245, 233, 0.4); }
+.hero-banner-copy .hero-divider i { color: var(--crema); }
+.hero-banner-copy .contacto-subtitulo { color: var(--crema); }
+/* Las palabras destacadas del título: sobre la foto el azul petróleo se apaga,
+   así que van en crema con un subrayado ocre. */
+.hero-banner-copy h1 em {
+  color: var(--crema);
+  text-decoration: underline;
+  text-decoration-color: var(--dorado);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
 .hero-banner-copy .btn-outline { border-color: var(--crema); color: var(--crema); }
 .hero-banner-copy .btn-outline:hover { background: var(--crema); color: var(--petroleo-oscuro); }
 
@@ -117,6 +134,11 @@
   .hero-banner .hero-banner-copy h1 { color: var(--petroleo-oscuro); }
   .hero-banner .hero-banner-copy .eyebrow { color: var(--dorado-oscuro); background: none; padding: 0; }
   .hero-banner .hero-banner-copy p.lead { color: var(--texto-suave); }
+  .hero-banner .hero-banner-copy .contacto-subtitulo { color: var(--petroleo); }
+  .hero-banner .hero-banner-copy h1 em { color: var(--petroleo); text-decoration: none; }
+  .hero-banner .hero-banner-copy .hero-divider span { background: var(--borde); }
+  .hero-banner .hero-banner-copy .hero-divider i { color: var(--dorado); }
+  .hero-banner--alto { min-height: 0; }
   .hero-banner .hero-banner-copy .btn-outline { border-color: var(--petroleo-oscuro); color: var(--petroleo-oscuro); }
 }
 

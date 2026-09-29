@@ -14,7 +14,7 @@
 // Para sacar la demo, ver src/css/96-velo-demo.css.
 
 const VELO_KEY = "clarita-velo";
-const VELO_DEFECTO = { fuerza: 0.92, ancho: 92, fundido: 12 };
+const VELO_DEFECTO = { fuerza: 0.92, ancho: 96, fundido: 12 };
 
 function veloLeer() {
   try {
