@@ -39,8 +39,10 @@
   overflow: hidden;
   /* Borde izquierdo difuminado: la foto se desvanece hacia el fondo
      crema en vez de cortar en seco contra el texto. */
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%);
-  mask-image: linear-gradient(to right, transparent 0%, black 12%);
+  /* --fundido: cuánto se desvanece el borde izquierdo de la foto hacia el
+     texto (lo mueve la barra de la demo). */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black calc(var(--fundido, 12) * 1%));
+  mask-image: linear-gradient(to right, transparent 0%, black calc(var(--fundido, 12) * 1%));
 }
 
 /* Variante para heros con poco texto (ej. Quiénes somos): con la proporción
@@ -75,12 +77,14 @@
      de la mitad: la parte derecha de la foto queda limpia (sin veladura), y
      el texto conserva contraste AA incluso sobre cielo o agua. Medido sobre
      los píxeles reales de cada banner, no a ojo. */
+  /* --velo-fuerza (0 a 1) y --velo-ancho (% del ancho de la foto) son los dos
+     valores que mueve la barra de la demo; los de acá son los aprobados. */
   background: linear-gradient(90deg,
-    rgba(37, 89, 87, 0.92) 0%,
-    rgba(37, 89, 87, 0.88) 40%,
-    rgba(37, 89, 87, 0.58) 58%,
-    rgba(37, 89, 87, 0.16) 72%,
-    rgba(37, 89, 87, 0) 84%);
+    rgba(37, 89, 87, var(--velo-fuerza, 0.92)) 0%,
+    rgba(37, 89, 87, calc(var(--velo-fuerza, 0.92) * 0.957)) calc(var(--velo-ancho, 92) * 0.476%),
+    rgba(37, 89, 87, calc(var(--velo-fuerza, 0.92) * 0.63)) calc(var(--velo-ancho, 92) * 0.69%),
+    rgba(37, 89, 87, calc(var(--velo-fuerza, 0.92) * 0.174)) calc(var(--velo-ancho, 92) * 0.857%),
+    rgba(37, 89, 87, 0) calc(var(--velo-ancho, 92) * 1%));
 }
 .hero-banner-copy {
   position: relative;

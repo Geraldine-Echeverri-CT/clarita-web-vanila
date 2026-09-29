@@ -154,6 +154,22 @@ Cada `<img>` del sitio lleva `loading="lazy" decoding="async"` **excepto** la fo
 
 El logo (`logo.png` / `logo_dark.png`) se achicó de ~1900px de ancho a 600px — llegaba con una resolución absurda para mostrarse a 46px de alto en el header. Si lo reemplazás por una versión nueva, no hace falta que sea más ancha que eso.
 
+## Barra de contraste foto/texto (DEMO TEMPORAL)
+
+Abajo a la izquierda de cada página hay un panel "Contraste foto/texto" para
+ajustar en vivo cómo se funde la foto principal con el texto de al lado:
+
+- En las páginas con **banner de fondo** (Alojamientos, Alianza): intensidad
+  del velo y hasta dónde llega. El panel muestra el contraste real del texto
+  medido sobre los píxeles de esa foto, y avisa si baja del mínimo legible.
+- En las de **foto al costado** (Inicio, Quiénes somos, Servicios, Contacto):
+  la suavidad del borde que se desvanece hacia el texto.
+
+Los valores quedan guardados en el navegador y el panel muestra el CSS
+resultante. Cuando estén elegidos, se pasan como valor por defecto en
+`src/css/04-hero.css` y se saca la demo (instrucciones en
+`src/css/96-velo-demo.css`).
+
 ## Selector de paletas (DEMO TEMPORAL)
 
 El header tiene un selector "P1 / P2 / P3" para ver el sitio con las tres

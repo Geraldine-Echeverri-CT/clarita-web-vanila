@@ -58,6 +58,7 @@ const SCRIPT_ORDER = [
   "src/js/modules/detalle-blog.js",
   "src/js/modules/contact-form.js",
   "src/js/modules/paleta-demo.js", // DEMO PALETAS (temporal)
+  "src/js/modules/velo-demo.js",   // DEMO VELO (temporal)
   "src/js/modules/checkout.js",
   "src/js/main.js",
 ];
