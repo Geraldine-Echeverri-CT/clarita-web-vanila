@@ -16,7 +16,10 @@
 // Cada página guarda su propio velo: la clave lleva el nombre del archivo, así
 // lo que se ajusta en Alojamientos no cambia el de Contacto.
 const VELO_KEY = "clarita-velo:" + (location.pathname.split("/").pop() || "index.html");
-const VELO_DEFECTO = { fuerza: 0.92, ancho: 96, fundido: 12, color: "#255957" };
+// alto y encuadre: alto del banner en px y qué parte de la foto se ve (0 = la
+// parte de arriba, 100 = la de abajo), ya que al recortar por relación de
+// aspecto siempre se pierde una franja. foto: archivo de src/assets/photos.
+const VELO_DEFECTO = { fuerza: 0.92, ancho: 96, fundido: 12, color: "#255957", alto: 0, encuadre: 40, foto: "" };
 
 // Colores rápidos: se leen de la paleta activa, así las muestras cambian junto
 // con el selector de paletas (P1/P2/P3).
@@ -61,7 +64,16 @@ function veloAplicar(valores) {
     hero.style.setProperty("--velo-ancho", String(valores.ancho));
     hero.style.setProperty("--fundido", String(valores.fundido));
     hero.style.setProperty("--velo-rgb", rgb.join(", "));
+    hero.style.setProperty("--banner-encuadre", valores.encuadre + "%");
+    // alto 0 = el que trae el diseño; cualquier otro valor lo pisa
+    if (valores.alto) hero.style.setProperty("--banner-alto", valores.alto + "px");
+    else hero.style.removeProperty("--banner-alto");
   });
+
+  if (valores.foto) {
+    const img = document.querySelector(".hero-banner-media img");
+    if (img && !img.src.endsWith(valores.foto)) img.src = "src/assets/photos/" + valores.foto;
+  }
 
   // Con un velo claro (beige, por ejemplo) el texto blanco no se leería: el
   // banner pasa a los colores oscuros, los mismos que usa en celular.
@@ -95,7 +107,8 @@ function veloMedirContraste(valores) {
   const escala = Math.max(ancho / img.naturalWidth, alto / img.naturalHeight);
   const dw = img.naturalWidth * escala, dh = img.naturalHeight * escala;
   try {
-    ctx.drawImage(img, (ancho - dw) / 2, (alto - dh) * 0.4, dw, dh);
+    // el recorte sigue el encuadre elegido, igual que object-position
+    ctx.drawImage(img, (ancho - dw) / 2, (alto - dh) * (valores.encuadre / 100), dw, dh);
   } catch (e) {
     return null;
   }
@@ -156,7 +169,14 @@ function initVeloDemo() {
     "</button>" +
     '<div class="velo-demo__cuerpo" hidden>' +
       (banner
-        ? '<label class="velo-demo__campo">Intensidad del velo <output data-salida="fuerza"></output>' +
+        ? '<label class="velo-demo__campo">Foto del banner' +
+            '<select class="velo-demo__select" data-velo-foto></select>' +
+          "</label>" +
+          '<label class="velo-demo__campo">Alto del banner <output data-salida="alto"></output>' +
+          '<input type="range" data-velo="alto" min="240" max="760" step="10"></label>' +
+          '<label class="velo-demo__campo">Qué parte de la foto se ve <output data-salida="encuadre"></output>' +
+          '<input type="range" data-velo="encuadre" min="0" max="100" step="1"></label>' +
+          '<label class="velo-demo__campo">Intensidad del velo <output data-salida="fuerza"></output>' +
           '<input type="range" data-velo="fuerza" min="0" max="1" step="0.02"></label>' +
           '<label class="velo-demo__campo">Hasta dónde llega <output data-salida="ancho"></output>' +
           '<input type="range" data-velo="ancho" min="20" max="100" step="1"></label>' +
@@ -198,12 +218,31 @@ function initVeloDemo() {
     });
   }
 
+  // Lista de fotos disponibles (la publica build.js en window.FOTOS_DEMO)
+  const selectorFoto = panel.querySelector("[data-velo-foto]");
+  if (selectorFoto) {
+    const actual = (document.querySelector(".hero-banner-media img") || {}).src || "";
+    const laDeLaPagina = actual.split("/").pop();
+    const fotos = (window.FOTOS_DEMO || []).slice();
+    if (!valores.foto) valores.foto = laDeLaPagina;
+    selectorFoto.innerHTML = fotos.map((f) =>
+      '<option value="' + f + '"' + (f === valores.foto ? " selected" : "") + ">" +
+      f.replace(".webp", "") + (f === laDeLaPagina ? " (la de esta página)" : "") + "</option>"
+    ).join("");
+  }
+
   function refrescar() {
     panel.querySelectorAll("[data-velo]").forEach((input) => {
       const clave = input.dataset.velo;
-      input.value = valores[clave];
+      // alto 0 significa "el del diseño": la barra arranca en el alto real
+      input.value = clave === "alto" && !valores.alto
+        ? Math.round((document.querySelector(".hero-banner") || {}).offsetHeight || 340)
+        : valores[clave];
       const salida = panel.querySelector('[data-salida="' + clave + '"]');
-      if (salida) salida.textContent = clave === "fuerza" ? Math.round(valores.fuerza * 100) + "%" : valores[clave] + "%";
+      if (!salida) return;
+      if (clave === "fuerza") salida.textContent = Math.round(valores.fuerza * 100) + "%";
+      else if (clave === "alto") salida.textContent = input.value + " px";
+      else salida.textContent = valores[clave] + "%";
     });
     pintarColores();
     const custom = panel.querySelector("[data-velo-color-custom]");
@@ -211,7 +250,9 @@ function initVeloDemo() {
     const css = panel.querySelector("[data-velo-css]");
     if (css) {
       css.textContent = banner
-        ? "--velo-rgb: " + veloHexARgb(valores.color).join(", ") + "; --velo-fuerza: " + valores.fuerza + "; --velo-ancho: " + valores.ancho + ";"
+        ? "foto: " + valores.foto + " · alto: " + (valores.alto || "el del diseño") +
+          " · encuadre: " + valores.encuadre + "% · velo: " + veloHexARgb(valores.color).join(",") +
+          " al " + Math.round(valores.fuerza * 100) + "% hasta " + valores.ancho + "%"
         : "--fundido: " + valores.fundido + ";";
     }
     const medida = panel.querySelector("[data-medida]");
@@ -248,6 +289,19 @@ function initVeloDemo() {
   panel.addEventListener("click", (e) => {
     const muestra = e.target.closest("[data-velo-color]");
     if (muestra) cambiar("color", muestra.dataset.veloColor);
+  });
+
+  panel.addEventListener("change", (e) => {
+    const sel = e.target.closest("[data-velo-foto]");
+    if (!sel) return;
+    const img = document.querySelector(".hero-banner-media img");
+    valores.foto = sel.value;
+    if (img) {
+      img.src = "src/assets/photos/" + sel.value;
+      // la medición necesita la foto ya decodificada
+      img.decode().then(refrescar).catch(refrescar);
+    }
+    veloGuardar(valores);
   });
 
   // Si cambia la paleta, las muestras y el velo se actualizan solos.

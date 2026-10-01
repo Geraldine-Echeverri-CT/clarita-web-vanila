@@ -25,6 +25,7 @@ const ROOT = __dirname;
 const SRC_PARTIALS = path.join(ROOT, "src", "partials");
 const SRC_PAGES = path.join(ROOT, "src", "pages");
 const SRC_CSS = path.join(ROOT, "src", "css");
+const SRC_FOTOS = path.join(ROOT, "src", "assets", "photos");
 
 const BASE_URL = "https://tu-dominio.com";
 // Imagen de preview cuando se comparte el link (WhatsApp, Facebook, etc.) —
@@ -150,6 +151,11 @@ function main() {
     if (/^https?:/.test(rel)) continue;
     if (!fs.existsSync(path.join(ROOT, rel))) throw new Error("Falta " + rel + " (revisar SCRIPT_ORDER en build.js)");
   }
+  // DEMO VELO (temporal): la lista de fotos disponibles, para que el panel de
+  // la demo permita cambiar la foto del banner. Se va junto con la demo.
+  const fotosDemo = fs.readdirSync(SRC_FOTOS).filter((f) => f.endsWith(".webp")).sort();
+  const fotosDemoHtml = `<script>window.FOTOS_DEMO = ${JSON.stringify(fotosDemo)};</script>`;
+
   const scriptTagsHtml = SCRIPT_ORDER.map((rel) =>
     /^https?:/.test(rel)
       ? `<script src="${rel}" integrity="${BOOTSTRAP_JS_SRI}" crossorigin="anonymous"></script>`
@@ -180,6 +186,7 @@ ${footerPartial}
 
 ${lightboxWhatsapp}
 ${jsonLd}
+${fotosDemoHtml}
 ${scriptTagsHtml}
 </body>
 </html>

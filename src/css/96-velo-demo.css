@@ -69,6 +69,20 @@
   margin-top: 8px;
 }
 
+.velo-demo__select {
+  width: 100%;
+  margin-top: 8px;
+  padding: 7px 9px;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  background: var(--crema);
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 0.78rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
 /* Muestras de color: las de la paleta activa + un color libre */
 .velo-demo__colores { display: flex; gap: 8px; margin: 10px 0 8px; flex-wrap: wrap; }
 .velo-demo__color {
