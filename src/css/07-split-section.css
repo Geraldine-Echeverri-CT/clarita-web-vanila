@@ -18,6 +18,14 @@
 .split h2 { font-size: 2rem; }
 .split .lead { color: var(--texto-suave); }
 
+/* Variante sin el borde desvanecido: la foto se ve entera, con su recorte
+   limpio (sección "Cuidamos cada detalle..." del inicio). */
+.split--sin-fundido > :first-child .split-img,
+.split--sin-fundido > :last-child .split-img {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
 /* Variante sin difuminado y con borde (Servicios). */
 .split--no-fade .split-img {
   border-radius: var(--radio);
