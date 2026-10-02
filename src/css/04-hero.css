@@ -108,6 +108,7 @@
 .hero-banner--alto { min-height: var(--banner-alto, 460px); }
 /* Encuadre propio de cada banner: qué franja de la foto se ve, elegida para que
    la escena entre completa y el texto no caiga sobre las personas. */
+.hero-banner--alianza { --banner-encuadre: 22%; }
 .hero-banner--quienes { --banner-encuadre: 70%; }
 .hero-banner--servicios { --banner-encuadre: 55%; }
 @media (min-width: 1200px) {
