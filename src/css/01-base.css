@@ -46,13 +46,23 @@ p { margin: 0 0 1em; }
 
 /* Los párrafos de contenido van justificados (pedido del cliente para todo el
    sitio); con guionado automático para que no queden huecos grandes entre
-   palabras. Quedan alineados a la izquierda los textos cortos o centrados,
-   donde justificar se ve peor: tarjetas, pasos, pies y banners. */
+   palabras. */
 main p, .article-body p { text-align: justify; hyphens: auto; }
+
+/* Donde el título va centrado, el texto también: un título centrado con el
+   párrafo alineado a la izquierda se ve desprolijo. */
 .center p,
-.hero-banner-copy p,
+.section-lead,
+.section-close-lead,
 .value-item p,
 .step p,
+.mv-card--center p,
+.cta-band p,
+.quote-band p { text-align: center; hyphens: manual; }
+
+/* Textos cortos de tarjetas y fichas: alineados a la izquierda, donde
+   justificar o centrar se ve peor. */
+.hero-banner-copy p,
 .testi-card p,
 .trust-item__text p,
 .mv-card__tag,

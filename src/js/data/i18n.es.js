@@ -162,8 +162,8 @@ const I18N_ES = {
     "testi.closeLead": "Ya sea que busques hospedarte en Nosara o que quieras que cuidemos tu propiedad, hablemos.",
     "testi.closeCta1": "Ver alojamientos", "testi.closeCta2": "Quiero ser aliado",
 
-    "contacto.eyebrow": "Contacto", "contacto.title": "Hablemos", "contacto.subtitulo": "De cómo podemos hacerte la vida más fácil en Nosara",
-    "contacto.lead": "Ya sea que necesités cuidar tu propiedad, encontrar alojamiento o conectar tu negocio con nuestros huéspedes, estamos para ayudarte.",
+    "contacto.eyebrow": "Contacto", "contacto.title": "Hablemos", "contacto.subtitulo": "De cómo podemos hacerte la <br class=\"br-banner\">vida más fácil en Nosara",
+    "contacto.lead": "Ya sea que necesités cuidar tu propiedad, <br class=\"br-banner\">encontrar alojamiento o conectar tu negocio <br class=\"br-banner\">con nuestros huéspedes, estamos para ayudarte.",
     "contacto.whatsappLabel": "WhatsApp", "contacto.emailLabel": "Email", "contacto.ctaAbrirChat": "Abrir WhatsApp",
     "contacto.socialLabel": "Seguinos en redes",
     "contacto.formTitle": "Escribinos", "contacto.formLead": "Completá el formulario y nos pondremos en contacto con vos a la brevedad.",
