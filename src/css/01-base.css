@@ -61,7 +61,11 @@ main p, .article-body p { text-align: justify; hyphens: auto; }
 .quote-band p { text-align: center; hyphens: manual; }
 
 /* Textos cortos de tarjetas y fichas: alineados a la izquierda, donde
-   justificar o centrar se ve peor. */
+   justificar o centrar se ve peor. Las tarjetas que viven dentro de una
+   sección centrada (blog y testimonios del inicio) llevan .text-start en su
+   grilla: esa regla va primero y con la misma especificidad que ".center p",
+   para ganarle por orden. */
+.text-start p,
 .hero-banner-copy p,
 .testi-card p,
 .trust-item__text p,
