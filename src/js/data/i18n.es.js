@@ -110,7 +110,7 @@ const I18N_ES = {
     "alojamientos.helpCta": "Quiero asesoría",
 
     "alianza.eyebrow": "Alianza con propietarios", "alianza.title": "Tu propiedad cuidada, <br class=\"br-banner\">estés donde estés.",
-    "alianza.lead": "En Clarita Property Care nos convertimos en tu aliado local para cuidar tu propiedad, simplificar su gestión y brindar excelentes experiencias a tus huéspedes.",
+    "alianza.lead": "En Clarita Property Care nos convertimos en tu aliado local <br class=\"br-banner\">para cuidar tu propiedad, simplificar su gestión <br class=\"br-banner\">y brindar excelentes experiencias a tus huéspedes.",
     "alianza.ctaSerParte": "Quiero ser parte de Clarita", "alianza.ctaWhatsapp": "Hablar por WhatsApp",
     "alianza.porQueEyebrow": "Por qué ser aliado de", "alianza.porQueTitle": "Clarita Property Care",
     "alianza.porQueLead": "Te ayudamos a reducir la carga operativa y te damos la tranquilidad de saber que tu propiedad está en buenas manos.",
