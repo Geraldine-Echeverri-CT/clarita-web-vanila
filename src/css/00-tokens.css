@@ -35,7 +35,7 @@
 
   /* Velo de los banners: color (en componentes rgb), intensidad y hasta dónde
      llega. Valores elegidos con el panel de ajuste. */
-  --velo-rgb: 21, 50, 68;
+  --velo-rgb: 28, 31, 27;   /* casi negro: velo neutro sobre las fotos */
   --velo-fuerza: 0.78;
   --velo-ancho: 54;
   --radio: 6px;
