@@ -77,7 +77,7 @@ const I18N_ES = {
     "quienes.socialQuote": "En Clarita somos una marca cercana, confiable y resolutiva, comprometida con cuidar cada detalle que a vos realmente te importa.",
 
     "servicios.eyebrow": "Servicios", "servicios.title": "Cuidado, hospitalidad y experiencias en un solo lugar",
-    "servicios.lead": "Soluciones integrales para propietarios, huéspedes y aliados locales en cada estadía.",
+    "servicios.lead": "Soluciones integrales para propietarios, huéspedes <br class=\"br-banner\">y aliados locales en cada estadía.",
     "servicios.card1Eyebrow": "Para propietarios", "servicios.card1Title": "Tu propiedad cuidada, estés donde estés.",
     "servicios.card1li1": "Administración de propiedades", "servicios.card1li2": "Limpieza y mantenimiento", "servicios.card1li3": "Supervisión y preparación", "servicios.card1li4": "Comunicación y reportes", "servicios.card1li5": "Atención durante la estadía",
     "servicios.card1Cta": "Quiero ser aliado de Clarita",
@@ -109,7 +109,7 @@ const I18N_ES = {
     "alojamientos.help1": "Asesoría personalizada", "alojamientos.help2": "Respuesta rápida", "alojamientos.help3": "Reservas seguras", "alojamientos.help4": "Conocimiento local",
     "alojamientos.helpCta": "Quiero asesoría",
 
-    "alianza.eyebrow": "Alianza con propietarios", "alianza.title": "Tu propiedad cuidada, estés donde estés.",
+    "alianza.eyebrow": "Alianza con propietarios", "alianza.title": "Tu propiedad cuidada, <br class=\"br-banner\">estés donde estés.",
     "alianza.lead": "En Clarita Property Care nos convertimos en tu aliado local para cuidar tu propiedad, simplificar su gestión y brindar excelentes experiencias a tus huéspedes.",
     "alianza.ctaSerParte": "Quiero ser parte de Clarita", "alianza.ctaWhatsapp": "Hablar por WhatsApp",
     "alianza.porQueEyebrow": "Por qué ser aliado de", "alianza.porQueTitle": "Clarita Property Care",

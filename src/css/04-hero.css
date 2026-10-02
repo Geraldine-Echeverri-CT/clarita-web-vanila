@@ -121,6 +121,13 @@
 .hero-banner-copy .hero-divider span { background: rgba(248, 245, 233, 0.4); }
 .hero-banner-copy .hero-divider i { color: var(--crema); }
 .hero-banner-copy .contacto-subtitulo { color: var(--crema); }
+/* Saltos de línea elegidos a mano en los titulares de banner, para que el
+   texto no quede sobre las caras de las personas. Solo valen cuando el texto
+   va encima de la foto: apilado, el texto fluye en su propio ancho. */
+.br-banner { display: none; }
+@media (min-width: 1200px) {
+  .br-banner { display: inline; }
+}
 /* Las palabras destacadas del título: sobre la foto el azul petróleo se apaga,
    así que van en crema con un subrayado ocre. */
 .hero-banner-copy h1 em {

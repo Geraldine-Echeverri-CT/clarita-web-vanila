@@ -77,7 +77,7 @@ const I18N_EN = {
     "quienes.socialQuote": "At Clarita we are a close, reliable, resourceful brand, committed to taking care of every detail that truly matters to you.",
 
     "servicios.eyebrow": "Services", "servicios.title": "Care, hospitality and experiences in one place",
-    "servicios.lead": "Full solutions for owners, guests and local partners at every stay.",
+    "servicios.lead": "Full solutions for owners, guests <br class=\"br-banner\">and local partners at every stay.",
     "servicios.card1Eyebrow": "For owners", "servicios.card1Title": "Your property cared for, wherever you are.",
     "servicios.card1li1": "Property management", "servicios.card1li2": "Cleaning and maintenance", "servicios.card1li3": "Inspection and prep", "servicios.card1li4": "Communication and reports", "servicios.card1li5": "Attention during the stay",
     "servicios.card1Cta": "I want to partner with Clarita",
@@ -109,7 +109,7 @@ const I18N_EN = {
     "alojamientos.help1": "Personalized advice", "alojamientos.help2": "Quick response", "alojamientos.help3": "Secure bookings", "alojamientos.help4": "Local knowledge",
     "alojamientos.helpCta": "I want advice",
 
-    "alianza.eyebrow": "Owner partnership", "alianza.title": "Your property cared for, wherever you are.",
+    "alianza.eyebrow": "Owner partnership", "alianza.title": "Your property cared for, <br class=\"br-banner\">wherever you are.",
     "alianza.lead": "At Clarita Property Care we become your local partner to care for your property, simplify its management and deliver great experiences to your guests.",
     "alianza.ctaSerParte": "I want to be part of Clarita", "alianza.ctaWhatsapp": "Chat on WhatsApp",
     "alianza.porQueEyebrow": "Why partner with", "alianza.porQueTitle": "Clarita Property Care",

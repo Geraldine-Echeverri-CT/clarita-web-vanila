@@ -77,7 +77,7 @@ const I18N_FR = {
     "quienes.socialQuote": "Chez Clarita, nous sommes une marque proche, fiable et efficace, engagée à prendre soin de chaque détail qui compte vraiment pour vous.",
 
     "servicios.eyebrow": "Services", "servicios.title": "Soin, hospitalité et expériences en un seul endroit",
-    "servicios.lead": "Des solutions complètes pour propriétaires, hôtes et partenaires locaux à chaque séjour.",
+    "servicios.lead": "Des solutions complètes pour propriétaires, hôtes <br class=\"br-banner\">et partenaires locaux à chaque séjour.",
     "servicios.card1Eyebrow": "Pour propriétaires", "servicios.card1Title": "Votre propriété prise en charge, où que vous soyez.",
     "servicios.card1li1": "Gestion de propriétés", "servicios.card1li2": "Ménage et entretien", "servicios.card1li3": "Supervision et préparation", "servicios.card1li4": "Communication et rapports", "servicios.card1li5": "Assistance pendant le séjour",
     "servicios.card1Cta": "Je veux devenir partenaire de Clarita",
@@ -109,7 +109,7 @@ const I18N_FR = {
     "alojamientos.help1": "Conseil personnalisé", "alojamientos.help2": "Réponse rapide", "alojamientos.help3": "Réservations sécurisées", "alojamientos.help4": "Connaissance locale",
     "alojamientos.helpCta": "Je veux un conseil",
 
-    "alianza.eyebrow": "Partenariat propriétaires", "alianza.title": "Votre propriété prise en charge, où que vous soyez.",
+    "alianza.eyebrow": "Partenariat propriétaires", "alianza.title": "Votre propriété prise en charge, <br class=\"br-banner\">où que vous soyez.",
     "alianza.lead": "Chez Clarita Property Care, nous devenons votre partenaire local pour prendre soin de votre propriété, simplifier sa gestion et offrir d'excellentes expériences à vos hôtes.",
     "alianza.ctaSerParte": "Je veux faire partie de Clarita", "alianza.ctaWhatsapp": "Discuter sur WhatsApp",
     "alianza.porQueEyebrow": "Pourquoi devenir partenaire de", "alianza.porQueTitle": "Clarita Property Care",
