@@ -106,6 +106,15 @@
 .hero-banner-copy .hero-actions { margin-top: 18px; }
 /* Portada: título largo y foto protagonista, un poco más alto que el resto. */
 .hero-banner--alto { min-height: var(--banner-alto, 460px); }
+/* Encuadre propio de cada banner: qué franja de la foto se ve, elegida para que
+   la escena entre completa y el texto no caiga sobre las personas. */
+.hero-banner--quienes { --banner-encuadre: 70%; }
+.hero-banner--servicios { --banner-encuadre: 55%; }
+@media (min-width: 1200px) {
+  /* El alto extra solo en escritorio: apilado, la franja de foto ya tiene el
+     suyo y 470px taparían la pantalla del celular. */
+  .hero-banner--quienes, .hero-banner--servicios { --banner-alto: 470px; }
+}
 .hero-banner--alto .hero-banner-copy-text { max-width: 620px; }
 .hero-banner--alto h1 { font-size: 2.5rem; }
 /* Sobre la foto, el divisor y la bajada de Contacto van en tonos claros. */

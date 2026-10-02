@@ -19,7 +19,17 @@ const VELO_KEY = "clarita-velo:" + (location.pathname.split("/").pop() || "index
 // alto y encuadre: alto del banner en px y qué parte de la foto se ve (0 = la
 // parte de arriba, 100 = la de abajo), ya que al recortar por relación de
 // aspecto siempre se pierde una franja. foto: archivo de src/assets/photos.
-const VELO_DEFECTO = { fuerza: 0.92, ancho: 96, fundido: 12, color: "#255957", alto: 0, encuadre: 40, foto: "" };
+const VELO_DEFECTO = { fuerza: 0.92, ancho: 96, fundido: 12, color: "#255957", alto: 0, encuadre: null, foto: "" };
+
+// alto 0 y encuadre null significan "lo que define el diseño para esta página":
+// la demo no los pisa hasta que se mueve la barra.
+function veloEncuadreEfectivo(valores) {
+  if (valores.encuadre !== null && valores.encuadre !== undefined) return valores.encuadre;
+  const img = document.querySelector(".hero-banner-media img");
+  if (!img) return 40;
+  const y = getComputedStyle(img).objectPosition.split(" ")[1];
+  return parseFloat(y) || 40;
+}
 
 // Colores rápidos: se leen de la paleta activa, así las muestras cambian junto
 // con el selector de paletas (P1/P2/P3).
@@ -64,10 +74,11 @@ function veloAplicar(valores) {
     hero.style.setProperty("--velo-ancho", String(valores.ancho));
     hero.style.setProperty("--fundido", String(valores.fundido));
     hero.style.setProperty("--velo-rgb", rgb.join(", "));
-    hero.style.setProperty("--banner-encuadre", valores.encuadre + "%");
-    // alto 0 = el que trae el diseño; cualquier otro valor lo pisa
+    // alto 0 / encuadre null = los que trae el diseño de esa página
     if (valores.alto) hero.style.setProperty("--banner-alto", valores.alto + "px");
     else hero.style.removeProperty("--banner-alto");
+    if (valores.encuadre !== null && valores.encuadre !== undefined) hero.style.setProperty("--banner-encuadre", valores.encuadre + "%");
+    else hero.style.removeProperty("--banner-encuadre");
   });
 
   if (valores.foto) {
@@ -108,7 +119,7 @@ function veloMedirContraste(valores) {
   const dw = img.naturalWidth * escala, dh = img.naturalHeight * escala;
   try {
     // el recorte sigue el encuadre elegido, igual que object-position
-    ctx.drawImage(img, (ancho - dw) / 2, (alto - dh) * (valores.encuadre / 100), dw, dh);
+    ctx.drawImage(img, (ancho - dw) / 2, (alto - dh) * (veloEncuadreEfectivo(valores) / 100), dw, dh);
   } catch (e) {
     return null;
   }
@@ -235,14 +246,18 @@ function initVeloDemo() {
     panel.querySelectorAll("[data-velo]").forEach((input) => {
       const clave = input.dataset.velo;
       // alto 0 significa "el del diseño": la barra arranca en el alto real
-      input.value = clave === "alto" && !valores.alto
-        ? Math.round((document.querySelector(".hero-banner") || {}).offsetHeight || 340)
-        : valores[clave];
+      if (clave === "alto" && !valores.alto) {
+        input.value = Math.round((document.querySelector(".hero-banner") || {}).offsetHeight || 340);
+      } else if (clave === "encuadre") {
+        input.value = veloEncuadreEfectivo(valores);
+      } else {
+        input.value = valores[clave];
+      }
       const salida = panel.querySelector('[data-salida="' + clave + '"]');
       if (!salida) return;
       if (clave === "fuerza") salida.textContent = Math.round(valores.fuerza * 100) + "%";
       else if (clave === "alto") salida.textContent = input.value + " px";
-      else salida.textContent = valores[clave] + "%";
+      else salida.textContent = input.value + "%";
     });
     pintarColores();
     const custom = panel.querySelector("[data-velo-color-custom]");
@@ -251,7 +266,7 @@ function initVeloDemo() {
     if (css) {
       css.textContent = banner
         ? "foto: " + valores.foto + " · alto: " + (valores.alto || "el del diseño") +
-          " · encuadre: " + valores.encuadre + "% · velo: " + veloHexARgb(valores.color).join(",") +
+          " · encuadre: " + veloEncuadreEfectivo(valores) + "% · velo: " + veloHexARgb(valores.color).join(",") +
           " al " + Math.round(valores.fuerza * 100) + "% hasta " + valores.ancho + "%"
         : "--fundido: " + valores.fundido + ";";
     }
