@@ -3,37 +3,41 @@
    Paleta y tipografías del manual de marca. Ningún otro archivo escribe un
    color o una fuente a mano: todos usan estas variables.
 
-   TONO ELEGIDO: sobrio y atemporal (el aprobado en la propuesta publicada).
-   Fondos casi blancos, petróleo en títulos/botones/íconos y el ocre como
-   único acento fino. El amarillo sol queda fuera de la interfaz: sigue
-   definido acá porque es parte de la marca y se usa en piezas gráficas.
+   PALETA 1 del PPT ("elegancia, confianza y calidad"): azul noche, azul
+   medio, verde agua como acento y grises claros de fondo. Tono sobrio y
+   atemporal: fondos casi blancos y mucho aire.
    ======================================================== */
 
 :root {
   /* Paleta oficial */
-  --petroleo-oscuro: #255957;   /* verde petróleo: footer, franjas oscuras, hover */
-  --petroleo: #437c90;          /* azul petróleo: color principal (logo, botones, íconos) */
-  --sol: #f7c549;               /* amarillo: reservado para piezas gráficas; la
-                                   interfaz del sitio no lo usa (ver abajo) */
-  --dorado: #a98843;            /* ocre: detalles decorativos */
-  --crema-2: #f3f0e2;           /* crema de marca (suavizado): fondos alternos */
+  --petroleo-oscuro: #153244;   /* azul noche: títulos, footer, franjas oscuras */
+  --petroleo: #294b63;          /* azul medio: color principal (logo, botones, íconos) */
+  --sol: #70aaa1;               /* verde agua: reservado para piezas gráficas */
+  --dorado: #70aaa1;            /* verde agua: detalles decorativos */
+  --crema-2: #eff0ec;           /* gris claro: fondos alternos */
 
   /* Derivados (tintes/sombras de la paleta, para textos y fondos suaves) */
-  --petroleo-claro: #8db4c1;
-  --petroleo-tenue: #e3eeef;
-  --sol-hover: #eeb52c;
-  --sol-tenue: #fdf1cf;
-  --dorado-oscuro: #7f6429;     /* ocre con contraste AA para texto chico */
-  --crema: #fbfaf5;             /* fondo general: crema muy suave, casi blanco */
+  --petroleo-claro: #70aaa1;
+  --petroleo-tenue: #e4eeec;
+  --sol-hover: #5d9a90;
+  --sol-tenue: #e4eeec;
+  --dorado-oscuro: #2f6b62;     /* verde agua oscurecido, con contraste AA para texto chico */
+  --crema: #f7f8f4;             /* fondo general: gris muy claro */
 
-  --texto: #243b3a;
-  --texto-suave: #5d6b69;
+  --texto: #14222c;
+  --texto-suave: #55616b;
   --blanco: #ffffff;
   --superficie: #ffffff;
-  --borde: #e6e1cc;
+  --borde: #d7dad1;
   --header-bg: rgba(255, 255, 255, 0.96);
-  --sombra: 0 4px 16px rgba(37, 89, 87, 0.06);
-  --sombra-hover: 0 8px 24px rgba(37, 89, 87, 0.10);
+  --sombra: 0 4px 16px rgba(21, 50, 68, 0.07);
+  --sombra-hover: 0 8px 24px rgba(21, 50, 68, 0.12);
+
+  /* Velo de los banners: color (en componentes rgb), intensidad y hasta dónde
+     llega. Valores elegidos con el panel de ajuste. */
+  --velo-rgb: 21, 50, 68;
+  --velo-fuerza: 0.78;
+  --velo-ancho: 54;
   --radio: 6px;
 
   /* Tipografías de marca: All Round Gothic (títulos) y Filson Pro (texto) son

@@ -82,11 +82,11 @@
      la foto) son los tres valores que mueve la barra de la demo; los de acá
      son los aprobados. */
   background: linear-gradient(90deg,
-    rgba(var(--velo-rgb, 37, 89, 87), var(--velo-fuerza, 0.92)) 0%,
-    rgba(var(--velo-rgb, 37, 89, 87), calc(var(--velo-fuerza, 0.92) * 0.957)) calc(var(--velo-ancho, 96) * 0.476%),
-    rgba(var(--velo-rgb, 37, 89, 87), calc(var(--velo-fuerza, 0.92) * 0.63)) calc(var(--velo-ancho, 96) * 0.69%),
-    rgba(var(--velo-rgb, 37, 89, 87), calc(var(--velo-fuerza, 0.92) * 0.174)) calc(var(--velo-ancho, 96) * 0.857%),
-    rgba(var(--velo-rgb, 37, 89, 87), 0) calc(var(--velo-ancho, 96) * 1%));
+    rgba(var(--velo-rgb), var(--velo-fuerza)) 0%,
+    rgba(var(--velo-rgb), calc(var(--velo-fuerza) * 0.957)) calc(var(--velo-ancho) * 0.476%),
+    rgba(var(--velo-rgb), calc(var(--velo-fuerza) * 0.63)) calc(var(--velo-ancho) * 0.69%),
+    rgba(var(--velo-rgb), calc(var(--velo-fuerza) * 0.174)) calc(var(--velo-ancho) * 0.857%),
+    rgba(var(--velo-rgb), 0) calc(var(--velo-ancho) * 1%));
 }
 .hero-banner-copy {
   position: relative;
@@ -108,6 +108,7 @@
 .hero-banner--alto { min-height: var(--banner-alto, 460px); }
 /* Encuadre propio de cada banner: qué franja de la foto se ve, elegida para que
    la escena entre completa y el texto no caiga sobre las personas. */
+.hero-banner--inicio { --banner-encuadre: 67%; }
 .hero-banner--quienes { --banner-encuadre: 70%; }
 .hero-banner--servicios { --banner-encuadre: 55%; }
 @media (min-width: 1200px) {
@@ -150,7 +151,7 @@
   .hero-banner-media { position: relative; height: var(--banner-alto, clamp(230px, 32vw, 380px)); }
   /* Apilado: el alto lo manda la franja de la foto, no el banner entero. */
   .hero-banner { min-height: 0; }
-  .hero-banner-media::after { background: linear-gradient(rgba(var(--velo-rgb, 37, 89, 87), 0.08), rgba(var(--velo-rgb, 37, 89, 87), 0.08)); }
+  .hero-banner-media::after { background: linear-gradient(rgba(var(--velo-rgb), 0.08), rgba(var(--velo-rgb), 0.08)); }
   .hero-banner .hero-banner-copy { padding: 26px 20px 4px; color: var(--texto); }
   .hero-banner .hero-banner-copy h1 { color: var(--petroleo-oscuro); }
   .hero-banner .hero-banner-copy .eyebrow { color: var(--dorado-oscuro); background: none; padding: 0; }

@@ -15,9 +15,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#437c90">
-<!-- DEMO PALETAS (temporal): aplica la paleta guardada antes de pintar, para que
-     no se vea un parpadeo de color al cargar la página. -->
-<script>try{var p=localStorage.getItem("clarita-paleta");if(p&&p!=="2")document.documentElement.setAttribute("data-paleta",p);}catch(e){}</script>
 <link rel="icon" type="image/png" href="src/assets/favicon.png">
 <link rel="apple-touch-icon" href="src/assets/apple-touch-icon.png">
 <!-- Bootstrap 5 (solo CSS de grilla/utilidades/componentes; los estilos propios de src/css/ cargan después y lo tematizan) -->
@@ -52,8 +49,6 @@
 <link rel="stylesheet" href="src/css/22-blog.css">
 <link rel="stylesheet" href="src/css/23-testimonials.css">
 <link rel="stylesheet" href="src/css/24-detalle-alojamiento.css">
-<link rel="stylesheet" href="src/css/96-velo-demo.css">
-<link rel="stylesheet" href="src/css/97-paletas-demo.css">
 <link rel="stylesheet" href="src/css/99-responsive.css">
 </head>
 <body>
@@ -62,10 +57,10 @@
   <nav class="navbar navbar-expand-xl p-0" aria-label="Principal">
     <div class="container nav">
       <button type="button" class="navbar-toggler nav-toggle" data-bs-toggle="offcanvas" data-bs-target="#menu-principal" aria-controls="menu-principal" aria-label="Abrir menú"><i class="ti ti-menu-2"></i></button>
-      <a href="index.html" class="navbar-brand logo"><img src="src/assets/logo-petroleo.png" alt="Clarita Property Care" class="logo-img"></a>
+      <a href="index.html" class="navbar-brand logo"><img src="src/assets/logo-paleta1.png" alt="Clarita Property Care" class="logo-img"></a>
       <div class="offcanvas offcanvas-start nav-offcanvas" tabindex="-1" id="menu-principal" aria-label="Menú">
         <div class="offcanvas-header">
-          <a href="index.html" class="logo"><img src="src/assets/logo-petroleo.png" alt="Clarita Property Care" class="logo-img"></a>
+          <a href="index.html" class="logo"><img src="src/assets/logo-paleta1.png" alt="Clarita Property Care" class="logo-img"></a>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar menú"></button>
         </div>
         <div class="offcanvas-body">
@@ -77,31 +72,9 @@
             <li class="nav-item"><a href="alianza-propietarios.html" class="nav-link nav-links__link" data-page="alianza" data-i18n="nav.alianza">Alianza con propietarios</a></li>
             <li class="nav-item"><a href="contacto.html" class="nav-link nav-links__link" data-page="contacto" data-i18n="nav.contacto">Contacto</a></li>
           </ul>
-          <!-- DEMO PALETAS (temporal): comparar las tres paletas del PPT -->
-          <div class="dropdown paleta-demo">
-            <button type="button" class="paleta-demo__toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Paleta de color (demo)">
-              <span data-paleta-actual>P2</span> <i class="ti ti-chevron-down"></i>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end paleta-demo__menu">
-              <li><button type="button" class="dropdown-item paleta-demo__menu-button" data-paleta-opcion="1"><span class="paleta-demo__muestra"><span style="background:#153244"></span><span style="background:#294b63"></span><span style="background:#70aaa1"></span><span style="background:#eff0ec"></span></span> Paleta 1 · Azules</button></li>
-              <li><button type="button" class="dropdown-item paleta-demo__menu-button" data-paleta-opcion="2"><span class="paleta-demo__muestra"><span style="background:#255957"></span><span style="background:#437c90"></span><span style="background:#a98843"></span><span style="background:#efebd4"></span></span> Paleta 2 · Petróleo (actual)</button></li>
-              <li><button type="button" class="dropdown-item paleta-demo__menu-button" data-paleta-opcion="3"><span class="paleta-demo__muestra"><span style="background:#3a4032"></span><span style="background:#597b7f"></span><span style="background:#8dab7f"></span><span style="background:#efebd4"></span></span> Paleta 3 · Verdes</button></li>
-            </ul>
-          </div>
         </div>
       </div>
       <div class="nav-actions">
-        <!-- DEMO PALETAS (temporal): comparar las tres paletas del PPT -->
-        <div class="dropdown paleta-demo">
-          <button type="button" class="paleta-demo__toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Paleta de color (demo)">
-            <span data-paleta-actual>P2</span> <i class="ti ti-chevron-down"></i>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end paleta-demo__menu">
-            <li><button type="button" class="dropdown-item paleta-demo__menu-button" data-paleta-opcion="1"><span class="paleta-demo__muestra"><span style="background:#153244"></span><span style="background:#294b63"></span><span style="background:#70aaa1"></span><span style="background:#eff0ec"></span></span> Paleta 1 · Azules</button></li>
-            <li><button type="button" class="dropdown-item paleta-demo__menu-button" data-paleta-opcion="2"><span class="paleta-demo__muestra"><span style="background:#255957"></span><span style="background:#437c90"></span><span style="background:#a98843"></span><span style="background:#efebd4"></span></span> Paleta 2 · Petróleo (actual)</button></li>
-            <li><button type="button" class="dropdown-item paleta-demo__menu-button" data-paleta-opcion="3"><span class="paleta-demo__muestra"><span style="background:#3a4032"></span><span style="background:#597b7f"></span><span style="background:#8dab7f"></span><span style="background:#efebd4"></span></span> Paleta 3 · Verdes</button></li>
-          </ul>
-        </div>
         <div class="dropdown lang-dropdown">
           <button type="button" class="lang-dropdown__toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Idioma">
             <span class="lang-current">ES</span> <i class="ti ti-chevron-down"></i>
@@ -120,7 +93,7 @@
 
 
 <main>
-  <section class="hero-banner hero-banner--alto">
+  <section class="hero-banner hero-banner--alto hero-banner--inicio">
     <div class="hero-banner-media">
       <img src="src/assets/photos/hero-home.webp" alt="Casa moderna con piscina rodeada de palmeras al atardecer en Nosara" fetchpriority="high">
     </div>
@@ -309,7 +282,6 @@
 }
 </script>
 
-<script>window.FOTOS_DEMO = ["alianza-cierre.webp","alojamientos-ayuda.webp","compromiso-social.webp","hero-alianza.webp","hero-alojamientos.webp","hero-contacto.webp","hero-home.webp","hero-quienes-somos.webp","hero-servicios.webp","home-quienes.webp","island-houses-1.webp","kitchen-1.webp","kitchen-2.webp","living-room-1.webp","living-room-2.webp","living-room-3.webp","living-room-4.webp","living-room-5.webp","living-room-6.webp","palm-water-1.webp","pool-1.webp","resort-aerial-1.webp","resort-tropical-1.webp","seaside-chair-1.webp","servicios-casa-piscina.webp","sunset-beach-1.webp","surfboards-1.webp","surfers-1.webp","terrace-1.webp","terrace-hammock-1.webp","villa-exterior-1.webp","villa-exterior-2.webp","villa-exterior-3.webp","villa-interior-garden-1.webp","villa-pool-1.webp","yoga-beach-1.webp"];</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="src/js/data/i18n.es.js"></script>
 <script src="src/js/data/i18n.en.js"></script>
@@ -329,8 +301,6 @@
 <script src="src/js/modules/detalle-alojamiento.js"></script>
 <script src="src/js/modules/detalle-blog.js"></script>
 <script src="src/js/modules/contact-form.js"></script>
-<script src="src/js/modules/paleta-demo.js"></script>
-<script src="src/js/modules/velo-demo.js"></script>
 <script src="src/js/modules/checkout.js"></script>
 <script src="src/js/main.js"></script>
 </body>

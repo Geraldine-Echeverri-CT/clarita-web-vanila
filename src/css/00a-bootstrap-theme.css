@@ -13,15 +13,15 @@
   --bs-body-color: var(--texto);
   --bs-body-bg: var(--crema);
   --bs-body-line-height: 1.6;
-  --bs-primary: #437c90;
-  --bs-primary-rgb: 67, 124, 144;
+  --bs-primary: #294b63;
+  --bs-primary-rgb: 41, 75, 99;
   --bs-secondary-color: var(--texto-suave);
   --bs-border-color: var(--borde);
   --bs-border-radius: var(--radio);
   --bs-link-color: var(--petroleo-oscuro);
-  --bs-link-color-rgb: 37, 89, 87;
+  --bs-link-color-rgb: 21, 50, 68;
   --bs-link-hover-color: var(--petroleo);
-  --bs-link-hover-color-rgb: 67, 124, 144;
+  --bs-link-hover-color-rgb: 41, 75, 99;
   --bs-heading-color: var(--texto);
   --bs-emphasis-color: var(--texto);
   /* Separación entre columnas de .row (g-* la pisa donde haga falta). */
@@ -47,7 +47,7 @@ hr.divider { opacity: 1; color: inherit; }
    marca. La primera declaración de la sombra es el respaldo para navegadores
    sin color-mix(). */
 .btn {
-  --bs-btn-focus-box-shadow: 0 0 0 0.2rem rgba(37, 89, 87, 0.3);
+  --bs-btn-focus-box-shadow: 0 0 0 0.2rem rgba(21, 50, 68, 0.3);
   --bs-btn-focus-box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--petroleo) 40%, transparent);
   --bs-btn-line-height: 1.4;
   --bs-btn-border-radius: 999px;
@@ -93,7 +93,7 @@ hr.divider { opacity: 1; color: inherit; }
 
 /* Los links del menú también traen un halo azul fijo al navegar con teclado. */
 .nav-link:focus-visible {
-  box-shadow: 0 0 0 0.2rem rgba(37, 89, 87, 0.22);
+  box-shadow: 0 0 0 0.2rem rgba(21, 50, 68, 0.22);
   box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--petroleo) 30%, transparent);
 }
 
