@@ -6,7 +6,11 @@
 .footer-grid .logo { color: var(--crema); }
 .footer-about p { color: rgba(248, 245, 233, 0.82); font-size: 0.92rem; margin-top: 16px; max-width: 36ch; }
 .footer-col h4 { color: var(--crema); font-family: var(--ff-cuerpo); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
-.footer-col ul li { margin-bottom: 10px; overflow-wrap: anywhere; color: rgba(248, 245, 233, 0.82); font-size: 0.9rem; }
+/* break-word y no anywhere: si el correo tuviera que partirse, corta entre
+   palabras y no a mitad de letra (antes dejaba la "m" sola en un renglón). */
+.footer-col ul li { margin-bottom: 10px; overflow-wrap: break-word; color: rgba(248, 245, 233, 0.82); font-size: 0.9rem; }
+.footer-col li { display: flex; align-items: flex-start; gap: 8px; }
+.footer-col li a { min-width: 0; }
 .footer-col li i { color: var(--crema-2); margin-right: 4px; }
 .footer-col a { color: rgba(248, 245, 233, 0.82); font-size: 0.9rem; transition: color 0.2s; }
 .footer-col a:hover { color: var(--blanco); }
