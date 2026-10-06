@@ -5,8 +5,9 @@
   box-shadow: var(--sombra);
   padding: 40px;
 }
-/* Intro a la izquierda + campos a la derecha: .row interna con col-lg-4 /
-   col-lg-8 (contacto.html). */
+/* Intro a la izquierda + campos a la derecha: .row interna con col-lg-5 /
+   col-lg-7 (contacto.html). La intro es 5/12 y no 4/12 para que el correo
+   entre en una sola línea en desktop. */
 .form-card--split { padding: 32px; }
 .form-intro {
   align-self: center;
