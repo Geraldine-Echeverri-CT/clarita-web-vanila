@@ -112,6 +112,14 @@
   .nav-offcanvas .offcanvas-body { justify-content: center; }
 }
 
+/* Justo al pasar a menú horizontal (1200px) la fila queda al límite: con la
+   barra de scroll del navegador el ancho real es ~1185px y el botón se salía
+   8px. Hasta 1280px el botón de WhatsApp se muestra solo con el ícono. */
+@media (min-width: 1200px) and (max-width: 1279.98px) {
+  .nav-actions .btn span { display: none; }
+  .nav-actions .btn { padding: 10px 14px; }
+}
+
 @media (max-width: 1199.98px) {
   /* backdrop-filter en .site-header crea un "containing block" para
      descendientes position:fixed (spec CSS Filter Effects): el offcanvas
