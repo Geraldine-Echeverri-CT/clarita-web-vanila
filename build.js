@@ -17,6 +17,8 @@
 // Todo lo que se edita a mano vive bajo src/ — la raíz del repo solo tiene los
 // 12 .html generados (lo que efectivamente se despliega).
 //
+// También genera sitemap.xml (solo páginas indexables) y las migas de pan JSON-LD.
+//
 // Uso: node build.js
 const fs = require("fs");
 const path = require("path");
@@ -88,25 +90,61 @@ function parsePage(raw) {
   return { meta, mainHtml };
 }
 
+// La home se sirve en "/" (no en /index.html): así la canonical no duplica la misma página en dos URLs.
+function pageUrl(filename) {
+  return filename === "index.html" ? BASE_URL + "/" : BASE_URL + "/" + filename;
+}
+
+const ROBOTS_INDEX = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+
+// Una página puede pedir quedar fuera de Google con "robots: noindex, follow" en su bloque META
+// (se usa en las plantillas dinámicas y en el checkout de demostración).
+function isNoindex(meta) {
+  return /noindex/i.test(meta.robots || "");
+}
+
 function buildHead(meta, headCommon, cssLinksHtml) {
-  const url = BASE_URL + "/" + meta.filename;
+  const url = pageUrl(meta.filename);
   const ogTitle = meta.ogTitle || meta.title;
   const ogDescription = meta.ogDescription || meta.description;
   const ogImage = BASE_URL + "/" + (meta.ogImage || DEFAULT_OG_IMAGE);
+  // charset primero (debe quedar dentro de los primeros 1024 bytes del documento)
   return [
+    `<meta charset="UTF-8">`,
     `<title>${meta.title}</title>`,
     `<meta name="description" content="${meta.description}">`,
+    `<meta name="robots" content="${meta.robots || ROBOTS_INDEX}">`,
     `<link rel="canonical" href="${url}">`,
+    `<meta name="geo.region" content="CR-G">`,
+    `<meta name="geo.placename" content="Nosara, Guanacaste, Costa Rica">`,
+    `<meta property="og:site_name" content="Clarita Property Care">`,
+    `<meta property="og:locale" content="es_CR">`,
     `<meta property="og:title" content="${ogTitle}">`,
     `<meta property="og:description" content="${ogDescription}">`,
     `<meta property="og:type" content="website">`,
     `<meta property="og:url" content="${url}">`,
     `<meta property="og:image" content="${ogImage}">`,
     `<meta name="twitter:card" content="summary_large_image">`,
+    `<meta name="twitter:title" content="${ogTitle}">`,
+    `<meta name="twitter:description" content="${ogDescription}">`,
     `<meta name="twitter:image" content="${ogImage}">`,
-    headCommon.trim(),
+    headCommon.replace(/<meta charset="UTF-8">\s*/, "").trim(),
     cssLinksHtml,
   ].join("\n");
+}
+
+// Migas de pan para Google (Inicio > Página). La home y las páginas noindex no lo llevan.
+function buildBreadcrumb(meta) {
+  if (meta.filename === "index.html" || isNoindex(meta)) return "";
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Inicio", item: BASE_URL + "/" },
+      { "@type": "ListItem", position: 2, name: meta.title.split(" | ")[0], item: pageUrl(meta.filename) },
+    ],
+  };
+  return `<script type="application/ld+json">\n${JSON.stringify(data)}\n</script>`;
 }
 
 function buildCssLinks(cssFiles) {
@@ -138,7 +176,8 @@ function main() {
   const headerPartial = read("src/partials/header.html");
   const footerPartial = read("src/partials/footer.html");
   const lightboxWhatsapp = read("src/partials/lightbox-whatsapp.html");
-  const jsonLd = read("src/partials/jsonld-local-business.html");
+  const jsonLd = read("src/partials/jsonld-local-business.html").replace(/\{\{BASE_URL\}\}/g, BASE_URL);
+  const indexable = [];
 
   const pageFiles = fs.readdirSync(SRC_PAGES).filter((f) => f.endsWith(".html"));
   const cssFiles = fs.readdirSync(SRC_CSS).filter((f) => f.endsWith(".css")).sort();
@@ -178,6 +217,7 @@ ${footerPartial}
 
 ${lightboxWhatsapp}
 ${jsonLd}
+${buildBreadcrumb(meta)}
 ${scriptTagsHtml}
 </body>
 </html>
@@ -185,7 +225,17 @@ ${scriptTagsHtml}
 
     fs.writeFileSync(path.join(ROOT, filename), html, "utf8");
     console.log("built", filename);
+    if (!isNoindex(meta)) indexable.push(filename);
   }
+
+  // sitemap.xml se genera acá: solo las páginas indexables, la home primero y en "/".
+  indexable.sort((a, b) => (a === "index.html" ? -1 : b === "index.html" ? 1 : a.localeCompare(b)));
+  const sitemap =
+    '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    indexable.map((f) => `  <url><loc>${pageUrl(f)}</loc></url>`).join("\n") +
+    "\n</urlset>\n";
+  fs.writeFileSync(path.join(ROOT, "sitemap.xml"), sitemap, "utf8");
+  console.log("sitemap.xml (" + indexable.length + " páginas indexables)");
 
   console.log("src/css (" + cssFiles.length + " archivos) y src/js no se tocan: se editan directamente.");
 }

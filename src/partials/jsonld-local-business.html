@@ -1,19 +1,36 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Clarita Property Care",
-  "description": "Gestión integral de propiedades y experiencias de hospitalidad en Nosara, Guanacaste, Costa Rica.",
-  "url": "https://tu-dominio.com/",
-  "image": "https://tu-dominio.com/src/assets/photos/villa-pool-1.webp",
-  "telephone": "+50686902622",
-  "email": "administracion@claritapropertycare.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Nosara",
-    "addressRegion": "Guanacaste",
-    "addressCountry": "CR"
-  },
-  "sameAs": []
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "{{BASE_URL}}/#negocio",
+      "name": "Clarita Property Care",
+      "alternateName": "Clarita",
+      "description": "Gestión integral de propiedades y experiencias de hospitalidad en Nosara, Guanacaste, Costa Rica.",
+      "url": "{{BASE_URL}}/",
+      "image": "{{BASE_URL}}/src/assets/photos/villa-pool-1.webp",
+      "logo": "{{BASE_URL}}/src/assets/apple-touch-icon.png",
+      "telephone": "+50686902622",
+      "email": "administracion@claritapropertycare.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Nosara",
+        "addressRegion": "Guanacaste",
+        "addressCountry": "CR"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 9.9797, "longitude": -85.6528 },
+      "areaServed": { "@type": "Place", "name": "Nosara, Guanacaste, Costa Rica" },
+      "knowsLanguage": ["es", "en", "fr"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{BASE_URL}}/#sitio",
+      "url": "{{BASE_URL}}/",
+      "name": "Clarita Property Care",
+      "inLanguage": "es-CR",
+      "publisher": { "@id": "{{BASE_URL}}/#negocio" }
+    }
+  ]
 }
 </script>
