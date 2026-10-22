@@ -26,7 +26,7 @@ const SRC_PARTIALS = path.join(ROOT, "src", "partials");
 const SRC_PAGES = path.join(ROOT, "src", "pages");
 const SRC_CSS = path.join(ROOT, "src", "css");
 
-const BASE_URL = "https://tu-dominio.com";
+const BASE_URL = "https://claritapropertycare.com";
 // Imagen de preview cuando se comparte el link (WhatsApp, Facebook, etc.) —
 // una página puede pisarla con "ogImage: src/assets/photos/otra.webp" en su
 // bloque META si conviene una foto más específica para esa página.
